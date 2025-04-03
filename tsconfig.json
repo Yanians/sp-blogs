@@ -1,0 +1,46 @@
+{
+  "$schema": "package.schema.json",
+  "compilerOptions": {
+    "target": "es5",
+    "module": "CommonJS",
+    "jsx": "react-jsx",
+    "allowJs":true,
+    "strict": true, //firmed
+    "noEmit": true,
+    "baseUrl": "./", //firmed
+    "paths": {
+      "@treasury/*": ["src/mui-treasury/*"],
+      "@lib/*": ["packages/client/src/components/lib/*"],
+      "@routes/*": ["packages/client/src/routes/*"],
+      "@markdown/*": ["packages/extractorfile/*"],
+      "@components/*": ["packages/client/src/components/*"]
+    },
+    "importHelpers": true,
+    "declaration": true,
+    "moduleResolution":"node",
+     "allowSyntheticDefaultImports": true,
+     "noFallthroughCasesInSwitch": true,
+     "noUnusedLocals": true,
+     "noUnusedParameters": true,
+     "noImplicitReturns": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": [
+    "packages/client/src",
+    "packages/server/src",
+    "packages/server/module.js", "mui_lib"
+, "packages/extractorfile"  ],
+   "exclude":[
+    "node_modules",
+    "src/mui-treasury",
+    "packages/client/dist",
+    "packages/server/dist",
+    "packages/server/getUrlOrPath.js",
+    "packages/client/webpack.build.js",
+    "packages/client/webpack.config.js",
+    "packages/server/webpack.config.js"
+   ]
+}

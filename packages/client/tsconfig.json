@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+        /* files are emitted by babel */
+    "noEmit":true,
+    "outDir": "dist",
+    "rootDir": "../../"
+  },
+  "include": ["src","../mui_lib"],
+"exclude": [
+  "node_modules",
+  "../extractorfile",
+],
+}

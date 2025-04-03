@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link id="favicon" rel="icon" href="/favicon.ico">
+    <meta name="emotion-insertion-point" content="emotion-insertion-point"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CSR manual setup</title>
+    <script>
+        let angle = 0;
+        const canvas = document.createElement("canvas");
+        const ctx = canvas.getContext("2d");
+        const favicon = document.getElementById("favicon");
+        const img = new Image();
+        img.src = "/favicon.ico";
+
+        img.onload = () => {
+            canvas.width = 32;
+            canvas.height = 32;
+            setInterval(() => {
+                ctx.clearRect(0, 0, 32, 32);
+                ctx.save();
+                ctx.translate(16, 16);
+                ctx.rotate(angle * Math.PI / 180);
+                ctx.drawImage(img, -16, -16, 32, 32);
+                ctx.restore();
+                angle += 6; // Rotate 6 degrees per frame
+                favicon.href = canvas.toDataURL("image/png");
+            }, 100);
+        };
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

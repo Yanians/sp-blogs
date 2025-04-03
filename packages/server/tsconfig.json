@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ESNext",
+    "outDir": "./dist",
+    // "rootDir": "src",
+     "rootDir": "../", // Allow access to both server and client
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "src","../client/src",
+    "**/*.ts",
+    "**/*.tsx",
+   "module.js",
+   "paths.js"
+, "../mui_lib", "../extractorfile/markdownRenderer.tsx", "../extractorfile/mark.js"  ],
+  "exclude": [
+  //  "**/*paths.js",
+   "**/*getUrlOrPath.js",   
+  ]
+}

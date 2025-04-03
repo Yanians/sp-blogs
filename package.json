@@ -1,0 +1,49 @@
+{
+  "name": "sp-blogs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "packages/client",
+    "packages/server"
+  ],
+  "scripts": {
+    "clean:both": "npm run clean:babel -w packages/server && npm run clean:webpack -w packages/server",
+    "clean:babel": "npm run clean:babel -w packages/server",
+    "clean:server": "npm run clean:webpack -w packages/server",
+    "babel-type:client": "concurrently \"npm run type-check -w packages/client \" \" npm run babel-client -w packages/client\"",
+    "babel-type:server": "concurrently \"npm run type-check -w packages/server \" \" npm run babel-server -w packages/server\"",
+    "build-client:webpack": "npm run build -w packages/client",
+    "build-client:serve": "npm run serve -w packages/client",
+    "build-server:webpack": "npm run build -w packages/server",
+    "dev": "npm run dev -w packages/server",
+    "start": "npm run start -w packages/server --watch",
+    "watch": "npm run watch -w package/server && npm run watch -w packages/client",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.26.10",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
+    "@swc/core": "^1.11.11",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.25.1",
+    "uglify-js": "^3.19.3"
+  },
+  "dependencies": {
+    "@types/mark.js": "^8.11.12",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
+    "markdown-loader": "^8.0.0",
+    "marked": "^15.0.7",
+    "path-browserify": "^1.0.1",
+    "prismjs": "^1.30.0",
+    "terser-webpack-plugin": "^5.3.14",
+    "uuid": "^11.1.0"
+  }
+}
