@@ -1,21 +1,33 @@
 import * as React from "react";
-import { Root as Roots }  from '@treasury/layout-core-v5';
+import { Root as Roots, ContextValue }  from "../../../../src/mui-treasury/layout-core-v5";
 
- export default function Root({children}:{children:React.ReactNode}){
+interface HEADERPROPS {
+  children:React.ReactNode;
+}
+
+ export default function Root(props:HEADERPROPS){
+  const { children } = props;
     return (
      <>
         <Roots scheme={{
            header: {
             config: {
               xs: {
-                position: "sticky",
-                top:1,
+                position: "fixed",
+                top:0,
                 height: 56,
-                layer:5,
+                clipped:true,
+              },
+              sm: {
+                position: "fixed",
+                top:0,
+                height: 56,
+                clipped:true,
               },
               md: {
-                position: "relative",
-                height: 64,
+                position: "fixed",
+                top:0,
+                height: 48,
                 clipped: true,
               },
           },
@@ -26,25 +38,25 @@ import { Root as Roots }  from '@treasury/layout-core-v5';
             xs: {
               variant: "persistent",
               persistentBehavior: "fit",
-              width: 100,
-              collapsible:false,
-              collapsedWidth: 20,
+              width:150,
+              collapsible:true,
+              collapsedWidth:0,
               headerMagnetEnabled: true,
             },
             sm: {
               variant: "persistent",
               persistentBehavior: "fit",
-              width: 60,
+              width: 150,
               collapsible: true,
-              collapsedWidth: 200,
+              collapsedWidth: 0,
               headerMagnetEnabled: true,
             },
              md: {
               variant: "persistent",
-              persistentBehavior: "flexible",
-              width: 200,
-              collapsible: true,
-              collapsedWidth: 120,
+              persistentBehavior: "fit",
+              width:0,
+              collapsible: false,
+              collapsedWidth: 320,
               headerMagnetEnabled: true,
             },
           },
@@ -55,73 +67,93 @@ import { Root as Roots }  from '@treasury/layout-core-v5';
             xs: {
               variant: "persistent",
               persistentBehavior: "fit",
-              width: 256,
-              collapsible: true,
-              collapsedWidth: 70,
+              width:0,
+              collapsible:true,
+              collapsedWidth:0,
               headerMagnetEnabled: true,
             },
             sm: {
               variant: "persistent",
               persistentBehavior: "fit",
-              width: 256,
-              collapsible: true,
-              collapsedWidth: 80,
+              width:0,
+              collapsible:true,
+              collapsedWidth:0,
               headerMagnetEnabled: true,
             },
              md: {
               variant: "persistent",
               persistentBehavior: "fit",
-              width: 256,
-              collapsible: false,
-              collapsedWidth: 120,
+              width:0,
+              collapsible:true,
+              collapsedWidth:0,
               headerMagnetEnabled: true,
             },
              lg: {
               variant: "persistent",
               persistentBehavior: "fit",
-              width: 256,
-              collapsible: false,
-              collapsedWidth: 120,
+              width:0,
+              collapsible: true,
+              collapsedWidth:0,
+              headerMagnetEnabled: true,
+            },
+            xl: {
+              variant: "persistent",
+              persistentBehavior: "fit",
+              width:0,
+              collapsible: true,
+              collapsedWidth:0,
               headerMagnetEnabled: true,
             },
           },
         }, 
     
-     rightInsetSidebar: {
-        config: {
-          sm: {
-            position: "absolute",
-            width: 256,
+        rightInsetSidebar: {
+            config: {
+              sm:{
+                position: "fixed",
+                top:2,
+                width:'auto',
+                // headerMagnetEnabled: true,
+              },
+                md:{
+                  top:2,
+               position: "fixed",
+                width: 'auto',
+                // headerMagnetEnabled: true,
+              },
+            },
           },
-        },
-      },
-  
-        leftInsetSidebar: {
-          config:{
-           xs:{
-            position: "fixed",
-            width:150,
-            headerMagnetEnabled: true,
-          },
-          sm:{
-            position: "fixed",
-            width:150,
-            headerMagnetEnabled: true,
-          },
-            md:{
-           position: "fixed",
-            width: 45,
-            headerMagnetEnabled: true,
-          },
-         }
-       } 
-  
+      
+            leftInsetSidebar: {
+              config:{
+               xs:{
+                position: "absolute",
+                width:50,
+                // headerMagnetEnabled: true,
+              },
+              sm:{
+                position: "absolute",
+                width:150,
+                // headerMagnetEnabled: true,
+              },
+                md:{
+               position: "absolute",
+                width: 105,
+                // headerMagnetEnabled: true,
+              },
+              lg:{
+                position: "absolute",
+                 width: 105,
+                 // headerMagnetEnabled: true,
+               },
+            }
+          } 
   }}   
            initialState={{
                 leftEdgeSidebar: {
                   open: true,
                   collapsed: true,
-                 }
+                 },
            }}
         >
         {children}

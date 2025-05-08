@@ -17,7 +17,7 @@ const InsetContainerRoot = styled(Container, {
   },
 });
 
-export type DivProps = JSX.IntrinsicElements["div"];
+export type DivProps = React.JSX.IntrinsicElements["div"];
 
 export type InsetContainerProps = {
   leftSidebar?: React.ReactElement;

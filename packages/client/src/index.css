@@ -1,0 +1,414 @@
+
+html {
+  display:block;
+  max-width: 100%;
+  width:100%;
+  overflow-x: hidden;
+}
+
+.inner-grid-container {
+  display:grid;
+  justify-content: center;
+  grid-template-columns:auto 3fr;
+  grid-template-rows: auto auto;
+}
+
+.left-sub-item-container {
+  grid-column-start:1;
+  align-self: center;
+}
+.right-sub-item-container {  
+  grid-column-start: 2;
+}
+
+.grid-container-top {
+  display:grid;
+  grid-template-columns:3fr auto 1fr;
+  grid-auto-rows: 60px auto auto;
+};
+
+.grid-item-left-top {
+  grid-column-start: 2;
+}
+
+.grid-item-right-top {
+  pointer-events: painted;
+  z-index:1;
+  grid-column-start: 3;
+}
+
+@media (min-width: 901px) { 
+.grid-container, .grid-container-top, .grid-item-left, .grid-item-right {
+  /* border:1px dashed rgb(87, 81, 81); */
+  padding: 2px;
+}
+
+.grid-item-left, .grid-item-right {
+  margin:2px;
+}
+  .grid-container{
+    display: grid;
+    width:100%;
+    margin:10px 0 0 0;
+    grid-auto-columns: 3fr auto 1fr;
+    grid-auto-rows: auto auto auto;
+  };
+  
+.grid-item-left {
+  grid-column-start:1;
+}
+
+.grid-item-center {
+  grid-column-start:2;
+}
+
+.grid-item-right {
+  grid-column-start:3;
+}
+}
+
+@media screen and (min-width: 1025px) {
+ 
+  .grid-container, .grid-item-left, .grid-item-right {
+    /* border:1px dashed rgb(87, 81, 81); */
+    padding: 5px;
+  }
+  
+  .grid-item-left, .grid-item-right {
+    margin:5px;
+  }
+    .grid-container{
+      overflow: auto;
+      display: grid;
+      width:100%;
+      margin:10px 0 0 0;
+      grid-auto-columns:3fr auto 1fr;
+      grid-auto-rows: auto auto auto;
+    };
+    
+  .grid-item-left {
+    grid-column-start:1;
+  }
+  
+  .grid-item-center {
+    grid-column-start:2;
+  }
+  
+  .grid-item-right {
+    grid-column-start:3;
+  }
+  }
+
+.page header {
+    border: #005a9c solid 2px;
+    background: #005a9c;
+    color: white;
+    text-align: center;
+  }
+  
+  .page header .title {
+    font-size: 2.5em;
+    font-weight: bold;
+    font-family: serif;
+  }
+  
+  .page header .tagline {
+    font-style: italic;
+  }
+  
+  .page footer {
+    border: #005a9c solid 2px;
+    background: #005a9c;
+    font-family: serif;
+    color: white;
+    font-style: italic;
+    padding-left: 1em;
+  }
+  
+  .page .body {
+    display: grid;
+    grid-template-columns: auto auto;
+    border: #eee solid 2px;
+  }
+  
+  .page .body nav {
+    margin: 0;
+    padding: 6px;
+    width: 17em;
+    height: 60em;
+    background: #eee;
+  }
+  
+  .page .body nav.focus {
+    padding: 4px;
+    border: 2px solid #005a9c;
+  }
+  
+  .page .body .page {
+    margin: 0.25em;
+    padding: 0.25em;
+    height: 30em;
+  }
+  
+  .page .body .page h1 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .page .main {
+    padding: 1em;
+  }
+
+  .treeview-navigation[role="tree"] ul li ul { /*adjustment for vertical dashes all throughout*/
+    content:"";
+    position:relative;
+    left:6px;
+    top:-4px;
+  }
+ 
+.treeview-group li:before {
+    content: "";
+    position:relative;
+    width: .99em; /*length of border-bottom horizontal*/
+    left: 0px; /* for left dash*/
+    top: -12px; /*adjustment of horizontal dashes*/
+    border-bottom: 1px dashed #777676;
+} 
+
+ .treeview-group li a {
+  position:relative;
+  left:-2px;
+  top:0px;
+}
+
+.treeview-group li ul li a span.label {
+  position:relative;
+  left:-30px; /* for inner span adjustment*/
+  top:2px; /*adjust for vertical dashes*/
+}
+
+.treeview-navigation li a span.label {
+  position:relative;
+  left:5px; /* for inner span adjustment*/
+  top:4px; /*adjust for vertical dashes*/
+}
+
+.treeview-navigation ul li a span.label {
+  position:relative;
+  left:0px; /* for inner span adjustment*/
+  top:1px; /*adjust for vertical dashes*/
+}
+
+.treeview-group li a span.label{
+  position:relative;
+  left:0px;
+  top:0px;
+}
+
+.treeview-navigation[role="tree"] li {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 15px;
+  margin: 1em 0;
+}
+
+  .treeview-navigation[role="tree"] ul li {
+    border-left: 1px dashed #777676;
+  }
+
+ .treeview-navigation ul,
+  .treeview-navigation li {
+    flex: 0 0 100%;
+    margin: .25em 0;
+    padding-left: 1.5em;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  } 
+  
+  .treeview-navigation li li span.label { /*packages adjustment left*/
+    padding-left: 0em;
+  }
+  
+  .treeview-navigation li li li span.label {
+    padding-left: 2em;
+  }
+  
+  .treeview-navigation[role="tree"] {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .treeview-navigation[role="tree"] li {
+    margin: -6px;
+    padding: 5px;
+    list-style: none;
+  }
+  
+  .treeview-navigation
+    a[role="treeitem"][aria-expanded="false"]
+    + [role="group"] {
+    display: none;
+  }
+  
+  .treeview-navigation a[role="treeitem"][aria-expanded="true"] + [role="group"] {
+    display: block;
+    transform: rotate(0deg) translate(0px, 0px); /*adjust for compact*/
+  }
+  
+  .treeview-navigation a[role="treeitem"] > span svg {
+    transform: translate(0, 0);
+  }
+  
+  .treeview-navigation a[role="treeitem"][aria-expanded="false"] > span svg {
+    transform: rotate(270deg) translate(0px, -4px);
+  }
+
+  .treeview-navigation a[role="treeitem"][aria-expanded="true"] > span svg {
+    transform: rotate(0deg) translate(-4px, 0px);
+  }
+  
+  .treeview-navigation a[role="treeitem"] {
+    margin: 0;
+    padding: 2px;
+    padding-left: 9px;
+    text-decoration: none;
+    color: #005a9c;
+    border: none;
+    display: block;
+  }
+  
+  .treeview-navigation a[role="treeitem"][aria-current] {
+    border-left: 5px solid #005a9c;
+    padding-left: 4px;
+    background-color: #ddd;
+  }
+  
+  .treeview-navigation a[role="treeitem"] span.icon svg polygon {
+    stroke-width: 2px;
+    fill: currentcolor;
+    stroke: transparent;
+  }
+  
+  /* disable default keyboard focus styling for treeitems
+     Keyboard focus is styled with the following CSS */
+  
+  .treeview-navigation a[role="treeitem"]:focus {
+    outline: 0;
+    padding: 2px;
+    padding-left: 7px;
+    border: 2px #005a9c solid;
+  }
+  
+  .treeview-navigation a[role="treeitem"][aria-current]:focus {
+    padding-left: 4px;
+    border-left-width: 5px;
+  }
+  
+  .treeview-navigation a[role="treeitem"]:hover {
+    background-color: #adddff;
+    text-decoration: underline;
+    padding-left: 4px;
+    border-left: 5px solid #333;
+  }
+  
+  .treeview-navigation a[role="treeitem"] span.icon:hover {
+    color: #333;
+  }
+  
+  .treeview-navigation a[role="treeitem"] span.icon svg polygon:hover {
+    stroke: currentcolor;
+  }
+/**********************************************************************************/
+/* 
+ul[role="tree"] {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 120%;
+}
+
+ul[role="tree"] li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[role="treeitem"][aria-expanded="false"] + [role="group"] {
+  display: none;
+}
+
+[role="treeitem"][aria-expanded="true"] + [role="group"] {
+  display: block;
+}
+
+[role="treeitem"].doc::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f15c";
+  display: inline-block;
+  padding-right: 2px;
+  padding-left: 5px;
+  vertical-align: middle;
+}
+
+[role="treeitem"][aria-expanded="false"] > ul {
+  display: none;
+}
+
+[role="treeitem"][aria-expanded="true"] > ul {
+  display: block;
+}
+
+[role="treeitem"][aria-expanded="false"] > span::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f07b";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
+}
+
+[role="treeitem"][aria-expanded="true"] > span::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f07c";
+  display: inline-block;
+  padding-right: 3px;
+  vertical-align: middle;
+  font-weight: 900;
+}
+
+[role="treeitem"],
+[role="treeitem"] span {
+  width: 9em;
+  margin: 0;
+  padding: 0.125em;
+  display: block;
+}
+
+/* disable default keyboard focus styling for treeitems
+   Keyboard focus is styled with the following CSS */
+/*    
+[role="treeitem"]:focus {
+  outline: 0;
+}
+
+[role="treeitem"][aria-selected="true"] {
+  padding-left: 4px;
+  border-left: 5px solid #005a9c;
+}
+
+[role="treeitem"].focus,
+[role="treeitem"] span.focus {
+  border-color: black;
+  background-color: #eee;
+}
+
+[role="treeitem"].hover,
+[role="treeitem"] span:hover {
+  padding-left: 4px;
+  background-color: #ddd;
+  border-left: 5px solid #333;
+}
+   */ 

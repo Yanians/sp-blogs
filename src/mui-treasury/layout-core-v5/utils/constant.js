@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DEFAULT_THEME = exports.CSS_TRANSITION = exports.EDGE_SIDEBAR_EXPAND_DELAY = exports.RIGHT_EDGE_SIDEBAR_ID = exports.LEFT_EDGE_SIDEBAR_ID = exports.FOOTER_ID = exports.CONTENT_ID = exports.HEADER_ID = void 0;
+var styles_1 = require("@mui/material/styles");
+exports.HEADER_ID = "header";
+exports.CONTENT_ID = "content";
+exports.FOOTER_ID = "footer";
+exports.LEFT_EDGE_SIDEBAR_ID = "leftEdgeSidebar";
+exports.RIGHT_EDGE_SIDEBAR_ID = "rightEdgeSidebar";
+exports.EDGE_SIDEBAR_EXPAND_DELAY = 350;
+exports.CSS_TRANSITION = "all 225ms cubic-bezier(0.0, 0, 0.2, 1) 0ms, color 0s";
+exports.DEFAULT_THEME = (0, styles_1.createTheme)();

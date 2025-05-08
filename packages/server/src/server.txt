@@ -1,0 +1,45 @@
+import path from "path";
+import fs from 'fs';
+import express, { NextFunction, Request, Response } from "express";
+import { createServer } from "http";
+import { WebSocketServer } from "ws";
+import compression from 'compression';
+import HandleRender from "./handleRender";
+// import ServerRender from "./render";
+
+const app = express();
+
+app.use(compression());
+app.use(express.static(path.resolve(__dirname, "../webpack")));
+
+// ✅ Create WebSocket server
+const server = createServer(app);
+const wss = new WebSocketServer({ server });
+
+wss.on("connection", (ws) => {
+  console.log("Client connected for live reload");
+  ws.send("reload"); // Send reload signal
+});
+
+
+// ✅ Serve Favicon
+//@ts-ignore
+app.get("/favicon.ico", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "../public/favicon.ico"));
+});
+
+app.get("/getting", (req, res) => {
+   const {allPost } = req.body;
+   console.log(allPost);
+})
+
+// ✅ Handle all routes except `/api`
+app.get(/^(?!\/api).+/, (req: Request, res: Response, next:NextFunction) => {
+  HandleRender(req, res);
+});
+
+app.use(HandleRender);
+// ✅ Start the server
+server.listen(5000, () => {
+  console.log("Server running on http://localhost:5000");
+});

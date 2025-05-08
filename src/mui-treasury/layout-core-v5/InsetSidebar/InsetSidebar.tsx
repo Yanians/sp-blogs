@@ -31,7 +31,7 @@ const InsetSidebarBody = styled("div", {
   borderColor: theme.palette.divider,
 }));
 
-type DivProps = JSX.IntrinsicElements["div"];
+type DivProps = React.JSX.IntrinsicElements["div"];
 export type InsetSidebarClassKey = "root" | "body";
 export interface InsetSidebarProps extends DivProps {
   anchor?: DrawerAnchor;

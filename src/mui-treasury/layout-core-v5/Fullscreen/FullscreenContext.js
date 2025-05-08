@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useFullscreenCtx = void 0;
+var tslib_1 = require("tslib");
+var react_1 = tslib_1.__importDefault(require("react"));
+var Context = react_1.default.createContext(false);
+Context.displayName = "FullscreenCtx";
+var useFullscreenCtx = function () { return react_1.default.useContext(Context); };
+exports.useFullscreenCtx = useFullscreenCtx;
+exports.default = Context;

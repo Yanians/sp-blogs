@@ -1,45 +1,18 @@
+/**
+ * DO NOT MODIFY THIS IS FIRMED (I ONLY USED THIS FOR REGRESSION)
+ */
 const path = require("path");
 
 module.exports = {
-  context: {
-    client: path.resolve(__dirname, "./packages/client"),
-    server: path.resolve(__dirname, "./packages/server"),
-  },  
+  context: path.resolve(__dirname),
   resolve: {
-    modules: [
-      path.resolve(__dirname, "client"),
-      "node_modules"
-    ],
-    fallback: {
-      "path": false,
-      "crypto": false,
-      "util": false,
-      "os": false,
-      "fs": false,
-      "zlib": false,
-      "http": false,
-      "https": false,
-      "buffer": false,
- },
-    alias: {
-      "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
-      "@client": path.resolve(__dirname, "client"),
-      "@server": path.resolve(__dirname, "server"),
-      "@markdown": path.resolve(__dirname, "./packages/extratorfile"),
-      "@src": path.resolve(__dirname, "./packages/client/src/"),
-      "@src": path.resolve(__dirname, "./packages/server/src/"),
-      "path": false,
-      "path": false,
-      "crypto": false,
-      "util": false,
-      "os": false,
-      "fs": false,
-      "zlib": false,
-      "http": false,
-      "https": false,
-      "buffer": false,
-      "tty":false,
+    modules: [__dirname, 'node_modules'],
+    alias:{
+      '@client': path.resolve(__dirname, "./packages/client/src"),
+      '@server': path.resolve(__dirname, "./packages/server/src"),
+          react: path.resolve(__dirname, 'node_modules/react'),
+    'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
     },
-    extensions: [".ts", ".tsx", ".js", ".jsx",".json"]
+    extensions: [".ts", ".tsx", ".js", ".jsx",".json",".mjs",".md",".cjs"]
  }
 }

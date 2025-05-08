@@ -4,12 +4,32 @@
     "jsx": "react-jsx",
         /* files are emitted by babel */
     "noEmit":true,
-    "outDir": "dist",
-    "rootDir": "../../"
+    "rootDir": "./src",
+    "baseUrl": ".", // Required for paths to work
   },
-  "include": ["src","../mui_lib"],
+  // "path":{
+  //   "@treasury/*": ["../../src/mui-treasury/layout-core-v5/"],
+  //   "@lib/*": ["src/components/lib/"],
+  //   "@routes/*": ["src/routes/"],
+  //   "@toggleComponent/*": ["src/components/toggleComponent/*"],
+  //   "@loader/marking": ["../extractorfile/index.js"],
+  //   "@marking/*": ["../extractorfile/*"],
+  //   "@treasury-center/*": ["../../src/mui-treasury/"],
+  //   "@client/*": ["src/"],
+  //   "@imagedir/*": ["public/images/"]
+  // },
+    "moduleResolution":"node",
+    "module": "ESNext",
+    "target": "ESNext",
+    "importHelpers": true,
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "include": ["src","../utils","./public"],
 "exclude": [
   "node_modules",
-  "../extractorfile",
+  "../../extractorfile",
+  "./src/redux"
 ],
 }

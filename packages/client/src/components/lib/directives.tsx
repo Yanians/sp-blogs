@@ -3,39 +3,41 @@ import * as React from 'react';
 
 import { styled, alpha } from '@mui/material/styles';
 import ListItemButton, { ListItemButtonProps} from '@mui/material/ListItemButton';
+import { ButtonProps } from '@mui/material/Button';
 import InputBase from '@mui/material/InputBase';
-import { type LinkProps, Link } from 'react-router-dom';
+import { LinkProps, Link } from 'react-router-dom';
+import { brandingLightThemes as lightTheme} from 'src/utils/brandingTheme';
+// export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
+//     specialProp?: string;
+// }
 
-export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
-    specialProp?: string;
-  }
-
-  type OriginalProps<OriginalComponent extends React.ElementType> = {
-    add?:OriginalComponent;
-   [key:string]:any;// allow passing through arbitrary props 
-  } & Omit<React.ComponentPropsWithoutRef<OriginalComponent>, 'add' | 'children'>;
+  // type OriginalProps<OriginalComponent extends React.ElementType> = {
+  //   add?:OriginalComponent;
+  //  [key:string]:any;// allow passing through arbitrary props 
+  // } & Omit<React.ComponentPropsWithoutRef<OriginalComponent>, 'add' | 'children'>;
   
-  type CopyPropsFromOriginalComponent<OriginalComponent extends React.ElementType> = 
-       OriginalProps<OriginalComponent>; 
+  // type CopyPropsFromOriginalComponent<OriginalComponent extends React.ElementType> = 
+  //      OriginalProps<OriginalComponent>; 
       
-  export function ModifiedLinkFromReactRouterDom<Component extends React.ElementType>
-    (props:CopyPropsFromOriginalComponent<Component>)
-    : React.JSX.Element {
-      const { 
-        children,
-        add:Component = 'div',
-        style, 
-        ...rest } = props;
-            return <Component {...rest} style={style} />
-        }
+  // export function ModifiedLinkFromReactRouterDom<Component extends React.ElementType>
+  //   (props:CopyPropsFromOriginalComponent<Component>)
+  //   : React.JSX.Element {
+  //     const { 
+  //       children,
+  //       add:Component = 'div',
+  //       style, 
+  //       ...rest } = props;
+  //           return <Component {...rest} style={style} />
+  //       }
 
   export function Button(props: ButtonProps) {
-    const { specialProp, ...rest } = props;
+    const {...rest } = props;
     // do something with specialProp
     return <button {...rest} />;
   }
 
 function Directives(){
+  
  const Search = styled('div')(({ theme }) => ({
     display:'flex',
     zIndex: 99,
@@ -66,10 +68,10 @@ function Directives(){
         "& :hover":{
           textDecoration:'underline',
           fontStyle:'italic',
-                   color:theme.palette.mode ==='dark' ? 
-                   alpha(theme.palette.success.dark,0.99) : 
-                   alpha(theme.palette.error.dark,0.99),},
-             color:theme.palette.mode ==='dark' ? alpha(theme.palette.common.white,0.99):alpha(theme.palette.common.black,0.99),
+          color:theme.palette.mode ==='dark' ? 
+          alpha(theme.palette.success.dark,0.99) : 
+          alpha(theme.palette.error.dark,0.99),}, color:theme.palette.mode ==='dark' ? 
+          alpha(theme.palette.common.white,0.99):alpha(theme.palette.common.black,0.99),
     }));
   
    const SearchIconWrapper = styled('div')(({ theme }) => ({
@@ -101,9 +103,9 @@ function Directives(){
       paddingRight: theme.spacing(2),
       '&:hover':{
         backgroundColor:theme.palette.mode === 'dark' ? alpha(theme.palette.success.dark,0.25) :'inherit',
-        color:'red',
+        color:theme.palette.error[700],
         fontStyle:'italic',
-        textDecoration:'underline',
+        textDecoration:'none',
 
       },
       '&:before': {

@@ -1,5 +1,9 @@
+
 import * as React from 'react';
+
 import { Shadows } from "@lib/signatureProps";
+
+import Paper, {PaperProps} from '@mui/material/Paper';
 
 const Background=(props:Shadows) => {
 
@@ -10,7 +14,7 @@ const Background=(props:Shadows) => {
       '2px 2px 8px rgba(206, 128, 64, 0.62)':props.shadow3black,
       '1px 1px 8px rgba(197, 49, 81, 0.99)':props.dungeon,
       '3px 3px 8px rgba(218, 109, 176, 0.47)':props.shadowsofia,
-      '5px -4px 5px rgba(172, 169, 169, 0.73)':props.scripture,//scriptures
+      '5px -4px 5px rgba(246, 250, 253, 0.13)':props.scripture,
       '2px 3px 8px rgba(227, 11, 90, 0.44)':props.razzmatazz,
       '2px 2px 8px rgba(146, 111, 91, 0.69)':props.beaver,
       '1px 5px 8px rgba(173, 167, 167, 0.57)':props.shadowgrey,
@@ -54,7 +58,7 @@ const Background=(props:Shadows) => {
         '19px -9px 80px rgba(241, 62, 146, 0.99)':props.shadow3black,
         '19px -9px 80px rgba(5, 26, 51, 0.99)':props.dungeon,
         '19px -9px 80px rgba(137, 230, 15, 0.99)':props.shadowsofia,
-        '-5px 4px 25px rgba(54, 53, 54, 0.77)':props.scripture,//scriptures
+        '-5px 4px 25px rgb(59, 0, 59)':props.scripture,//scriptures
         '19px -9px 80px rgba(5, 201, 119, 0.99)':props.razzmatazz,
         '19px -9px 80px rgba(210, 247, 4, 0.99)':props.beaver,
         '19px -9px 80px rgba(137, 105, 179, 0.99)':props.shadowgrey,
@@ -79,6 +83,7 @@ const Background=(props:Shadows) => {
 
     const { 
         preserve:Component ='div', 
+        condition,
         shadow1grey,shadowblack,innocent,rose,dungeon,shadowsofia,scripture,
         razzmatazz,beaver,shadowgrey,mumpkin,potion,focus,ruby,gas,sheen,shadow2grey,
         seinna,mui,pumpkin,style, sx,children,...rest
@@ -89,9 +94,23 @@ const Background=(props:Shadows) => {
         beaver,ruby,sheen,seinna,mui,rose,innocent,dungeon,shadowsofia,
         scripture,
      });
+     
+     switch(condition){
+       case 'paper':{
+        return <Paper { ...rest} 
+        sx={{
+          px:2,py:2,
+          borderRadius:.8,
+          ...(boxShadow && { boxShadow }),
+          ...(backgroundColor && { backgroundColor }),
+          ...(background && { background }),
+       }}
+       >{children}</Paper>            
+       }
 
-return <Component 
-        {...rest}
+     default: {
+         return <Component 
+                    {...rest}
           sx={{
             px:2,py:2,
             borderRadius:.8,
@@ -100,15 +119,18 @@ return <Component
             ...(background && { background }),
          }}
         >{children}</Component>
+    }
   }
+}
 // type Combine =  keyof NonNullable<Shadows>
 
 interface AdditionalProps {
    children?:React.ReactNode;
    style?:React.CSSProperties;
+   condition?: 'paper' | undefined;
 };
 
-type OutputProps<C extends React.ElementType> = AllProps<C>;
+type OutputProps<C extends React.ElementType> = AllProps<C> & PaperProps;
   
 type AllProps<C extends React.ElementType>={
   preserve?:C;

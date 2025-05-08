@@ -1,38 +1,46 @@
 {
-  "$schema": "package.schema.json",
   "compilerOptions": {
     "target": "es5",
     "module": "CommonJS",
     "jsx": "react-jsx",
-    "allowJs":true,
+    "moduleResolution":"node",
+    "baseUrl": "./", //firmed
+    "forceConsistentCasingInFileNames": true,
     "strict": true, //firmed
     "noEmit": true,
-    "baseUrl": "./", //firmed
+    "allowJs":true,
+    "declaration": false, // putting this value true will conflict to noEmit:true
     "paths": {
-      "@treasury/*": ["src/mui-treasury/*"],
+      "@treasury/*": ["./src/mui-treasury/layout-core-v5/*"],
+      "@treasury-center/*": ["src/mui-treasury/*"],
       "@lib/*": ["packages/client/src/components/lib/*"],
       "@routes/*": ["packages/client/src/routes/*"],
-      "@markdown/*": ["packages/extractorfile/*"],
+      "src/*": ["packages/client/src/*"],
+      "@reduxsrc/*": ["packages/client/src/redux/reducers/*"],
+      "@client/*": ["packages/client/src/*"],
+      "@toggleComponent": ["packages/client/src/components/toggleComponent/*"],
+      "@imagedir/*": ["packages/client/src/public/images/*"],
+      "@extractorfile/*": ["packages/extractorfile/*"],
+      "@loader/marking/*": ["packages/extractorfile/loader"],
       "@components/*": ["packages/client/src/components/*"]
     },
     "importHelpers": true,
-    "declaration": true,
-    "moduleResolution":"node",
      "allowSyntheticDefaultImports": true,
      "noFallthroughCasesInSwitch": true,
-     "noUnusedLocals": true,
-     "noUnusedParameters": true,
-     "noImplicitReturns": true,
+    //  "noUnusedLocals": true,
+    //  "noUnusedParameters": true,
+    //  "noImplicitReturns": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true
+
   },
   "include": [
     "packages/client/src",
     "packages/server/src",
-    "packages/server/module.js", "mui_lib"
-, "packages/extractorfile"  ],
+    "mui_lib", 
+    "packages/extractorfile"
+  ],
    "exclude":[
     "node_modules",
     "src/mui-treasury",

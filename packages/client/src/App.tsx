@@ -1,27 +1,22 @@
 
 import * as React from "react";
-import { Routes, Route, useLocation, useParams } from 'react-router-dom';
-import Blog from './blog/post_one.mjs';
-// import MarkdownRenderer from '../../extractorfile/markdownRenderer';
-const Layout = React.lazy(() => import('./layout'));
-const MainRoute = React.lazy(() => import('@routes/MainRoute'));
-import Content from "./layout/Content";
-const App = () => {
-   
-    return (
-         <>
-           <Layout>
-               <div>
-                  {/* <Blog /> */}
-                  
-               </div>
-              <Routes>
-                 <Route index path="/" element={<MainRoute />} />
-                 <Route path="getting-started/blogs" element={<Blog />} />
-               </Routes>
-           </Layout>
-         </>  
-      );
-};
+import ClientOnly from "./clientOnly";
+import Box from '@mui/material/Box';
+import Layout from './layout/Layout';
+import ThemeConfig from "./utils";
 
-export default App;
+const sx = { minWidth: { sm: 160 } };
+
+const App=({sSrData, nonce}:{sSrData:any, nonce:any}) => {
+
+   return (
+          <ClientOnly>
+            <React.Suspense fallback={<Box sx={{sx}} />}>
+               <ThemeConfig nonce={nonce}>
+                  <Layout sSrData={sSrData} />
+               </ThemeConfig>
+            </React.Suspense>  
+          </ClientOnly>
+       );
+}
+   export default App;

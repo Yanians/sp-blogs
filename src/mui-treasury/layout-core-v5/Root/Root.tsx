@@ -141,10 +141,13 @@ export const Root = ({
     ...autoGenInitialState.rightEdgeSidebar,
     ...controlledInitialState?.rightEdgeSidebar,
   });
+  
   const setOpen = (id: EDGE_SIDEBAR_ID, value: boolean) => {
+
     function setter(state: SidebarState) {
       return state.open === value ? state : { ...state, open: value };
     }
+
     if (id === LEFT_EDGE_SIDEBAR_ID) {
       setLeftState(setter);
     }

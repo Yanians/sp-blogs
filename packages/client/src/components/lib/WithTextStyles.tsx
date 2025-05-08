@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { FontFamilyProps, Shadows } from './signatureProps';
 import Typography, { TypographyProps  } from '@mui/material/Typography';
+import { IconButtonProps } from '@mui/material/IconButton';
+import { LinkProps } from 'react-router-dom';
 export function resolveCustomShadows(props:any): string | undefined {
 
   const shadows = {
@@ -15,7 +17,7 @@ export function resolveCustomShadows(props:any): string | undefined {
     '2px 2px 8px rgba(146, 111, 91, 0.69)':props.beaver,
     '1px 5px 8px rgba(173, 167, 167, 0.57)':props.shadowgrey,
     '10px 10px 11px rgba(255, 110, 58, 0.84)':props.pumpkin,
-    '5px 5px 3px rgba(255, 68, 102, 0.84)':props.potion,
+    '2px 1px 2px rgba(255, 68, 102, 0.84)':props.potion,
     '1.5px 1.5px 3.5px rgba(41, 39, 39, 0.9)':props.focus,
     '20px 0px 20px rgba(117, 6, 34, 0.90)':props.ruby,
     '19px -9px 20px rgba(253, 212, 6, 0.85)':props.gas,
@@ -56,17 +58,19 @@ export function resolveCustomStyle(props: any): string | undefined {
 
 type AsProp<Component extends React.ElementType> = {
   serve?: Component;
+  to?:string | {};
   types?:'typography'|'paper',
   textContent:React.ReactNode;
   [key:string]:any;
-} & Omit<React.ComponentPropsWithoutRef<Component>, 'serve' | 'children'|'types'>;
+} & Omit<React.ComponentPropsWithoutRef<Component>, 'serve' | 'children'|'types'|'to'>;
 
 type CopyComponentProps<
   Component extends React.ElementType>
   = AsProp<Component> 
   & FontFamilyProps
   & TypographyProps 
-  & Shadows;
+  & IconButtonProps
+  & Shadows & Omit<LinkProps, "to">;
 /**
  * Directives
  */

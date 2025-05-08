@@ -2,8 +2,8 @@ import * as React from 'react';
 import Typography,{ TypographyProps } from '@mui/material/Typography';
 import Box, { BoxProps } from '@mui/material/Box';
 import { CSSObject } from '@emotion/react';
-import TextField, { TextFieldProps, TextFieldVariants} from '@mui/material/TextField';
-import * as Recompose from 'recompose';
+import Paper, { PaperProps } from '@mui/material/Paper';
+import TextField, { TextFieldProps, TextFieldVariants } from '@mui/material/TextField';
 import Card, { CardProps } from '@mui/material/Card'
 import type * as CSS from 'csstype';
 // combine all the props
@@ -24,11 +24,12 @@ type CopyPropsFromOriginalComponent<OriginalComponent extends React.ElementType>
       & TypographyProps 
       & TextFieldProps
       & CardProps
+      & PaperProps
       & BoxProps;
 
 interface ConditionalProps {
     variant?: 'filled'|'outlined'|'standard' | undefined;
-  condition?: 'typography'|'box'|'textfield'|'card' | undefined;
+  condition?: 'typography'|'box'|'textfield'|'card' | 'paper' | undefined;
 };
 
 interface AddedProps extends ConditionalProps {
@@ -54,6 +55,10 @@ export function PassThrough<Component extends React.ElementType>
         }
         case 'box':{
           return <Box {...rest}>{children}</Box>
+        }
+
+        case 'box':{
+          return <Paper {...rest}>{children}</Paper>
         }
         case 'card':{
           return <Card {...rest}>{children}</Card>
@@ -127,7 +132,7 @@ type TRESComponent<P> = {
 export const Cards = (
   { title, children, ...props }:
   { title: string, children:React.ReactNode }
-  & $ElementProps<typeof Box> // new utility, see below
+  & React.ComponentProps<typeof Box> // new utility, see below
 ) => (
   <Box {...props}>
     {title}: {children}
@@ -138,41 +143,24 @@ export const Cards = (
 
 /******************************************************************/     
 
-//need to ask usage from GPT
-  declare type $ElementProps<T> = 
-    T extends React.ComponentType<infer Props>
-    ? Props extends object ? Props : never : never;
-
-    export const defaultProps = <
-        C extends React.ComponentType<any>, //adding any to suppress error
-        D extends Partial<$ElementProps<C>>
-    >(defaults: D, Component: C): React.ComponentType<$ElementProps<C> & Partial<D>> => Recompose.defaultProps(defaults)(Component);
-    
-    interface ButtonProps {
-        tagName: "a" | "button";
-    }
 /*******************>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
    function Button(props:{as:React.ElementType<any>, children:React.ReactNode}){
         const { as: Component, children, ...rest } = props;
         return <Component {...rest}>{children}</Component>;
     }
 
-
     <Button as={Typography}>click me</Button>
-
     
    export const withPropsInheritance = <
     C extends React.ComponentType<any>, 
-    D extends Partial<React.ComponentProps<C>>>
-  (defaults:D, Component:C) : React.ComponentType<React.ComponentProps<C> & Partial<D>> => Recompose.defaultProps(defaults)(Component);
-
+    D extends Partial<React.ComponentProps<C>>>() => {};
 
 const ShadowsProps = <
   C extends React.ComponentType<any>,
-  D extends Partial<$ElementProps<C>>, 
+  D extends Partial<React.ComponentProps<C>>, 
   ExtraProps = {},
->(defaults: D,Component: C,) : React.ComponentType<$ElementProps<C> & Partial<D> & ExtraProps>  => {
-  const WrappedComponent = (props: $ElementProps<C> & Partial<D> & ExtraProps) => {
+>(defaults: D,Component: C,) : React.ComponentType<React.ComponentProps<C> & Partial<D> & ExtraProps>  => {
+  const WrappedComponent = (props: React.ComponentProps<C> & Partial<D> & ExtraProps) => {
     const { fontFamily = {}, style, ...rest } = props as any;
     
   const shadows = {
@@ -278,7 +266,7 @@ interface AsProp<T extends React.ComponentType<any>> {
 
 const UserConsumer1 = <C extends React.ComponentType<any>>({
   as: C,
-}: AsProp<C> & $ElementProps<C> & ComponentProp<C>) => {
+}: AsProp<C> & React.ComponentProps<C> & ComponentProp<C>) => {
    const {as:Component = 'div'} = C;
      return <Component />;
 };

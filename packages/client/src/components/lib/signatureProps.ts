@@ -1,6 +1,33 @@
 //@ts-ignore
 import * as React from "react";
 
+export interface BlogProps {
+    slug:string;
+    title:string;
+    sSrData?:any[];
+    description:string;
+    textContents?:string;
+    outputRender?:any;
+    blogPost?:string;
+    details?:[];
+    render?:string;
+    renderMarkdown?:string;
+    image?:string;
+    blogsContent?:string | undefined;
+    tags:Array<string>;
+    authors?:Array<string>;
+    files?: Array<{
+         name: string;
+         path: string;
+         children?: any[];
+        }>;  
+    date?:string;
+};
+
+export interface MarkdownProps extends BlogProps {
+  content?:string;
+}
+
 export type FontFamilyProps = {
     sofia?: boolean;
     impact?:boolean;

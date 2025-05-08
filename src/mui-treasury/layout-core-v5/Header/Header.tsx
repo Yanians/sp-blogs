@@ -73,10 +73,7 @@ const SubheaderRoot = styled("div", {
   zIndex: 1,
   transition: CSS_TRANSITION,
 });
-export const Subheader = ({
-  children,
-  ...inProps
-}: PropsWithFunctionChildren<SubheaderProps>) => {
+export const Subheader = ({children,...inProps}: PropsWithFunctionChildren<SubheaderProps>) => {
   const props = useThemeProps<Theme, SubheaderProps, "AppSubheader">({
     props: inProps,
     name: "AppSubheader",
@@ -101,11 +98,8 @@ export const Subheader = ({
 
 export interface HeaderProps extends AppBarProps {}
 export type HeaderClassKey = "root";
-const HeaderRoot = styled(AppBar, {
-  name: "AppHeader",
-  slot: "Root",
-  overridesResolver: (props, styles) => styles.root,
-})({ transition: CSS_TRANSITION });
+
+const HeaderRoot = styled(AppBar, {name: "AppHeader", slot: "Root", overridesResolver: (props, styles) => styles.root})({ transition: CSS_TRANSITION });
 export const Header = ({
   children,
   ...inProps

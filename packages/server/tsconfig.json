@@ -1,22 +1,40 @@
+/**
+** DO NOT MODIFY CONFIGURATION HERE THIS IS STABLE UNLESS YOU ARE AUTHORIZED
+**/
+
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "module": "CommonJS",
-    "target": "ESNext",
-    "outDir": "./dist",
-    // "rootDir": "src",
-     "rootDir": "../", // Allow access to both server and client
-    "allowSyntheticDefaultImports": true
+    "baseUrl": ".",
+    "rootDir":"../../",
+    "outDir": "./dist/types",
+    "noEmit": false,
+    "allowSyntheticDefaultImports": true,
+    // "allowImportingTsExtensions": true,
+    // "importHelpers": true,
+    "esModuleInterop": true,
+    "paths": {
+     "src/*": ["src/*"],
+      "@reduxsrc/*": ["packages/client/src/redux/reducers/*"],
+      "@treasury/*": ["../../src/mui-treasury/layout-core-v5/*"],
+      "@markdown/*": ["../extractorfile/*"],
+    }
   },
   "include": [
-    "src","../client/src",
+    "./src/*",
+    "./webpack/*",
+    // "../client/src",
     "**/*.ts",
     "**/*.tsx",
-   "module.js",
-   "paths.js"
-, "../mui_lib", "../extractorfile/markdownRenderer.tsx", "../extractorfile/mark.js"  ],
+  //  "module.js",
+  //  "paths.js",
+   "../mui_lib", "../extractorfile/markdownRenderer.tsx", "../extractorfile/mark.js"
+  ],
   "exclude": [
+    "node_modules",
   //  "**/*paths.js",
    "**/*getUrlOrPath.js",   
+   "../../src/mui-treasury/*",
+   "**/*src/mui-treasury/*",
   ]
 }

@@ -1,0 +1,6 @@
+{
+    "watch": ["packages/client/src"],
+    "ext": "tsx,ts,js,json",
+    "ignore": ["**/*.spec.ts"],
+    "exec": "cross-env NODE_ENV=production ts-node packages/server/src/server.tsx"
+  }

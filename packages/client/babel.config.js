@@ -3,7 +3,7 @@ const fse = require('fs-extra');
 const path = require('path');
 
 function resolvePath(sourcePath, currentFile, opts) {
-  if (sourcePath === 'markdown') {
+  if (sourcePath === '/client/src') {
     const base = currentFile.substring(__dirname.length).slice(0, -3);
     return `${__dirname}/client/src/${base}/`;
   }
@@ -12,9 +12,14 @@ function resolvePath(sourcePath, currentFile, opts) {
 }
 
 const alias = {
-  '@client': path.resolve(__dirname, 'packages/client/src'),  // Alias for the client folder
-  '@server': path.resolve(__dirname, 'packages/server/src'),  // Alias for the server folder
-  '@markdown': path.resolve(__dirname, 'packages/extractorfile'),  // Alias for markdown extractor files
+  '@treasury': path.resolve(__dirname, '../../src/mui-treasury/layout-core-v5/'),
+  '@lib': path.resolve(__dirname, './src/components/lib/'),
+  '@routes': path.resolve(__dirname, './src/routes/'),
+  '@loader/marking': path.resolve(__dirname, '../extractorfile/index.js'),
+  '@treasury-center': path.resolve(__dirname, '../../src/mui-treasury/'),
+  '@client': path.resolve(__dirname, './src'),  // Alias for the client folder
+  '@imagedir': path.resolve(__dirname, './pulic/images/'),
+  '@marking': path.resolve(__dirname, '../extractorfile/'),  // Alias for markdown extractor files
 };
 
 const { version: transformRuntimeVersion } = fse.readJSONSync(
@@ -45,6 +50,7 @@ module.exports = {
         alias,
         transformFunctions: ['require', 'require.context'],
         resolvePath,
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       },
     ],
   ],

@@ -14,7 +14,7 @@ const FooterRoot = styled("footer", {
   transition: CSS_TRANSITION,
 });
 
-type Props = JSX.IntrinsicElements["footer"];
+type Props = React.JSX.IntrinsicElements["footer"];
 export type FooterClassKey = "root";
 export interface FooterProps extends Props {
   sx?: SxProps<Theme>;
