@@ -1,6 +1,7 @@
 node_modules
 dist
 webpack
+src/mui-treasury/layout-core-v5
 public
 dist/
 .cipher_cache/

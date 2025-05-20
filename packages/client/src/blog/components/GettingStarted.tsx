@@ -72,11 +72,11 @@ function GettingStarted(props:any){
 
     return (  
             <Root>
-                <Grid container spacing={1}>
+                {/* <Grid container spacing={1}>
                     {sSrData.map((item:any,index:number) => (
                         <BlogCard data={item} index={index+1}/>           
                     ))}
-                </Grid>
+                </Grid> */}
            <Box sx={{
                       width:'100%',
                     display:'grid',
