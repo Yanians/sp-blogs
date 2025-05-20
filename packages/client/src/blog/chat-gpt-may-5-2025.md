@@ -1,8 +1,9 @@
 ---
 title: Chat Gpt conversation
 description: Let's break down React.useReducer with a clear, step-by-step explanation like a mini-lecture.
-authors: ['Tres-Paylas']
+authors: ['Tres Paylas']
 date: May 5, 2025
+image: 1706254275react-icons-300x170.jpg
 tags: ['AI']
 ---
 

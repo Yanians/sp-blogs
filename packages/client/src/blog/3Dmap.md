@@ -1,8 +1,9 @@
 ---
 title: Build a Dynamic 3D Map with WRLD 3D
 description: We stare at 2D charts and log entries, but much of the data we pluck out of the world has meaning in a 3D context. And, it can be useful to visualise this data when it is applied back into a 3D model.
-authors: ['Nikolai-Makarov']
+authors: ['Nikolai Makarov']
 date: Sept 12, 2024
+image: 1624497596html5-boilerplate-300x170.png 
 tags: ['3D']
 ---
 
@@ -13,7 +14,8 @@ tags: ['3D']
   # This article was sponsored by WRLD 3D. Thank you for supporting the partners who make SitePoint possible.
 
  - **The following takes place between 7:00am and 8:00am, on Christmas Eve. Events occur in real time.**
- 
+
+<a>Read this line</a> 
 <code>
 For all our data-gathering capabilities, we’re still hopeless when it comes to visualising that data in the 3D world we live in. We stare at 2D charts and log entries, but much of the data we pluck out of the world has meaning in a 3D context. And, it can be useful to visualise this data when it is applied back into a 3D model.
 

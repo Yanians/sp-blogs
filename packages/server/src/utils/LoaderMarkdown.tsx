@@ -23,7 +23,6 @@ const loadMarkdownPosts = () => {
   });
 };
 
-
 export function loadMarkdownData() {
     const files = fs.readdirSync(blogDir);
   

@@ -1,8 +1,9 @@
 ---
 title: Writing a Flarum Extension Building a Custom Field
 description: Flarum is incredibly fast, extensible, free and open-source forum software. It has been in development since 2014 and is nearing the end of its beta phase.
-authors: ['danilo-leal','Rolex']
+authors: ['danilo leal','Rolex']
 date: Dec 18, 2024
+image: 1686714420css-image-reveal2-300x170.jpg
 tags: ['PHP']
 ---
 

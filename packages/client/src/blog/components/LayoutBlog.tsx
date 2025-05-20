@@ -1,34 +1,34 @@
 import * as React from 'react';
 import { alpha, createTheme } from "@mui/material/styles";
-import { Avatar, Box, Paper, Stack } from '@mui/material';
+import { Avatar, Paper, Stack } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { Link } from "react-router-dom";
 import withTextStyles from '../../components/lib/WithTextStyles';
 import { styled } from '@mui/system';
 import { withStyles } from '@mui/styles';
-import Flex from '../../layout/Skeleton/flexContainer';
 import MarkdownElement from './markdownElement';
+import { GithubIcon, LinkedinIcon, TwitterIcon } from '../../components/lib/svg/customIcons';
 
 const TextLink = withTextStyles;
 
 const MainGridContainer = styled('div')`
-display:grid;
-padding:1px;
-width:100px;
-grid-template-columns: 1fr 1fr;
-grid-template-rows: auto auto;
+    display:grid;
+    padding:1px;
+    width:100px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
 `;
 
 const GridLeftItem = styled('div')`
-align-self:center;
-grid-column-start:1;
-grid-row-start:1;
+    align-self:center;
+    grid-column-start:1;
+    grid-row-start:1;
 `;
 
 const GridCenterItem = styled('div')`
-margin:1px;
-grid-column-start:2;
-grid-row-start:1;
+    margin:1px;
+    grid-column-start:2;
+    grid-row-start:1;
 `;
 
 const GridRightItem = styled('div')`
@@ -40,7 +40,7 @@ grid-row-start:1;
 
 export const authored = {
   
-    'Tres-Paylas': {
+    'tres-paylas': {
       codename:`
           is an independent IT consultant working in the areas of client / server programming, High Performance 
           Computing and web development. He is an expert in C/C++, C# and JavaScript. Florian regularly gives talks at conferences 
@@ -49,8 +49,23 @@ export const authored = {
       name: 'Tressy Paylas',
       avatar: '/m7.jpg',
       img:'/1707845731YccofxHOkc1gSycdBiCh9MMfgdNxk3et1eGwK2OO1U6lrVZJB-out-0-300x225.png',
-      github: 'Yanians',
+
+      socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
+
     'danilo-leal': {
       codename:`is a blockchain developer and technical educator at the Web3 Foundation, the foundation that's building
        the next generation of the free people's internet. He's also a DX person at Diffbot. He runs two newsletters you 
@@ -61,15 +76,43 @@ export const authored = {
       avatar: '/creative.png',
       img:'/1700662284YJmoKnUgc0qaDpbOQ0mcZi5zEpf0QpyWvle2cz5fjq1eAorHB-out-0-300x179.png',
       github: 'danilo-leal',
+         socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
-    'Ken-Beltran': {
+
+    'ken-beltran': {
       codename: `I'm a JavaScript and Ruby Developer working in London, focusing on tooling, ES2015 and ReactJS.`,
       name:'Kenneth Duremdez Beltran',
       img:'/1680044249wordpress-gallery-plugins-300x170.jpg',
       avatar: '/m1.png',
-      github: 'DanailH',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
-    'AYAN-FERNANDEZ': {
+    'ayan-fernandez': {
       codename: `I'm a (full-stack) web and app developer with more than 5 years' experience programming for the web using HTML, CSS, Sass, 
       JavaScript, and PHP. I'm an expert of JavaScript and HTML5 APIs but my interests include web security, 
       accessibility, performance, and SEO. I'm also a regular writer for several networks, speaker, 
@@ -77,92 +120,232 @@ export const authored = {
       name:'Antonov Fernandez',
       img:'/1695018352best-programming-fonts-300x170.jpg',
       avatar: '/m31.jpeg',
-      github: 'Yanians',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
-    'Nikolai-Makarov': {
+    'nikolai-makarov': {
       codename: ` is a writer and coder, working at Over. He usually works on application architecture, 
       though sometimes you'll find him building compilers or robots.`,
       name:'Nikolaita Kolata Piangka',
       img:'/1630382754svg-media-queries-300x170.jpg',
       avatar: '/m29.jpeg',
-      github: 'NikolaiMakruv',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
-    'Nani-Gretchen': {
+    'nani-gretchen': {
       codename: ` is co-Editor of the HTML/CSS Channel at SitePoint and a front-end web developer. 
       She enjoys tinkering with cool CSS standards and is curious about teaching approaches to front-end code. 
       When not coding for the web or not writing for the web, she enjoys philosophy books, long walks and good food.`,
       name:' Maria Antonietta Perna',
       img:'/1586403493jquery-validate-300x170.png',
       avatar: '/avatar_11.jpg',
-      github: 'Gerchev',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
-    'Jean-De-Leon': {
+    'jean-de-leon': {
       codename:`a Code-Lover and a student of Computer Engineering from Albania. Her short-term goal is that of becoming a full-stack developer, 
       ocusing on Android, Ruby technologies and DevOps techniques.`,
       name: 'Alexandrea Fauquette',
       avatar: '/f5.jpg',
       img:'/1723510090nextjs-surveyjs-300x170.jpg',
-      github: 'alexfauquette',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
-    'peter Macarov': {
+    'peter-macarov': {
       name: 'Sam Sycamore',
       avatar: '/m10.jpg',
-      github: 'samuelsycamore',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
     
-    'Arthur-Mckaski': {
+    'arthur-mckaski': {
       codename:`is a full-stack web developer who has been working with computers and the web for over a decade. A former hardware technician, and network administrator. Nilson is now currently co-founder and developer of a company developing web applications for the construction industry. 
       You can also find Nilson on the SitePoint Forums as a mentor.`,
       name: 'Tressy Arthuro (thor) Mackenly',
       img:'/1581652829nvm-node-multiple-300x170.png',
       avatar: '/m8.jpg',
-      github: 'Arthuro',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
-    'Arnold-Peterson': {
+    'arnold-peterson': {
       name: 'Rolex',
       img:'/1495475877javascript-quiz-300x167.png',
       avatar: './blogs-images/chess.jpg',
-      github: 'danilo-leal',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
-    'Ayan-Fernandez': {
-      codename:`
-      I write clean, readable and modular code. I love learning new technologies that bring efficiencies and increased productivity to my workflow.
-      `,
-      img:'/1690179564button-micro-interactions-300x170.jpg',
-      name: 'Ayan Veneracion Fernandez',
-      avatar: '/tres.jpg',
-      github: 'https://github.com/Yanians/sp-blogs',
-    },
-    'Ryan-Sebastian': {
+    'ryan-sebastian': {
       codename:`
       I write clean, readable and modular code. I love learning new technologies that bring efficiencies and increased productivity to my workflow.
       `,
       img:'/1692401558pieces-copilot-300x170.jpg',
       name: 'Rey Ayan Sebastian',
       avatar: '/avatar_4.jpg',
-      github: 'Sebasti',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
-    'Mell-Yuston': {
-      name: 'Alexandre Fauquette',
+    'mell-yuston': {
+      name: 'Mell Moore Yuston',
+      codename:`
+      Front-end Architect at The Force - specializing in JavaScript and AngularJS. 
+      Developer Expert at Google. Gymnast. Dad. Family man. 
+      Creator of Angular Express.
+      `,
+      
       avatar: '/m9.jpg',
-      github: 'alexfauquette',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
-    'Awnt_Devercov': {
+    'awnt-devercov': {
       codename:`Application developer based in Belfast, Northern Ireland. Focused on front end development especially JavaScript. 
       Been working in software development since 2010 and still learning and sharing everyday.`,
       name: 'Peter Devastrian',
       avatar: '/m2.jpg',
       img:'/1713857373calc-css-font-scaling-300x170.jpg',
-      github: 'samuelsycamore',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
-    'Craig-Butler': {
+    'craig-butler': {
       codename: `is a freelance UK web consultant who built his first page for IE2.0 in 1995. Since that time he\'s 
       '\ been advocating standards, accessibility, and best-practice HTML5 techniques. He\'s created enterprise specifications, websites and online applications for companies and organisations including the UK Parliament, the European Parliament, the Department of Energy & Climate 
        Change, Microsoft, and more. He\'s written more than 1,000 articles for SitePoint and you can find him [@craigbuckler](https://google.com).`,
       name: 'Craig Buckler',
       avatar: '/craig.jpeg',
       img:'/1699976091VHQW9epSDxVxZae0BCLNMeiqD7H5UkBN2TLvIBvAccSM9gwjA-out-0-300x225.png',
-      github: 'samuelsycamore',
+       socialAccount:[
+        {
+          icon:<LinkedinIcon />,
+          link:'https://linkedin.com/',
+        },
+        {
+          icon:<TwitterIcon />,
+          link:'https://twitter.com/',
+        },
+        {
+          icon:<GithubIcon />,
+          link: 'https://github.com/',
+        },
+      ]
     },
   } as any;
 

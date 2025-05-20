@@ -1,9 +1,10 @@
 ---
 title: Summary from SP-BLOGS projects
 description: This is the total summary of the projects including the setups, debugging, file structuring, analysis, troubleshooting and site mapping.
-authors: ['Ayan-Fernandez']
+authors: ['Ayan Fernandez']
 card: true
 date: Around 2025
+image: 1697843489style-html-details-element-300x190.jpg
 tags: ['TOOLING']
 ---
 

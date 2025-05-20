@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 
-import { Shadows } from "@lib/signatureProps";
+import { Shadows } from "./signatureProps";
 
 import Paper, {PaperProps} from '@mui/material/Paper';
 

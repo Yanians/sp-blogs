@@ -1,7 +1,7 @@
 const webpack = require('webpack');
 const path = require("path");
 const TerserPlugin = require("terser-webpack-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
@@ -129,7 +129,7 @@ module.exports = {
           },
           {
               test: /\.css$/,
-              use: [MiniCssExtractPlugin.loader,'style-loader', 'css-loader','postcss-loader'],
+              use: [/*MiniCssExtractPlugin.loader*/'style-loader', 'css-loader','postcss-loader'],
           },
           {
             test: /\.(png|jpe?g|jpg|gif|svg)$/i,
@@ -147,7 +147,7 @@ module.exports = {
     },
     
     plugins: [
-         new CleanWebpackPlugin(),
+         new CleanWebpackPlugin(), // use this only in production
          new CompressionPlugin({
               algorithm: "gzip",
               test: /\.(js|css|html|svg)$/,
@@ -155,10 +155,10 @@ module.exports = {
               minRatio: 0.8,
             }),
          new webpack.DefinePlugin(envKeys),
-         new MiniCssExtractPlugin({
-          filename: 'css/[name].[contenthash].css',
-          chunkFilename: 'css/[name].[contenthash].css',
-        }),
+        //  new MiniCssExtractPlugin({
+        //   filename: 'css/[name].[contenthash].css',
+        //   chunkFilename: 'css/[name].[contenthash].css',
+        // }),
    ],
      cache: {
           type: "filesystem", // Enables persistent caching
@@ -167,13 +167,12 @@ module.exports = {
        
     optimization: {
          minimize: true, // minify everything
-        //  minimizer: [new TerserPlugin()],
         minimizer:[new TerserPlugin({
           extractComments: false,
                 parallel:4,
-                terserOptions: {
-                  compress: { pure_funcs: ['console.log'] },
-                },
+                // terserOptions: {
+                //   compress: { pure_funcs: ['console.log'] },
+                // },
               }),
               new CssMinimizerPlugin(),
             ],

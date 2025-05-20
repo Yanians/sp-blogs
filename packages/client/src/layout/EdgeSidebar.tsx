@@ -1,10 +1,10 @@
 
 import * as React from 'react';
-import { Link, useLocation, useNavigate, useParams, } from 'react-router-dom';
+import { Link, useNavigate, } from 'react-router-dom';
 import ListSubheader from '@mui/material/ListSubheader';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import { useTheme, useMediaQuery } from '@mui/material';
+import { useTheme, useMediaQuery, ButtonGroup, Button } from '@mui/material';
 import { 
     EdgeSidebar, 
     useLayoutCtx, 
@@ -18,10 +18,8 @@ import Directives from '../components/lib/directives';
 import TreeView from './Skeleton/Treeview';
 import { Avatar, Box, ButtonBase, List } from '@mui/material';
 import { PassThrough } from '../components/lib/utilityTypes';
-import withTextStyles from '../components/lib/WithTextStyles';
 
 const HeaderButton = withFonts;
-const TextLink = withTextStyles;
 interface EdgeProps {
     sSrData?:any;
 }
@@ -275,16 +273,9 @@ export default function EdgeSideBar(props:EdgeProps){
               }     
        }
 
-    const handleTrigger=(event: React.MouseEvent<HTMLSpanElement, MouseEvent> | React.MouseEvent<HTMLButtonElement, MouseEvent> | React.MouseEvent<HTMLAnchorElement, MouseEvent>)=>{
-      toggleRightSidebarCollapsed();
-      const text = event.currentTarget.textContent;
-      Navigate(`/blogs/${text}`);
-    }   
-
-
 return (
     <>
-      <EdgeSidebar anchor="left">
+      <EdgeSidebar anchor="left" >
         {({ state: { leftEdgeSidebar }, toggleLeftSidebarCollapsed }) => (
 
           <SidebarContent>
@@ -302,24 +293,31 @@ return (
                 </ListSubheader>
                 {/* <TriggerUsingHook colorChange={props?.colorChange} /> */}
               </List>
-
-              {
-                  mdUp ? null: Invoker.pages.map((find) =>{
-                      return find['link']?.map((path)=>{
-                          return (
-                          <div key={path.name}>
-                          <HeaderButton selected mui
-                          disableTouchRipple size='large'
-                                onClick={(e)=>handleClick(e)} 
-                                      serve={ListItemStyle} alignItems='center' 
-                                      textContent={`${path.name?.replace(/\//g, '')}`}
-                              />
-                          </div>     
-                          )
+              <ButtonGroup
+               sx={{
+                display:'flex',
+                flexGrow:1,
+                flexDirection:'column',
+                justifyContent:'center',
+                alignItems:'center',
+               }}
+               orientation='vertical' variant='text' aria-label="vertical-page-group">
+                  {
+                      mdUp ? null: Invoker.pages.map((find) =>{
+                          return find['link']?.map((path)=>{
+                              return (
+                              <div key={path.name}>
+                              <HeaderButton color='inherit'
+                                    onClick={(e)=>handleClick(e)} gadget 
+                                          serve={Button}
+                                          textContent={`${path.name?.replace(/\//g, '')}`}
+                                    />
+                              </div>     
+                              )
+                          })
                       })
-                  })
-                }
-
+                    }
+              </ButtonGroup>
               <EdgeTrigger target={{ anchor: "left", field:"collapsed"}}>
                 {(collapsed, setCollapsed) => (
                   <ButtonBase 
@@ -343,5 +341,3 @@ return (
     </> 
  ) 
 }
-
-///serve={Link} to={`${location.pathname.substring(0,6)}/${get.tags.find((name:any)=>name)}`}

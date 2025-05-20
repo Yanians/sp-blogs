@@ -3,16 +3,31 @@ import type {} from '@mui/material/themeCssVarsAugmentation';
 import ArrowDropDownRounded from '@mui/icons-material/ArrowDropDownRounded';
 import {PaletteColorOptions, createTheme, ThemeOptions, Theme, alpha } from '@mui/material/styles';
 
-
 interface ApplyDarkStyles {
   (scheme: CSSObject): CSSObject;
 }
+
 
 declare module '@mui/material/styles' {
   interface Theme {
     applyDarkStyles: ApplyDarkStyles;
   }
 }
+
+// declare module '@mui/material/styles' {
+//   interface Theme {
+//     applyDarkStyles: ApplyDarkStyles;
+//     status:{
+//       danger:string,
+//     }
+//   }
+
+//   interface ThemeOptions {
+//     status?:{
+//       danger?: string,
+//     }
+//   }
+// }
 
 declare module '@mui/material/styles/createPalette' {
   interface ColorRange {
@@ -43,23 +58,36 @@ declare module '@mui/material/styles/createPalette' {
   }
 }
 
-// declare module '@mui/material/styles/createTypography' {
-//   interface TypographyOptions {
-//     fontWeightBold?: number;
-//     fontWeightExtraBold?: number;
-//     fontFamily?: string;
-//     fontFamilyCode?:string;
-//     fontFamilySystem?: string;
-//   }
+declare module '@mui/material/Chip' {
+  interface ChipPropsColorOverrides {
+    grey: true;
+  }
+}
 
-//   interface Typography {
-//     fontWeightBold: number;
-//     fontWeightExtraBold: number;
-//     fontFamily: string;
-//     fontFamilyCode:string;
-//     fontFamilySystem: string;
-//   }
-// }
+declare module '@mui/material/ButtonGroup' {
+  interface MuiButtonPropsVariantOverrides {
+    color: true;
+  }
+}
+
+declare module '@mui/material/SvgIcon' {
+
+    interface SvgIconPropsColorOverrides {
+      danger: true;
+    }
+
+    interface SvgIconPropsSizeOverrides {
+      xs: true;
+      sm: true;
+      md: true;
+      lg: true;
+      xl: true;
+      xl2: true;
+      xl3: true;
+      xl4: true;
+    }
+
+}
 
 declare module '@mui/material/Chip' {
   interface ChipPropsColorOverrides {
@@ -83,100 +111,128 @@ declare module '@mui/material/SvgIcon' {
   }
 }
 
-declare module '@mui/material/styles' {
-  interface TypographyVariantsOptions  {
-    fontWeightBold?: number;
+// declare module '@mui/material/styles' {
+//   interface PaletteOptions {
+//     primaryDark?: PaletteColorOptions;
+//   }
+// }
+
+// TODO: enable this once types conflict is fixed
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    code: true;
+  }
+}
+
+
+declare module '@mui/material/styles/createTypography' {
+  interface TypographyOptions {
+    fontWeightSemiBold?: number;
     fontWeightExtraBold?: number;
-    fontWeightSemiBold?:number;
-    fontFamilyCode?:string;
-    fontFamily?: string;
+    fontFamilyCode?: string;
     fontFamilySystem?: string;
   }
 
-  interface TypographyVariants {
-    fontWeightBold: number;
-    fontWeightSemiBold?:number;
+  interface Typography {
+    fontWeightSemiBold: number;
     fontWeightExtraBold: number;
-    fontFamilyCode:string;
-    fontFamily: string;
+    fontFamilyCode: string;
     fontFamilySystem: string;
   }
 }
 
-declare module '@mui/material/Chip' {
-  interface ChipPropsColorOverrides {
-    grey: true;
-  }
-}
-
-declare module '@mui/material/SvgIcon' {
-  interface SvgIconPropsColorOverrides {
-    danger: true;
-  }
-  interface SvgIconPropsSizeOverrides {
-    xs: true;
-    sm: true;
-    md: true;
-    lg: true;
-    xl: true;
-    xl2: true;
-    xl3: true;
-    xl4: true;
-  }
-}
 
 declare module '@mui/material/styles' {
-  interface PaletteOptions {
+
+   interface Theme {
+    applyDarkStyles: ApplyDarkStyles;
+    status?:{
+      danger?:string,
+    }
+  }
+
+  interface ThemeOptions {
+    status?:{
+      danger?: string,
+    }
+  }
+
+   interface PaletteOptions {
     primaryDark?: PaletteColorOptions;
   }
-}
 
-// TODO: enable this once types conflict is fixed
-// declare module '@mui/material/Button' {
-//   interface ButtonPropsVariantOverrides {
-//     code: true;
-//   }
-// }
+    interface TypographyVariantsOptions {
+      fontWeightBold?: number;
+      fontWeightExtraBold?: number;
+      fontWeightSemiBold?:number;
+      fontFamilyCode?:string;
+      fontFamily?: string;
+      fontFamilySystem?: string;
+    }
+
+    interface TypographyVariants {
+      fontWeightBold: number;
+      fontWeightSemiBold?:number;
+      fontWeightExtraBold: number;
+      fontFamilyCode:string;
+      fontFamily: string;
+      fontFamilySystem: string;
+    }
+}
 
 const defaultTheme = createTheme();
 
-export const blue = {
-  50: 'hsl(210, 100%, 96%)',
-  100: 'hsl(210, 100%, 90%)',
-  200: 'hsl(210, 100%, 80%)',
-  300: 'hsl(210, 100%, 70%)',
-  400: 'hsl(210, 100%, 60%)',
-  main: 'hsl(210, 100%, 45%)',
-  500: 'hsl(210, 100%, 45%)',
-  600: 'hsl(210, 100%, 42%)',
-  700: 'hsl(210, 100%, 38%)',
-  800: 'hsl(210, 100%, 30%)',
-  900: 'hsl(210, 100%, 23%)',
+export const redApple = {
+  50: 'hsl(0, 73.30%, 97.10%)',
+  100: 'hsl(0, 29.90%, 84.90%)',
+  200: 'hsl(0, 25.20%, 69.60%)',
+  300: 'hsl(0, 18.50%, 53.30%)',
+  400: 'hsl(0, 21.70%, 47.10%)00%)',
+  main: 'hsl(0, 28.10%, 34.90%)',
+  500: 'hsl(0, 36.60%, 32.20%)',
+  600: 'hsl(0, 45.60%, 26.70%)',
+  700: 'hsl(0, 52.30%, 21.40%)',
+  800: 'hsl(0, 77.80%, 12.40%)',
+  900: 'hsl(0, 95.00%, 7.80%)',
 };
 export const pinkpongDark = {
-  50: 'hsl(307, 39.10%, 91.00%)',
-  100: 'hsl(327, 32.80%, 77.30%)',
-  200: 'hsl(336, 14.10%, 72.20%)',
-  300: 'hsl(347, 14.30%, 56.10%)',
-  main: 'hsl(326, 14.30%, 56.10%)',
-  400: 'hsl(332, 21.20%, 46.30%)',
-  500: 'hsl(326, 23.90%, 26.30%)',
-  600: 'hsl(319, 26.60%, 27.30%)',
-  700: 'hsl(328, 46.40%, 22.00%)',
-  800: 'hsl(333, 64.60%, 15.50%)',
-  900: 'hsl(332, 78.90%, 3.70%)',
+  50: 'hsl(310, 20.00%, 94.10%)',
+  100: 'hsl(321, 19.10%, 82.50%)',
+  200: 'hsl(318, 14.10%, 72.20%)',
+  300: 'hsl(329, 17.60%, 67.60%)',
+  main: 'hsl(325, 14.30%, 60.20%)',
+  400: 'hsl(334, 11.30%, 51.40%)',
+  500: 'hsl(325, 14.40%, 44.90%)',
+  600: 'hsl(320, 24.70%, 36.50%)',
+  700: 'hsl(328, 38.60%, 27.50%)',
+  800: 'hsl(333, 57.70%, 20.40%)',
+  900: 'hsl(333, 78.30%, 9.00%)',
 };
+export const info = {
+  50: 'rgb(235, 235, 243)',
+  100: 'rgb(196, 198, 228)',
+  200: 'rgb(148, 147, 201)',
+  300: 'rgb(108, 111, 185)',
+  400: 'rgb(90, 85, 161)',
+  500: 'rgb(64, 62, 153)',
+  600: 'rgb(42, 34, 117)',
+  700: 'rgb(19, 18, 87)',
+  800: 'rgb(14, 6, 61)',
+  900: 'rgb(1, 1, 29)',
+};
+
 export const grey = {
   50: 'hsl(215, 15%, 97%)',
   100: 'hsl(215, 15%, 92%)',
   200: 'hsl(215, 15%, 89%)',
   300: 'hsl(215, 15%, 82%)',
   400: 'hsl(215, 15%, 75%)',
-  500: 'hsl(215, 15%, 65%)',
-  600: 'hsl(215, 15%, 50%)',
-  700: 'hsl(215, 15%, 40%)',
-  800: 'hsl(215, 15%, 22%)',
-  900: 'hsl(215, 15%, 12%)',
+  500: 'hsl(0, 15.10%, 64.90%)',
+  600: 'hsl(0, 15.30%, 50.00%)',
+  700: 'hsl(0, 14.70%, 40.00%)',
+  800: 'hsl(0, 15.00%, 22.20%)',
+  900: 'rgb(2, 1, 37)',
 };
 export const error = {
   50: 'hsl(355, 98%, 97%)',
@@ -203,6 +259,7 @@ export const success = {
   800: 'hsl(144, 72%, 32%)',
   900: 'hsl(144, 72%, 21%)',
 };
+
 export const warning = {
   50: 'hsl(48, 100%, 96%)',
   100: 'hsl(48, 100%, 88%)',
@@ -215,6 +272,20 @@ export const warning = {
   700: 'hsl(36, 100%, 34%)',
   800: 'hsl(36, 100%, 27%)',
   900: 'hsl(36, 100%, 18%)',
+};
+
+export const tertiary = {
+  50: 'rgb(228, 233, 235)',
+  100: 'rgb(187, 209, 212)',
+  200: 'rgb(151, 186, 190)',
+  300: 'rgb(119, 169, 175)',
+  400: 'rgb(98, 150, 163)',
+  500: 'rgb(73, 139, 148)',
+  main: 'rgb(52, 126, 136)',
+  600: 'rgb(26, 105, 109)',
+  700: 'rgb(12, 87, 90)33.90%)',
+  800: 'rgb(3, 54, 59)',
+  900: 'rgb(1, 27, 29)',
 };
 
 const systemFont = [
@@ -232,19 +303,21 @@ const systemFont = [
 
 export const getMetaThemeColor = (mode: 'light' | 'dark') => {
   const themeColor = {
-    light: blue[600],
+    light: redApple[600],
     dark: pinkpongDark[900],
   };
   return themeColor[mode];
 };
 
-export const getDesignTokens = (mode: 'light' | 'dark') =>
+type switchProps = 'light'|'dark';
+
+export const getDesignTokens = (mode:switchProps) =>
   ({
     palette: {
       primary: {
-        ...blue,
+        ...redApple,
         ...(mode === 'dark' && {
-          main: blue[400],
+          main: redApple[400],
         }),
       },
       secondary: {
@@ -256,6 +329,14 @@ export const getDesignTokens = (mode: 'light' | 'dark') =>
         ...(mode === 'dark' && {
           main: pinkpongDark[700],
           contrastText: pinkpongDark[600],
+        }),
+      },
+      tertiary:{
+        ...tertiary,
+        ...grey,
+        ...(mode === 'light' && {
+              main:tertiary[700],
+              contrastText:tertiary[500],
         }),
       },
       divider: mode === 'dark' ? alpha(pinkpongDark[500], 0.3) : grey[100],
@@ -270,6 +351,7 @@ export const getDesignTokens = (mode: 'light' | 'dark') =>
       common: {
         black: 'hsl(200, 10%, 4%)',
       },
+      info,
       text: {
         ...(mode === 'light' && {
           primary: grey[900],
@@ -305,14 +387,12 @@ export const getDesignTokens = (mode: 'light' | 'dark') =>
       },
       warning,
       gradients: {
-        radioSubtle:
-          mode === 'dark'
-            ? `radial-gradient(100% 100% at 100% 100%, transparent 0, ${alpha(blue[900], 0.3)} 300%)`
-            : `radial-gradient(100% 90% at 50% 0, transparent 0, ${alpha(blue[100], 0.3)} 300%)`,
-        linearSubtle:
-          mode === 'dark'
-            ? `linear-gradient(0deg, ${alpha(blue[900], 0.1)}, ${alpha(pinkpongDark[900], 0.5)})`
-            : `linear-gradient(0deg, ${alpha(blue[50], 0.4)}, ${alpha(grey[50], 0.1)})`,
+        radioSubtle: mode === 'dark'
+          ? `radial-gradient(100% 100% at 100% 100%, transparent 0, ${alpha(redApple[900], 0.3)} 300%)`
+          : `radial-gradient(100% 90% at 50% 0, transparent 0, ${alpha(redApple[100], 0.3)} 300%)`,
+        linearSubtle: mode === 'dark'
+          ? `linear-gradient(0deg, ${alpha(redApple[900], 0.1)}, ${alpha(pinkpongDark[900], 0.5)})`
+          : `linear-gradient(0deg, ${alpha(redApple[50], 0.4)}, ${alpha(grey[50], 0.1)})`,
       },
     },
     shape: {
@@ -321,6 +401,9 @@ export const getDesignTokens = (mode: 'light' | 'dark') =>
     spacing: 8,
     typography: {
       fontFamily: ['"IBM Plex Sans"', ...systemFont].join(','),
+      // Match VS Code
+      // https://github.com/microsoft/vscode/blob/b38691f611d1ce3ef437c67a1b047c757b7b4e53/src/vs/editor/common/config/editorOptions.ts#L4578-L4580
+      // https://github.com/microsoft/vscode/blob/d950552131d7350a45dac8b59bf179469c36c2ac/src/vs/editor/standalone/browser/standalone-tokens.css#L10
       fontFamilyCode: [
         'Menlo', // macOS
         'Consolas', // Windows
@@ -329,7 +412,7 @@ export const getDesignTokens = (mode: 'light' | 'dark') =>
       ].join(','),
       fontFamilyTagline: ['"General Sans"', ...systemFont].join(','),
       fontFamilySystem: systemFont.join(','),
-      fontWeightBold: 600,
+      fontWeightSemiBold: 600,
       fontWeightExtraBold: 800,
       h1: {
         fontFamily: ['"General Sans"', ...systemFont].join(','),
@@ -365,7 +448,7 @@ export const getDesignTokens = (mode: 'light' | 'dark') =>
         fontSize: defaultTheme.typography.pxToRem(24),
         lineHeight: 36 / 24,
         letterSpacing: 0.1,
-        color: mode === 'dark' ? blue[300] : blue.main,
+        color: mode === 'dark' ? redApple[300] : redApple.main,
       },
       h6: {
         fontSize: defaultTheme.typography.pxToRem(20),
@@ -455,12 +538,12 @@ export const getDesignTokens = (mode: 'light' | 'dark') =>
      *      }
      *    })
      *  ]
-     * 
+     *
      */
     applyDarkStyles(css: Parameters<ApplyDarkStyles>[0]) {
       return (this as Theme).applyStyles('dark', css);
     },
-  }) as ThemeOptions;
+  }) as unknown as ThemeOptions;
 
 export function getThemedComponents(): ThemeOptions {
   return {
@@ -561,9 +644,11 @@ export function getThemedComponents(): ThemeOptions {
         styleOverrides: {
           root: ({ theme }) => ({
             transition: 'all 100ms ease-in',
+            borderColor:theme.colorSchemes.dark?.palette.info[300],
+            borderRadius:'none',
             '&:focus-visible': {
-              outline: `3px solid ${alpha(theme.palette.primary[500], 0.5)}`,
-              outlineOffset: 2,
+              outline: `2px solid ${alpha(theme.palette.success[500], 0.5)}`,
+              outlineOffset:2,
             },
           }),
         },
@@ -645,27 +730,29 @@ export function getThemedComponents(): ThemeOptions {
             ...(ownerState.variant === 'outlined' &&
               ownerState.color === 'primary' && {
                 color: (theme.vars || theme).palette.primary[600],
-                backgroundColor: alpha(theme.palette.primary[50], 0.2),
-                borderColor: (theme.vars || theme).palette.primary[100],
-                boxShadow: `${alpha(theme.palette.primary[100], 0.4)} 0 -1px 0 1px inset, ${alpha(theme.palette.primary[100], 0.5)} 0 1px 2px 0`,
+                backgroundColor: alpha(theme.palette.info[50], 0.5),
+                borderColor:(theme.vars || theme).palette.success[700],
+                boxShadow: `${alpha(theme.palette.info[300], 0.5)} 0 -1px 0 1px inset, ${alpha(theme.palette.info[100], 0.5)} 0 1px 2px 0`,
                 '&:hover': {
-                  backgroundColor: (theme.vars || theme).palette.primary[50],
-                  borderColor: (theme.vars || theme).palette.primary[200],
+                  backgroundColor: alpha(theme.palette.success[800],0.9),
+                  borderColor: alpha(theme.palette.grey[50], 0.7),
+                  color:theme.palette.grey[200],
                 },
                 '&:active': {
-                  backgroundColor: alpha(theme.palette.primary[100], 0.7),
+                  backgroundColor: alpha(theme.palette.info[700], 0.99),
                 },
                 ...theme.applyDarkStyles({
-                  color: (theme.vars || theme).palette.primary[200],
-                  borderColor: alpha(theme.palette.primary[900], 0.7),
-                  backgroundColor: alpha(theme.palette.primary[900], 0.2),
-                  boxShadow: `${alpha(theme.palette.primary[900], 0.2)} 0 1px 0 1px inset, ${(theme.vars || theme).palette.common.black} 0 -1px 0 1px inset, ${(theme.vars || theme).palette.common.black} 0 1px 2px 0`,
+                  color: (theme.vars || theme).palette.grey[50],
+                  borderColor: alpha(theme.palette.grey[50], 0.7),
+                  backgroundColor: alpha(theme.palette.grey[300], 0.3),
+                  boxShadow: `${alpha(theme.palette.info[900], 0.2)} 0 1px 0 1px inset, ${(theme.vars || theme).palette.common.black} 0 -1px 0 1px inset, ${(theme.vars || theme).palette.common.black} 0 1px 2px 0`,
                   '&:hover': {
-                    backgroundColor: alpha(theme.palette.primary[900], 0.5),
-                    borderColor: (theme.vars || theme).palette.primary[900],
+                    backgroundColor: alpha(theme.palette.info[700], 0.8),
+                     borderColor: (theme.vars || theme).palette.grey[200],
                   },
                   '&:active': {
-                    backgroundColor: alpha(theme.palette.primary[900], 0.3),
+                    backgroundColor: alpha(theme.palette.info[700], 0.5),
+                    borderColor: alpha(theme.palette.info[100], 0.3),
                   },
                   '&.Mui-disabled': {
                     background: 'none',
@@ -1278,7 +1365,7 @@ export function getThemedComponents(): ThemeOptions {
                 backgroundColor: theme.palette.grey[50],
               },
               '&.Mui-selected': {
-                borderRadius: 10,
+                borderRadius: 2,
                 border: '1px solid',
                 color: (theme.vars || theme).palette.primary[500],
                 borderColor: `${(theme.vars || theme).palette.primary[500]} !important`,

@@ -10,6 +10,7 @@ export default function Paper(theme:any) {
       styleOverrides: {
         root: {
           backgroundImage: 'none',
+          backgroundColor:theme.palette.mode
         }
       }
     }

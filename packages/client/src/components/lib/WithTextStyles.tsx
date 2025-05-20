@@ -2,6 +2,7 @@ import * as React from 'react';
 import { FontFamilyProps, Shadows } from './signatureProps';
 import Typography, { TypographyProps  } from '@mui/material/Typography';
 import { IconButtonProps } from '@mui/material/IconButton';
+import { ButtonGroupProps } from '@mui/material';
 import { LinkProps } from 'react-router-dom';
 export function resolveCustomShadows(props:any): string | undefined {
 

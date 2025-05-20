@@ -6,9 +6,7 @@ import Layout from './layout/Layout';
 import ThemeConfig from "./utils";
 
 const sx = { minWidth: { sm: 160 } };
-
 const App=({sSrData, nonce}:{sSrData:any, nonce:any}) => {
-
    return (
           <ClientOnly>
             <React.Suspense fallback={<Box sx={{sx}} />}>

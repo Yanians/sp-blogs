@@ -9,7 +9,8 @@ import './index.css';
 import '@docsearch/css';
 import 'prismjs/themes/prism-tomorrow.css';
 import ScrollToTop from "./components/ScrollToTop";
-
+import ScrollRestoration from './components/ScrollRestoration';
+import LoaderCss from "./components/Loader";
 const nonce = document.querySelector('style[name="client_extraction"]')?.getAttribute('nonce') ?? undefined;
 
 const root = document.getElementById("root")!;
@@ -18,12 +19,12 @@ const root = document.getElementById("root")!;
               <ErrorBoundary>
                   <Provider store={store}>
                     <BrowserRouter> 
-                      <ScrollToTop />
-                        <Suspense fallback={<div>Loading...</div>}>
-                          <App sSrData={window.__PRELOADED_STATE__} nonce={nonce} />
-                        </Suspense>   
+                     <ScrollToTop />
+                      {/* <ScrollRestoration /> */}
+                       <App sSrData={window.__PRELOADED_STATE__} nonce={nonce} />
                     </BrowserRouter>        
                   </Provider> 
+                       <LoaderCss />
                 </ErrorBoundary>   
             </React.StrictMode>
 

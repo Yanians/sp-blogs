@@ -1,10 +1,10 @@
 ---
 title: Layout Projects to Help You Master Modern CSS
 description: On this post you will be able to find out Insights from manual setup of React frameworks and Let's take some give aways to be more effective and well verses ..
-authors: ['Ken-Beltran']
+authors: ['Ken Beltran']
 card: true
 date: May 31, 2020
-image:<img src="/1587003186vscode-extensions-300x170.png" width="120" height="120" style="margin-bottom: 3rem;" alt="profile-image" />
+image: 1587003186vscode-extensions-300x170.png
 tags: ['CSS']
 ---
 

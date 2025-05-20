@@ -1,30 +1,32 @@
 //@ts-ignore
 import * as React from 'react';
-import Toolbar from '@mui/material/Toolbar';
-import { Header, EdgeTrigger } from '../../../../src/mui-treasury/layout-core-v5';
-import Directives from '../components/lib/directives';
-import DarkModeIcon from '@mui/icons-material/DarkMode';
-import LightModeIcon from '@mui/icons-material/LightMode';
-import { IconButton } from '@mui/material';
-import ListItemSecondaryAction from '@mui/material/ListItemSecondaryAction';
+import MuiToolbar from '@mui/material/Toolbar';
+import { Header, EdgeTrigger, useLayoutCtx, } from '../../../../src/mui-treasury/layout-core-v5';
+import { Button, ButtonGroup, IconButton, } from '@mui/material';
 import { useColorSchemeShim, useChangeTheme } from '../utils';
-import ListItemButton from '@mui/material/ListItemButton';
 import Menu from '@mui/icons-material/Menu';
+import HeaderTabs from '../components/HeaderTabs';
 import BlogSearch from '../components/BlogSearch';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
+import NewspaperIcon from '@mui/icons-material/Newspaper';
+import Box from '@mui/material/Box';
+import ArticleIcon from '@mui/icons-material/Article';
 import ThemeToggleButton from '../components/toggleComponent/toggleModeButton';
 import { useDocSearchKeyboardEvents } from '@docsearch/react';
 import ToggleButton from '../components/toggleComponent/ToggleButton';
 import { useMediaQuery } from '@mui/system';
+import Tabs from '@mui/material/Tab';
+
+ import { buttonGroupClasses } from '@mui/material/ButtonGroup';
+
 import { styled, useColorScheme } from '@mui/material/styles';
-import { useTheme, } from '@mui/material/styles';
+import { brandingLightThemes as lightTheme, brandingDarkThemes as darkTheme } from '../utils/brandingTheme';
+import { useTheme, alpha, } from '@mui/material/styles';
 import WithFont from '../components/lib/WithTextStyles';
 import { useNavigate } from 'react-router-dom';
 
   const TextHeader = WithFont;
   const HeaderButton = WithFont;
-
+  const TabsModified = WithFont;
 interface ROUTEPROPS {
       link?: ROUTEPROPS[],
         id?: number;
@@ -41,42 +43,57 @@ export const pages: readonly ROUTEPROPS[] = [
         icon: 'HomeIcon',
         link: [
             { name:'/home'},
-            { name:'/news'},
             { name:'/blogs'},
-            { name:'/tooling'},
             { name:'/management'},
-            { name:'/projects'},
-            { name:'/documentation',title:'Guides & understanding',}
           ]
   }    
 ];
 
-  const Root = styled('div')(({ theme })=>({
-  '& .MuiPaper-root':{
-    color:theme.palette.background.paper,
-    background:'MediumSeaGreen url("/circles-white-gradient.png") no-repeat fixed center',
-    backgroundBlendMode: 'lighten',
-    width:'100%',
-  }
-  }));
+const HeaderStyle = styled(Header)(({theme})=>({
+
+}))
+
+
+const StyledToolbar = styled(MuiToolbar)(({ theme }) => ({
+  alignItems: 'flex-start',
+  paddingTop: theme.spacing(1),
+  paddingBottom: theme.spacing(2),
+  // Override media queries injected by theme.mixins.toolbar
+  '@media all': {
+    minHeight: 128,
+  },
+}));
+
+  const tabMenu = [
+    {
+      name:'Blogs',
+      icon:<NewspaperIcon fontSize='small' />,
+    },
+    {
+      name:'News',
+      icon:<ArticleIcon fontSize='small' />,
+    }
+  ]
 
 export default function Headers({sSrData}:{sSrData:any[],}){
-    const { ListItemStyle } = Directives();
+
+  const { state:{leftEdgeSidebar,rightEdgeSidebar},
+  toggleLeftSidebarOpen,
+  toggleRightSidebarOpen,
+ } = useLayoutCtx();
+
     const { mode, setMode } = useColorSchemeShim();
     const dispatch = useChangeTheme();
-    const [isOpen, setIsOpen] = React.useState(false);
+    const [state, setState ] = React.useState({
+      setStateTabs:0,
+      openLeft:false,
+    });
+    const [isOpen, setIsOpen ] = React.useState(false);
     const Navigate = useNavigate();
     const theme = useTheme();
     const { setMode:setModes } = useColorScheme();
     const mdDown = useMediaQuery(theme.breakpoints.down('md'),{noSsr:false})     
-
-    type buttonprops = {searchButtonRef?:HTMLButtonElement,toggleMode?:boolean};
-
-    const [state, setState ] = React.useState<buttonprops>({
-       toggleMode:false,
-       //@ts-ignore
-       searchButtonRef:null,
-    })
+    const searchButtonRef = React.useRef(null);
 
       const handleClick=(event:any)=>{
             const name = event.target.textContent;
@@ -101,68 +118,106 @@ export default function Headers({sSrData}:{sSrData:any[],}){
      }
 
      const handleChangeMode = () => {
-      console.log('I ma triggered!')
-      const nextMode = mode === 'light' ? 'dark' : 'light';
+      const nextMode = mode === 'dark' ? 'light' : 'dark';
       console.log(nextMode);
          setMode(nextMode); // sets 'mui-mode' and triggers calculatedMode effect
          setModes(nextMode);
         dispatch({ type: 'CHANGE', payload: { paletteMode: nextMode } });
     };
-     
-      React.useEffect(()=>{
-      },[state.searchButtonRef])
-     
+
+    const handleChangeTabs=(event:React.SyntheticEvent, newValue:number)=> {
+           setState({...state, setStateTabs:newValue,})
+    }
+
          const onOpen = React.useCallback(() => {
-             setIsOpen(true);
-           }, [setIsOpen]);
+                     setIsOpen(true)
+           }, [isOpen]);
      
          const onClose = React.useCallback(() => {
-             setIsOpen(false); // DO NOT call setIsOpen inside a timeout (it causes scroll issue).
-           }, [setIsOpen]);
+                    setIsOpen(false)
+           }, [state]);
+
+        useDocSearchKeyboardEvents({
+          isOpen,
+          onOpen,
+          onClose,
+          searchButtonRef,
+        });
+
+  const { setStateTabs,openLeft, } = state;
+  console.log(setStateTabs);
+
+  const handleLeftSibarOpen=()=>{
+    setState({...state, openLeft:!openLeft,});
+        toggleLeftSidebarOpen();
+  }
 
   return (
-        <Root>
-          <Header>
-            <Toolbar variant='dense'>
-
-              <EdgeTrigger target={{ anchor: "left", field: "collapsed" }}>
-                    {(open, setOpen) => (
-                        <HeaderButton serve={IconButton} onClick={e=>setOpen(!open)}
-                          textContent={
-                            mdDown ? <Menu fontSize="small" sx={{color:open ? 'black':'inherit'}}  /> : null 
-                          }
-                        />
-                    )}
-
-    {/* : <ArrowLeft fontSize="small" sx={{color:open ? 'error.main':'inherit'}} />  */}
-              </EdgeTrigger>
-
-            <TextHeader component={"div"} sx={{flexGrow:1}} noWrap
-                          platino 
-                            variant='h6' 
-                            pumpkin types='typography' 
-                              textContent={"SP-Blogs"} />    
-                              <ToggleButton willOpen={onOpen} />
-                               <BlogSearch sSrData={sSrData} open={isOpen} onClose={onClose} />
+    <Box sx={{flexGrow:1,}} flexDirection={'row'}>
+      
+          <Header sx={{display:'flex', width:'inherit', height:'inherit',marginTop:5,}}>
+            <MuiToolbar>
+                    
+                      <EdgeTrigger target={{ anchor: "left", field: "collapsed" }}>
+                            {(open, setOpen) => (
+                                <HeaderButton serve={IconButton} onClick={e=>{
+                                     openLeft ? setOpen(!open):handleLeftSibarOpen();
+                                }}
+                                  textContent={
+                                    <Menu fontSize="small" color='inherit' /> 
+                                  }
+                                />
+                             )}
+                      </EdgeTrigger>
+                     
+                            <TextHeader sx={{flexGrow:1}} noWrap color='success'
+                              platino 
+                                mui
+                                variant='h6' 
+                                 types='typography' 
+                                  textContent={"SP-Blogs"} 
+                            />    
+                             <TabsModified  mui gadget textContent={
+                                <HeaderTabs value={setStateTabs} onChange={handleChangeTabs} tabs={
+                                   tabMenu.map((item,_)=>{
+                                      return (
+                                          <Tabs iconPosition='top'  label={item.name} icon={item.icon} />
+                                      )
+                                })
+                             } />
+                             } />
+                             <Box sx={{flexGrow:1}}  />
+                      
+                            <ToggleButton willOpen={onOpen} />
+                            <BlogSearch sSrData={sSrData} open={isOpen} onClose={onClose} />
+                         <Box sx={{flexGrow:1}}  />
+                          <ButtonGroup 
+                          // color={lightTheme.palette.mode === 'dark' ? "primary" : "secondary"}
+                          variant="outlined" aria-label="Basic button group" color="primary">
                               {
-                                mdDown ? null: pages.map((find) =>{
+                                mdDown ? null: pages.map((find) => {
                                     return find['link']?.map((path)=>{
                                       return (
-                                        <div key={path.name}>
-                                        <HeaderButton selected mui
-                                        disableTouchRipple size='small'
-                                              onClick={(e)=>handleClick(e)} 
-                                                  serve={ListItemButton} alignItems='center' 
-                                                    textContent={`${path.name?.replace(/\//g, '')}`}
-                                            />
-                                      </div>     
-                                      )
+                                            <div key={path.name}>   
+                                                     <Button 
+                                                     sx={{ 
+                                                      textAlign: 'center',
+                                                      color:alpha((lightTheme.vars || theme).palette.primaryDark[900],.99),   
+                                                     }}
+                                                       onClick={(e)=>handleClick(e)}>
+                                                          {path.name?.replace(/\//g, '')}
+                                                      </Button> 
+                                            </div>     
+                                         )
                                     })
                                 })
                               }
-                              <ThemeToggleButton  handleChangeMode={handleChangeMode} mode={mode}/>
-              </Toolbar>
-          </Header>
-        </Root>   
+                         </ButtonGroup>    
+                        <Box sx={{flexGrow:1}}  />
+                            <ThemeToggleButton  handleChangeMode={handleChangeMode} mode={mode}/>
+                </MuiToolbar>   
+            </Header>
+          </Box>            
+      
   )
 }

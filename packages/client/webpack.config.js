@@ -74,41 +74,41 @@ module.exports = {
               },
             ]
           },   
-            {
-                test: /\.(js|tsx|ts|mjs)$/,
-                exclude: [/node_modules/, /\.md$/],  // <-- Exclude Markdown files from Babel],
-                use:{
-                    loader:"babel-loader",
-                    options:{
-                      // sourceType:'mabiguos',
-                      plugins:[
-                        [
-                          'babel-plugin-module-resolver',
-                          {
-                            alias:{
-                         '@treasury': path.resolve(__dirname, '../../src/mui-treasury/layout-core-v5'),
-                              '@lib': path.resolve(__dirname, './src/components/lib'),
-                           '@routes': path.resolve(__dirname, './src/routes'),
-                          '@marking': path.resolve(__dirname, '../extractorfile'),
-                  "@treasury-center": path.resolve(__dirname, "../../src/mui-treasury"),
-                           '@client': path.resolve(__dirname, './src'),
-                           "@imagedir": path.resolve(__dirname, './public/images'),
-                            }
+          {
+              test: /\.(js|tsx|ts|mjs)$/,
+              exclude: [/node_modules/, /\.md$/],  // <-- Exclude Markdown files from Babel],
+              use:{
+                  loader:"babel-loader",
+                  options:{
+                    // sourceType:'mabiguos',
+                    plugins:[
+                      [
+                        'babel-plugin-module-resolver',
+                        {
+                          alias:{
+                        '@treasury': path.resolve(__dirname, '../../src/mui-treasury/layout-core-v5'),
+                            '@lib': path.resolve(__dirname, './src/components/lib'),
+                          '@routes': path.resolve(__dirname, './src/routes'),
+                        '@marking': path.resolve(__dirname, '../extractorfile'),
+                "@treasury-center": path.resolve(__dirname, "../../src/mui-treasury"),
+                          '@client': path.resolve(__dirname, './src'),
+                          "@imagedir": path.resolve(__dirname, './public/images'),
                           }
-                        ]
-                      ],
-                      presets:[
-                        "@babel/preset-env",
-                        "@babel/preset-react",
-                        "@babel/preset-typescript"
-                        ]
-                    },
-                }  
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader','postcss-loader'],
-            }
+                        }
+                      ]
+                    ],
+                    presets:[
+                      "@babel/preset-env",
+                      "@babel/preset-react",
+                      "@babel/preset-typescript"
+                      ]
+                  },
+              }  
+          },
+          {
+              test: /\.css$/,
+              use: ['style-loader', 'css-loader','postcss-loader'],
+          }
         ],
     },
 

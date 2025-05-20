@@ -4,7 +4,9 @@ import { CacheProvider } from '@emotion/react';
 
 import CssBaseline from '@mui/material/CssBaseline';
 
-import { getDesignTokens, getThemedComponents, getMetaThemeColor } from './brandingTheme';
+import { getDesignTokens, getThemedComponent, getThemedComponents, getMetaThemeColor } from './brandingTheme';
+
+import { Theme } from '@mui/material/styles';
 
 import { deepmerge } from '@mui/utils';
 
@@ -16,7 +18,6 @@ import {
   StyledEngineProvider, 
   createTheme as createMdTheme,
   Experimental_CssVarsProvider as CssVarsProvider,
-  // experimental_extendTheme as extendTheme,
   extendTheme,
   createColorScheme,
   PaletteColorOptions,
@@ -28,21 +29,32 @@ import palette from './palette';
 
 import shape from './shape';
 
-import typography from './typography';
+import { surfacesCustomizations } from './surfaceCustomization';
+
+import { dataDisplayCustomizations} from './ListItemDataDisplay'
+
+import { inputsCustomizations } from './InputOvierrides';
+
+import { feedbackCustomizations } from './feedbackUrl';
+
+import { navigationCustomizations } from './navigationOverrides';
+
+// import typography from './typography';
 
 import GlobalStyles from './globalStyles';
 
 import breakpoints from './breakpoints';
 
-import shadows,{ customShadows } from './shadows';
+import { colorSchemes } from './primitiveTheme';
 
-import ComponentsOverride from './overrides';
+import shadows,{ customShadows } from './shadows';
 
 import CreateEmotionCache from './createEmotionCache';
 
 import { unstable_useEnhancedEffect as useEnhancedEffect } from '@mui/material/utils';
 
 import CookieVariantProvider from './helpers/CookieVariants';
+
 import InitColorSchemeScript from '@mui/system/InitColorSchemeScript';
 
 declare module '@mui/material/styles' {
@@ -58,7 +70,15 @@ interface configProps {
     nonce?:any;
 };
 
-const themeInitialOptions = {
+interface themeProps{
+  dense?:boolean;
+  direction?:string;
+  paletteColors?: any;
+  spacing?:number;
+  paletteMode?:string;
+};
+
+const themeInitialOptions:themeProps = {
     dense: false,
     direction: 'ltr',
     paletteColors: {},
@@ -156,7 +176,7 @@ if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
 
   export default function ThemeConfig({ children, nonce}: configProps){
     
-  const [themeOption, dispatch] = React.useReducer((state, action) => {
+  const [themeOption, dispatch] = React.useReducer((state:any, action:any) => {
     switch (action.type) {
       case 'SET_SPACING':
         return {
@@ -166,19 +186,19 @@ if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
       case 'INCREASE_SPACING': {
         return {
           ...state,
-          spacing: state.spacing + 1,
+          spacing: state?.spacing + 1,
         };
       }
       case 'DECREASE_SPACING': {
         return {
           ...state,
-          spacing: state.spacing - 1,
+          spacing: state?.spacing - 1,
         };
       }
       case 'SET_DENSE':
         return {
           ...state,
-          dense: action.payload,
+          dense: action?.payload,
         };
       case 'RESET_DENSITY':
         return {
@@ -255,6 +275,7 @@ if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
     const theme = React.useMemo(() => {
        const { palette: lightPalette, typography, ...designTokens } = getDesignTokens('light');
        const { palette: darkPalette } = getDesignTokens('dark');
+
         const brandingDesignTokens = getDesignTokens(paletteMode);
         const nextPalette = deepmerge(brandingDesignTokens.palette, paletteColors);
   
@@ -267,7 +288,7 @@ if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
               palette: darkPalette,
             },
           },
-          ...designTokens,
+          // ...designTokens,
           typography: deepmerge(typography, {
             h1: {
               ':where([data-mui-color-scheme="dark"]) &': {
@@ -292,12 +313,12 @@ if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
           {
             direction,
             ...brandingDesignTokens,
+            ...themeOptin,
             cssVariables: {
-              cssVarPrefix: 'muidocs',
+              cssVarPrefix: 'tres-paylas-theme',
               colorSchemeSelector: 'data-mui-color-scheme',
             },
-            ...themeOptin,
-            
+            ...colorSchemes,
             palette: {
               ...nextPalette,
               mode: paletteMode,
@@ -311,7 +332,7 @@ if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
             },
             spacing,
           },
-          dense ? highDensity : null,
+          dense ? highDensity : null as any,
           {
             components: {
               MuiCssBaseline: {
@@ -320,22 +341,22 @@ if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
                   enableColorScheme: true,
                 },
               },
+              ...surfacesCustomizations,
+              ...feedbackCustomizations,
+              ...dataDisplayCustomizations,
+              ...inputsCustomizations,
+              ...navigationCustomizations,
             },
           },
-          {customShadows,paletteMode, breakpoints, palette, shape, typography, shadows, GlobalStyles,}
+          {customShadows, paletteMode, breakpoints, palette, shape, typography, shadows, GlobalStyles,}
           
         ): extendTheme({
-          cssVarPrefix: 'muidocs',
+          cssVarPrefix: 'mui-scheme-overrides',
           colorSchemeSelector: 'data-mui-color-scheme',
           ...themeOptin,
           direction,
           ...brandingDesignTokens,
-          // palette: {
-          //   ...nextPalette,
-          //   mode: paletteMode,
-          // },
           // v5 migration
-          //@ts-ignore
           props: {
             MuiBadge: {
               overlap: 'rectangular',
@@ -343,6 +364,7 @@ if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
           },
           spacing,
         },  
+        //@ts-ignore
         dense ? highDensity : null,
         {
           components: {
@@ -354,26 +376,20 @@ if (typeof process !== 'undefined' && process.env.NODE_ENV !== 'production') {
             },
           },
         },
-        {customShadows,paletteMode, breakpoints, palette, shape, typography, shadows, GlobalStyles,}
-        )  
+      )  
             nextTheme = deepmerge(nextTheme, getThemedComponents());
         //  getThemedComponents()
       return nextTheme;
-  }, [dense,direction,customShadows, breakpoints, palette,shape, typography, shadows, GlobalStyles, paletteColors, spacing,]
+  }, [ dense, direction, customShadows, breakpoints, palette,shape, shadows, GlobalStyles, paletteColors, spacing,]
 );
 
-const ThemeVarsProvider = typeof createColorScheme === 'function' ? ThemeProvider : CssVarsProvider;
-const isCssVars = ThemeVarsProvider === CssVarsProvider;
-
-// theme.components = ComponentsOverride(theme);    
-
+console.log(theme);
 React.useEffect(() => {
      //@ts-ignore
        window.theme = theme;
        //@ts-ignore
        window.createTheme = createMdTheme;
   }, [theme]);
-
   
   const cache = CreateEmotionCache(nonce);  //client Side
 
@@ -382,19 +398,20 @@ React.useEffect(() => {
           <CacheProvider value={cache}> 
           <InitColorSchemeScript 
                      attribute="data" 
-                        modeStorageKey="mui-mode" 
-                        colorSchemeStorageKey="mui-mode"   
+                        modeStorageKey="tres-paylas-mode" 
+                        colorSchemeStorageKey="tres-paylas-mode"   
                            nonce={nonce}/>
-              <ThemeVarsProvider theme={theme} colorSchemeStorageKey="mui-mode" 
-              //  {...(isCssVars ? { attribute: 'data', element: 'html' } : {})} // ✅ safe prop spread
+              <ThemeProvider 
+                  theme={theme} 
+                   colorSchemeStorageKey="mui-mode" 
               > 
-               <StyledEngineProvider injectFirst>  
-                 <DispatchContext.Provider value={dispatch}>
-                    <CssBaseline />
-                      {children}
-                  </DispatchContext.Provider>        
-               </StyledEngineProvider>
-             </ThemeVarsProvider>   
+                  <StyledEngineProvider injectFirst>  
+                      <DispatchContext.Provider value={dispatch}>
+                        <CssBaseline enableColorScheme />
+                          {children}
+                      </DispatchContext.Provider>        
+                  </StyledEngineProvider>
+              </ThemeProvider>   
           </CacheProvider> 
       </CookieVariantProvider>
    )             
@@ -428,3 +445,4 @@ export function useColorSchemeShim() {
       setMode,
     };
   }
+

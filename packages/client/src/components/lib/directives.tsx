@@ -6,7 +6,6 @@ import ListItemButton, { ListItemButtonProps} from '@mui/material/ListItemButton
 import { ButtonProps } from '@mui/material/Button';
 import InputBase from '@mui/material/InputBase';
 import { LinkProps, Link } from 'react-router-dom';
-import { brandingLightThemes as lightTheme} from 'src/utils/brandingTheme';
 // export interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
 //     specialProp?: string;
 // }

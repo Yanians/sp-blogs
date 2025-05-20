@@ -1,8 +1,9 @@
 ---
 title: Introducing Axios, a Popular, Promise-based HTTP Client
 description: Making HTTP requests to fetch or save data is one of the most common tasks a client-side JavaScript application will need to do. Third-party libraries — especially jQuery — have long been a popular way to interact with the more verbose browser APIs, and abstract away any cross-browser differences.
-authors: ['Arthur-Mckaski']
+authors: ['Arthur Mckaski']
 date: June 8, 2018
+image: 1633674699css-typewriter-effect-300x170.jpg 
 tags: ['SERVERSIDE']
 ---
 

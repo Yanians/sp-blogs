@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Outlet, } from "react-router-dom";
 import MarkdownElement from "../blog/components/markdownElement";
 
 export function slugify(text: string): string {
@@ -13,11 +13,8 @@ export function slugify(text: string): string {
 const BlogDetail = (props:any) => {
     const {sSrData } = props;
   const { title } = useParams();
-  console.log('I am in the blog details page: ',title)
   const post = sSrData.find((find:any)=>find.title === title);
-
   if (!post) return <div>Post not found</div>;
-
   return (
     <div>
       <h1>{post.title}</h1>

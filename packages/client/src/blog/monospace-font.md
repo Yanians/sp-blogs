@@ -1,8 +1,9 @@
 ---
 title: The Best Free Monospace Fonts for Developers, Compared
 description: There’s nothing you’ll spend more time looking at, and you should consider this as important as choosing the right peripherals for your work setup, Graphical limitations are the reason monospace fonts first featured in computing, but they’re still used in text editors today because of their readability. Let’s take a look at the high-quality, free monospace fonts that have been designed for developers and help you make the right call for you.
-authors: ['Awnt_Devercov']
+authors: ['Awnt Devercov']
 date: Dec 16, 2024
+image: 1689949302out-0-300x200.png
 card: true
 tags: ['WEB']
 ---

@@ -450,8 +450,8 @@ function render(markdown) {
       }
 
       // Remove links to avoid nested links in the TOCs
-      // let headingText = headingHtml.replace(/---[\d\w\r\n]([\s\S]*)[\r\n]---/,'').replace(/<a\b[^>]*>/gi, '').replace(/<\/a>/gi, '');
-      let headingText = headingHtml.replace(/<a\b[^>]*>/gi, '').replace(/<\/a>/gi, '');
+      let headingText = headingHtml.replace(/---[\d\w\r\n]([\s\S]*)[\r\n]---/,'').replace(/<a\b[^>]*>/gi, '').replace(/<\/a>/gi, '');
+      // let headingText = headingHtml.replace(/<a\b[^>]*>/gi, '').replace(/<\/a>/gi, '');
       // Remove `code` tags
       headingText = headingText.replace(/<code\b[^>]*>/gi, '').replace(/<\/code>/gi, '');
       

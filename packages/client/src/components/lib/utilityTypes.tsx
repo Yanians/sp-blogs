@@ -2,8 +2,10 @@ import * as React from 'react';
 import Typography,{ TypographyProps } from '@mui/material/Typography';
 import Box, { BoxProps } from '@mui/material/Box';
 import { CSSObject } from '@emotion/react';
+import { Link, LinkProps } from 'react-router-dom';
+import Button, {ButtonProps} from '@mui/material/Button';
 import Paper, { PaperProps } from '@mui/material/Paper';
-import TextField, { TextFieldProps, TextFieldVariants } from '@mui/material/TextField';
+import TextField, { TextFieldProps, } from '@mui/material/TextField';
 import Card, { CardProps } from '@mui/material/Card'
 import type * as CSS from 'csstype';
 // combine all the props
@@ -25,11 +27,13 @@ type CopyPropsFromOriginalComponent<OriginalComponent extends React.ElementType>
       & TextFieldProps
       & CardProps
       & PaperProps
+      & ButtonProps
+      & LinkProps
       & BoxProps;
 
 interface ConditionalProps {
     variant?: 'filled'|'outlined'|'standard' | undefined;
-  condition?: 'typography'|'box'|'textfield'|'card' | 'paper' | undefined;
+  condition?: 'typography'|'box'|'textfield'|'card' | 'paper' | 'button' | 'link' | undefined;
 };
 
 interface AddedProps extends ConditionalProps {
@@ -44,8 +48,12 @@ export function PassThrough<Component extends React.ElementType>
       variant,
       add:Component = 'div',
       condition,
+      basename,
+      to,
       style, 
-      ...rest } = props;
+      ...rest 
+    } = props;
+
       switch(condition){
         case 'typography' :{
           return <Typography {...rest}>{children}</Typography>
@@ -56,14 +64,18 @@ export function PassThrough<Component extends React.ElementType>
         case 'box':{
           return <Box {...rest}>{children}</Box>
         }
-
-        case 'box':{
+        case 'paper':{
           return <Paper {...rest}>{children}</Paper>
         }
         case 'card':{
           return <Card {...rest}>{children}</Card>
         }
-         
+        case 'button':{
+          return <Button {...rest}>{children}</Button>
+        }
+         case 'link':{
+          return <Link {...rest} to={to} basename={basename}>{children}</Link>
+        }
         default:{
           return <Component {...rest} style={style}>{children}</Component>
         }
@@ -144,12 +156,12 @@ export const Cards = (
 /******************************************************************/     
 
 /*******************>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
-   function Button(props:{as:React.ElementType<any>, children:React.ReactNode}){
+   function Buttons(props:{as:React.ElementType<any>, children:React.ReactNode}){
         const { as: Component, children, ...rest } = props;
         return <Component {...rest}>{children}</Component>;
     }
 
-    <Button as={Typography}>click me</Button>
+    <Buttons as={Typography}>click me</Buttons>
     
    export const withPropsInheritance = <
     C extends React.ComponentType<any>, 
@@ -180,16 +192,18 @@ const ShadowsProps = <
     '2px 2px 2px grey':props.shadow3grey,
   }
 
-     const activeFont = Object.entries(shadows).find(([_, isEnabled]) => isEnabled)?.[0];
-    return (<Component 
-    {...defaults}
-    {...rest}
-    style={{
-      ...style,
-      ...(activeFont ? { textShadow: activeFont } : {}),
-    }}
-     />
-  );
+  const activeFont = Object.entries(shadows).find(([_, isEnabled]) => isEnabled)?.[0];
+
+    return (
+        <Component 
+          {...defaults}
+          {...rest}
+          style={{
+            ...style,
+            ...(activeFont ? { textShadow: activeFont } : {}),
+          }}
+        />
+   );
 } 
 
   WrappedComponent.displayName = `(${Component.displayName || Component.name || "Component"})`;
@@ -205,12 +219,12 @@ interface ReactGlobalProps {
   children?:React.ReactNode;
 };
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonPropses extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   style: React.CSSProperties;
   children: React.ReactNode;
 }
 
-export function Buttonis({style, children}:ButtonProps){
+export function Buttonis({style, children}:ButtonPropses){
   return <button style={style}>{children}</button>
 }
 

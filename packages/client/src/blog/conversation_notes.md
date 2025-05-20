@@ -1,8 +1,9 @@
 ---
 title: Summary of Project SP-Blogs Documentation
 description: Working on MONOREPO projects,
-authors: ['Tres-Paylas']
+authors: ['Tres Paylas']
 date: May 5, 2025
+image: 1666146542google-auth-react-express-300x170.jpg
 tags: ['LATEST-TRENDS']
 ---
 

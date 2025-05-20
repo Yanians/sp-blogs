@@ -1,14 +1,15 @@
 ---
 title: Build a Dynamic 3D Map with WRLD 3D
 description: his table ensures consistent module resolution across your tooling setup.
-authors: ['Tres-Paylas']
+authors: ['Tres Paylas']
 date: May 6, 2025
+image: 1628748448wordpress-markdown-plugins-300x170.png 
 tags: ['LATEST-TRENDS']
 ---
 
 # 📦 Alias Reference Table (TypeScript, Webpack, Babel)
 
-This table ensures consistent module resolution across your tooling setup.
+This table ensures consistent module resolution across tooling setup.
 
 | **Alias Name**     | **TypeScript (`tsconfig.json`)**                                      | **Webpack (`resolve.alias`)**                                              | **Babel (`module-resolver`)**                                         |
 |--------------------|------------------------------------------------------------------------|-----------------------------------------------------------------------------|------------------------------------------------------------------------|

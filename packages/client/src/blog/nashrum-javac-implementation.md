@@ -1,8 +1,9 @@
 ---
 title: Introducing the Nashorn JavaScript Engine
 description: Nashorn is a new JavaScript engine developed in the Java programming language by Oracle, released with Java 8. Nashorn’s goal is to implement a lightweight high-performance JavaScript runtime in Java with a native JVM. By making use of Nashorn, the developer can embed JavaScript in a Java application and also invoke Java methods and classes from the JavaScript code.
-authors: ['Jean-De-Leon']
+authors: ['Jean De Leon']
 date: September 9, 2014
+image: 1690154474css-aspect-ratio-300x170.jpg
 tags: ['JAVASCRIPT']
 ---
 

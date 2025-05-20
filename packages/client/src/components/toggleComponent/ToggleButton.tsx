@@ -1,6 +1,7 @@
 
 import * as React from 'react';
 import  SearchIcon  from '@mui/icons-material/Search';
+import { brandingLightThemes as lightTheme, brandingDarkThemes as darkTheme } from '../../utils/brandingTheme';
 import { styled, alpha } from '@mui/material/styles';
 import { useDocSearchKeyboardEvents } from '@docsearch/react';
 
@@ -22,10 +23,10 @@ import { useDocSearchKeyboardEvents } from '@docsearch/react';
         },
       },
       position: 'relative',
-      backgroundColor: alpha(theme.palette.grey[50], 0.6),
-      fontFamily: theme.typography.fontFamily,
+      backgroundColor: alpha(darkTheme.palette.success.dark, 0.9),
+      fontFamily: theme.typography.fontFamilyCode,
       fontSize: theme.typography.pxToRem(14),
-      color: (theme.vars || theme).palette.text.secondary,
+      color: (theme.vars || theme).palette.secondary.dark,
       border: `1px solid ${(theme.vars || theme).palette.grey[200]}`,
       borderRadius: (theme.vars || theme).shape.borderRadius,
       cursor: 'pointer',
@@ -42,13 +43,13 @@ import { useDocSearchKeyboardEvents } from '@docsearch/react';
         outlineOffset: '1px',
       },
     },
-    theme.applyStyles('dark',{
-      backgroundColor: alpha(theme.palette.primary.dark, 0.4),
-      borderColor: alpha(theme.palette.grey[500], 0.4),
-      boxShadow: `${alpha(theme.palette.grey[400], 0.4)} 0 1px 0 inset, ${(theme.vars || theme).palette.common.black} 0 -1px 0 inset, ${(theme.vars || theme).palette.common.black} 0 1px 2px 0`,
+    theme.applyDarkStyles({
+      backgroundColor: alpha(theme.palette.info.dark, 0.9),
+      borderColor: alpha(theme.palette.info[100], 0.5),
+      boxShadow: `${alpha(theme.palette.primaryDark[600], 0.1)} 0 1px 0 inset, ${(theme.vars || theme).palette.common.black} 0 -1px 0 inset, ${(theme.vars || theme).palette.common.black} 0 1px 2px 0`,
       '&:hover': {
-        background: (theme.vars || theme).palette.secondary,
-        borderColor: (theme.vars || theme).palette.grey[700],
+        background: (theme.vars || theme).palette.info.dark,
+        borderColor: (theme.vars || theme).palette.primaryDark[600],
         boxShadow: 'none',
       },
     }),

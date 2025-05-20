@@ -11,7 +11,7 @@
     "babel-server": "cross-env NODE_ENV=development babel ./dist/types --out-dir ./dist/server/babel --extensions '.ts,.tsx,.d.ts,.css' --copy-files --watch",
     "build:type-check": "type-check && cross-env NODE_ENV=development  webpack ./webpack.config.js --watch",
     "build": "cross-env NODE_ENV=development npx webpack  --config  ./webpack.config.js --progress --watch",
-    "dev": "cross-env NODE_ENV=production nodemon --exec ts-node ./src/server.tsx",
+    "dev": "cross-env NODE_ENV=development nodemon --exec ts-node ./src/server.tsx",
     "tsnode-dev": "cross-env NODE_ENV=development ts-node-dev --respawn --transpile-only ./src/server.tsx",
     "start": "cross-env NODE_ENV=development node ./dist/types/packages/server/src/server.js --watch",
     "watch": "cross-env NODE_ENV=development nodemon --exec ts-node ./src/server.tsx --watch"

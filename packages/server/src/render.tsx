@@ -32,11 +32,10 @@ export function renderFullPage(markup:string, emotionCss: string, scriptTags:str
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
-        />    
-
+        />   
   </head>
   <body>
-    <div id="root">${markup}</div>
+    <div id="root">${markup}</div>  
       <script>
         /**
          * 
@@ -45,8 +44,6 @@ export function renderFullPage(markup:string, emotionCss: string, scriptTags:str
          * 
          **/ 
             window.__PRELOADED_STATE__ = ${JSON.stringify(allBlogPost).replace(/</g, "\\u003c")};
-            window.theme;
-            window.createTheme;
       </script>
     ${scriptTags}
   </body>

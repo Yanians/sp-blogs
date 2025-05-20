@@ -1,8 +1,9 @@
 ---
 title: Mongoose guides provide detailed tutorials on Mongoose's core concepts and integrating Mongoose with external tools and frameworks.
 description: Nightly versions are published regardless of testing outcome, This means there could be semantic breakages or partially implemented features The nightly build is not suitable for production use.
-authors: ['AYAN-FERNANDEZ']
+authors: ['Ayan Fernandez']
 date: April 29, 2025
+image: 1684206206range-slider-custom-300x170.jpg
 tags: ['LATEST-TRENDS']
 ---
 

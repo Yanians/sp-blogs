@@ -1,9 +1,10 @@
 ---
 title: How to Use SSL/TLS with Node.js and production environment
 description: The HTTP/2 specification was published as RFC 7540 in May 2015, which means at this point it’s a part of the standard. This was a major milestone. Now we can all upgrade our servers to use HTTP/2. One of the most important aspects is the backwards compatibility with HTTP 1.1 and the negotiation mechanism to choose a different protocol. Although the standard doesn’t specify mandatory encryption, currently no browser supports HTTP/2 unencrypted. This gives HTTPS another boost. Finally we’ll get HTTPS everywhere!
-authors: ['Tres-Paylas']
+authors: ['Tres Paylas']
 card: true
 date: April 9, 2024
+image: 1697771763node-vs-dotnetcore-300x197.jpg
 tags: ['NODEJS']
 ---
 

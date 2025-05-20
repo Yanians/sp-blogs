@@ -1,9 +1,10 @@
 ---
 title: What are Cubic Bézier Curves?
 description: The article “How to Create Complex Paths in SVGs” examined the <path> element and showed how to draw a series of lines and arcs to create any shape. (It’s often used to replicate fonts without requiring a full font download.)
-authors: ['Craig-Butler']
+authors: ['Craig Butler']
 card: true
 date: Dec 8, 2022
+image: 1679985173google-fonts-font-display-300x170.jpg 
 tags: ['HTML-CSS']
 ---
 

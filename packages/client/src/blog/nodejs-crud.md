@@ -1,9 +1,10 @@
 ---
 title: Run a Node.js CRUD App Using React and FeathersJS
 description: The popular way of building a server-side API is to use Node.js with a library like Express or Restify. These libraries make creating RESTful routes easy. The problem with these libraries is that we’ll find ourselves writing a ton of repetitive code. We’ll also need to write code for authorization and other middleware logic.
-authors: ['Ryan-Sebastian']
+authors: ['Ryan Sebastian']
 card: true
 date: October 6, 2023
+image: 1692605052pagination-300x170.jpg
 tags: ['TOOLING']
 ---
 
