@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: sp-blogs-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    rootDir: packages/server
+    autoDeploy: true
