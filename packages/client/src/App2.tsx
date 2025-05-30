@@ -5,7 +5,7 @@ import { Routes, Route, } from 'react-router-dom';
 import Layout from './layout/Layout';
 import Home from './components/Home';
 import GettingStarted from './blog/components/GettingStarted';
-import BlogDetail from './components/BlogDetails';
+import BlogDetail from './blog/components/BlogDetails';
 import MainRoute from "./routes/MainRoute";
 import Page404 from "./components/Page404";
 import { Routes, Route, } from 'react-router-dom';

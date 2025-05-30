@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
-import { InsetSidebar } from '../../../../src/mui-treasury/layout-core-v5';
+import { InsetSidebar } from '../mui-treasury/layout-core-v5';
 
 export default function InsetSideBars(){
     return (

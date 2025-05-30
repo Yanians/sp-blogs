@@ -6,30 +6,40 @@
     "noEmit":true,
     "rootDir": "./src",
     "baseUrl": ".", // Required for paths to work
+    "typeRoots": ["node_modules/@types"],
+    "paths":{
+    "@treasury/*": ["src/mui-treasury/layout-core-v5/*"],
+    "@lib": ["src/components/lib/index.ts"],
+    "@lib/*": ["src/components/lib/*"],
+    "@routes/*": ["src/routes/*"],
+    "@toggleComponent/*": ["src/components/toggleComponent/*"],
+    "@loader/marking": ["../extractorfile/index.js"],
+    "@marking/*": ["../extractorfile/*"],
+    "@treasury-center/*": ["../../src/mui-treasury/*"],
+    "@client/*": ["src/*"],
+    "@imagedir/*": ["../public/static/images/blogs_images/*"]
   },
-  // "path":{
-  //   "@treasury/*": ["../../src/mui-treasury/layout-core-v5/"],
-  //   "@lib/*": ["src/components/lib/"],
-  //   "@routes/*": ["src/routes/"],
-  //   "@toggleComponent/*": ["src/components/toggleComponent/*"],
-  //   "@loader/marking": ["../extractorfile/index.js"],
-  //   "@marking/*": ["../extractorfile/*"],
-  //   "@treasury-center/*": ["../../src/mui-treasury/"],
-  //   "@client/*": ["src/"],
-  //   "@imagedir/*": ["public/images/"]
-  // },
+    "skipLibCheck": true,
     "moduleResolution":"node",
     "module": "ESNext",
     "target": "ESNext",
+    "diagnostics": false,
     "importHelpers": true,
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
+    "esModuleInterop": true,
     "isolatedModules": true,
     "resolveJsonModule": true,
+  },
     "include": ["src","../utils","./public"],
-"exclude": [
-  "node_modules",
-  "../../extractorfile",
-  "./src/redux"
-],
+    "exclude": [
+      "node_modules",
+       "dist",
+        "build",
+        ".next",
+        "coverage",
+        "public", // if large
+        "**/*.test.ts",
+        "**/__tests__/**"
+    ],
 }

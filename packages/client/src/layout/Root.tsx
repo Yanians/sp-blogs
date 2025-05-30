@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Scheme } from "../../../../src/mui-treasury/layout-core-v5/Root/Root";
-import { Root as Roots, getStandardScheme }  from "../../../../src/mui-treasury/layout-core-v5";
+import { Scheme } from "../mui-treasury/layout-core-v5/Root/Root";
+import { Root as Roots, getStandardScheme }  from "../mui-treasury/layout-core-v5";
 import { styled } from '@mui/material/styles';
 import { ForkLeft } from "@mui/icons-material";
 import { Collapse } from "@mui/material";

@@ -1,9 +1,9 @@
 
 import * as React from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
 import Avatar from "@mui/material/Avatar";
 import  Stack from '@mui/material/Stack';
-import { slugify } from '../../components/BlogSearch';
+import { slugify } from '../../components/searchComponents/BlogSearch';
 import AvatarChip from '../../components/toggleComponent/AvatarChip';
 import { withStyles } from '@mui/styles';
 import { useTheme } from '@mui/material/styles';
@@ -11,6 +11,7 @@ import withTextStyles from '../../components/lib/WithTextStyles';
 import { authored } from './LayoutBlog';
 import { styled, createTheme,alpha, } from "@mui/material/styles";
 import {brandingLightThemes as lightTheme, } from '../../utils/brandingTheme'
+import { PassThrough } from "../../components/lib/utilityTypes";
 import BlogCard from './BlogSingleCard';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -18,6 +19,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { Divider, } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
+const ModifiedButton = PassThrough;
 const TextLink = withTextStyles;
 const ModifiedLink = withTextStyles;
 
@@ -51,18 +53,30 @@ interface COUNTPROPS {
   numberOfBlogs?:number;
 }
 
+interface routeProps {
+  imageDir?: {
+    id?:string,
+    blogImage?:string,
+  },
+  [key:string]:any;
+}
+
 function GettingStarted(props:any){
     const { sSrData } = props;
     const { blogsId, title, name, } = useParams();
     const location = useLocation();
+    const Navigate = useNavigate();
+    const [routeMeta, setRouteMeta ] = React.useState<null | routeProps>(null);
     const stored:any[] = [];
     const [state, setState] = React.useState<[key:string] | COUNTPROPS>({
        counting:[sSrData?.map((item:any)=>item = stored.push(item.title))],
     }) as COUNTPROPS as any;
-
+const handleClick=(value:string)=>{
+    Navigate(value);
+    console.log(value);
+}
     const theme = useTheme();
     const smDown = useMediaQuery(theme.breakpoints.down('sm'), {noSsr:true})
-
        if(blogsId){
           return <Outlet />
        } else if(location.pathname === `/blogs/${title}/searchId`){
@@ -95,32 +109,48 @@ function GettingStarted(props:any){
                                       <CoverImgStyle 
                                         sx={{ width:190, height:110}}
                                           alt={content.title} 
-                                            src={`/${content?.image}`}
+                                            src={`${content.image}`}
                                             />
                                   <Divider component={'div'} variant='middle' orientation='horizontal' sx={{pt:1,}}/>
                                <Stack direction={"column"} spacing={smDown ? 1 : 2 } sx={{pt:smDown ? 1 : 2}}> 
-                                  <ModifiedLink serve={Link} className='link-tags'
-                                  to={`${content?.tags}`}
-                                  href={`#${slugify(content.title)}/${content.authors.find((author:string)=>author)}`}
+                                  <ModifiedButton condition='button' className='link-tags'
+                                  to="#"
+                                  onClick={()=> handleClick(`${slugify(content.title)}/searchId`)}
                                   color="primary"
-                                    textContent={
+                                   sx={{
+                                            border:'none',
+                                            content:"''",
+                                            cursor:'pointer',
+                                            pointerEvents:'visible',
+                                            margin:'0 0 0',
+                                            textDecoration:'none',
+                                            background:'transparent',
+                                            backgroundColor:'transparent',
+                                            color:lightTheme.palette.success[700],
+                                            '& :hover':{
+                                            background:'transparent',
+                                            backgroundColor:'transparent',
+                                            textDecoration:'underline',
+                                            color:lightTheme.palette.success[700],
+                                            fontFamily:(theme:any)=>({fontFamily:theme.typography.fontFamilyCode}),
+                                            fontVariantCaps:'titling-caps',
+                                            fontFeatureSettings:'initial',
+                                            fontWeight:'bold',
+                                            fontStyle:'italic',
+                                            }
+                                      }}
+                                  >
                                     <TextLink types="typography" color='error' gadget variant='h5' innocent
                                       textContent={`${content.title}`}
-                                       sx={{
-                                        '& :hover':{
-                                          textDecoration:'italic',
-                                        },
-                                        textDecoration:'none'}}
                                        />
-                                  }     
-                                  /> 
+                                  </ModifiedButton> 
                                   <Stack direction={'row'} spacing={2} >
                                      <ModifiedLink types='typography' gadget textContent={`By: `+authored[slugify(content.authors.find(author=>author))].name} 
                                               color='info' variant='caption' sx={{letterSpacing:1,}} />
                                      <AvatarChip
                                         tags={content.tags}
-                                         img={authored[slugify(content.authors.find((author:string)=>author))].avatar} 
-                                         link={`${slugify(content.title)}/searchId`}
+                                         img={authored[slugify(content.authors.find(author=>author))].avatar} 
+                                         link={`${slugify(content.tags.find((tag:string)=>tag))}/${slugify(content.authors.find((name:string)=>name))}/profile`}
                                         altTitle={content.tags}
                                   />
                                   </Stack>

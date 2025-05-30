@@ -1,9 +1,9 @@
 
 import * as React from 'react';
-import { Content as Contents, InsetContainer, } from "../../../../src/mui-treasury/layout-core-v5";
+import { Content as Contents, InsetContainer, } from "../mui-treasury/layout-core-v5";
 
 import Container from '@mui/material/Container';
-import { InsetSidebar } from '../../../../src/mui-treasury/layout-core-v5';
+import { InsetSidebar } from '../mui-treasury/layout-core-v5';
 import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useMediaQuery} from '@mui/system';
 import { useTheme } from '@mui/material/styles';

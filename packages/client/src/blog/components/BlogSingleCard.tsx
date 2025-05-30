@@ -11,7 +11,7 @@ import { useMediaQuery } from '@mui/system';
 // material
 import { alpha, styled, useTheme } from '@mui/material/styles';
 
-import { slugify } from '../../components/BlogSearch';
+import { slugify } from '../../components/searchComponents/BlogSearch';
 
 import { Box, Card, Grid, Avatar, Typography, CardContent } from '@mui/material';
 import Link, { LinkProps } from '@mui/material/Link'

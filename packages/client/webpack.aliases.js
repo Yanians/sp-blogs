@@ -10,5 +10,6 @@ module.exports  =  {
              '@marking': path.resolve(__dirname, '../extractorfile/*'),
      "@treasury-center": path.resolve(__dirname, "../../src/mui-treasury/"),
               '@client': path.resolve(__dirname, 'src/'),
-            "@imagedir": path.resolve(__dirname, './public/images/'),
+            "@imagedir": path.resolve(__dirname, './public/static/images/'),
+  extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
   };

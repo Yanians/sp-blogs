@@ -417,6 +417,12 @@ React.useEffect(() => {
    )             
 } 
 
+export const dbImgCover = (index:any) => `../../static/mock-images/covers/cover_${index}.jpg`;
+
+export const dbImgProduct = (index:any) => `../../static/video-rental/images/movie_${index}.png`;
+
+export const dbImgAvatar = (index:any) => `../../static/mock-images/avatars/avatar_${index}.jpg`;
+
 export function useChangeTheme() {
     const dispatch = React.useContext(DispatchContext);
     return React.useCallback((options: any) => dispatch({ type: 'CHANGE', payload: options }), [dispatch]);

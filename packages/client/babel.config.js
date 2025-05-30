@@ -12,26 +12,28 @@ function resolvePath(sourcePath, currentFile, opts) {
 }
 
 const alias = {
-  '@treasury': path.resolve(__dirname, '../../src/mui-treasury/layout-core-v5/'),
+  '@treasury': path.resolve(__dirname, './src/mui-treasury/layout-core-v5/'),
   '@lib': path.resolve(__dirname, './src/components/lib/'),
   '@routes': path.resolve(__dirname, './src/routes/'),
   '@loader/marking': path.resolve(__dirname, '../extractorfile/index.js'),
-  '@treasury-center': path.resolve(__dirname, '../../src/mui-treasury/'),
+  '@treasury-center': path.resolve(__dirname, './src/mui-treasury/'),
   '@client': path.resolve(__dirname, './src'),  // Alias for the client folder
-  '@imagedir': path.resolve(__dirname, './pulic/images/'),
+  '@imagedir': path.resolve(__dirname, './pulic/static/images'),
   '@marking': path.resolve(__dirname, '../extractorfile/'),  // Alias for markdown extractor files
 };
 
-const { version: transformRuntimeVersion } = fse.readJSONSync(
-  require.resolve('@babel/runtime-corejs2/package.json')
-);
+// const { version: transformRuntimeVersion } = fse.readJSONSync(
+//   require.resolve('@babel/runtime-corejs2/package.json')
+// );
 
 module.exports = {
   presets: [
     [
       '@babel/preset-env', // ECMAScript features
       {
-        targets: '> 0.25%, not dead',
+         targets: '> 0.25%, not dead',
+         useBuiltIns: "usage",
+         corejs: 3
       },
     ],
     [
@@ -43,11 +45,13 @@ module.exports = {
     '@babel/preset-typescript', // TypeScript support
   ],
   plugins: [
-    ["@babel/plugin-transform-runtime", { regenerator: true }], // ✅ Correct placement
+    ["@babel/plugin-transform-runtime", { corejs: 3, regenerator: true }], // ✅ Correct placement
     [
       'babel-plugin-module-resolver',
       {
-        alias,
+        alias:{
+          ...alias,
+        },
         transformFunctions: ['require', 'require.context'],
         resolvePath,
         extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],

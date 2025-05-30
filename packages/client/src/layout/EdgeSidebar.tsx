@@ -10,7 +10,7 @@ import {
     useLayoutCtx, 
     SidebarContent, 
     EdgeTrigger,
- } from "../../../../src/mui-treasury/layout-core-v5";
+ } from "../mui-treasury/layout-core-v5";
  
 import withFonts from '../components/lib/WithTextStyles';
 import * as Invoker from './Header';
@@ -20,6 +20,7 @@ import { Avatar, Box, ButtonBase, List } from '@mui/material';
 import { PassThrough } from '../components/lib/utilityTypes';
 
 const HeaderButton = withFonts;
+
 interface EdgeProps {
     sSrData?:any;
 }
@@ -47,6 +48,8 @@ const TriggerUsingHook=(props:EdgeProps)=>{
       toggleRightSidebarOpen,
       toggleLeftSidebarCollapsed,
       toggleRightSidebarCollapsed,
+      setOpen,
+      setCollapsed,
   } = useLayoutCtx();
 
   const [ state, setState ] = React.useState({
@@ -240,6 +243,7 @@ const handleClick = (event: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
 }
 
 export default function EdgeSideBar(props:EdgeProps){
+  
   const { sSrData } = props;
   const theme = useTheme();
   const mdUp = useMediaQuery(theme.breakpoints.up('md'),{noSsr:true});

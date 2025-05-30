@@ -13,12 +13,12 @@ module.exports = {
     },
     resolve: {
          fallback: {
-             "path": false,
-              "cwd": false,
-          "process": false,
-              "url": false,
-               "fs": false,
-    "fileUrlToPath": false,
+    //          "path": false,
+    //           "cwd": false,
+    //       "process": false,
+    //           "url": false,
+    //            "fs": false,
+    // "fileUrlToPath": false,
        
         },
         extensions: [".tsx", ".ts", ".js",".md",".mjs"],
@@ -31,11 +31,8 @@ module.exports = {
               '@client': path.resolve(__dirname, 'src'),
               "@images": path.resolve(__dirname, './public/images'),
                  "path": false,
-              "process": false,
-                  "cwd": false,
                   "url": false,
                    "fs": false,
-        "fileUrlToPath": false,
           
           }
     },
@@ -50,7 +47,7 @@ module.exports = {
                 resourceQuery: /@loader\/marking/,
                 use: [
                   {
-                    loader:require.resolve("../extractorfile/loader.mjs"),
+                    loader:require.resolve("../extractorfile/loader.js"),
                     options: {
                       pedantic: false, // Loosen markdown parsing rules
                       gfm: true, // GitHub Flavored Markdown

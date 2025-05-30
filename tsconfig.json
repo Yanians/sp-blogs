@@ -19,7 +19,7 @@
       "@reduxsrc/*": ["packages/client/src/redux/reducers/*"],
       "@client/*": ["packages/client/src/*"],
       "@toggleComponent": ["packages/client/src/components/toggleComponent/*"],
-      "@imagedir/*": ["packages/client/src/public/images/*"],
+      "@imagedir/*": ["packages/client/src/public/static/images/*"],
       "@extractorfile/*": ["packages/extractorfile/*"],
       "@loader/marking/*": ["packages/extractorfile/loader"],
       "@components/*": ["packages/client/src/components/*"]
@@ -35,12 +35,12 @@
     "experimentalDecorators": true,
 
   },
-  "include": [
-    "packages/client/src",
-    "packages/server/src",
-    "mui_lib", 
-    "packages/extractorfile"
-  ],
+  "include": [],
+  "references": [
+  { "path": "packages/client" },
+  { "path": "packages/server" },
+  { "path": "packages/extractorfile" }
+],
    "exclude":[
     "node_modules",
     "src/mui-treasury",

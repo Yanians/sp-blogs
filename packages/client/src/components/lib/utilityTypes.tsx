@@ -4,6 +4,7 @@ import Box, { BoxProps } from '@mui/material/Box';
 import { CSSObject } from '@emotion/react';
 import { Link, LinkProps } from 'react-router-dom';
 import Button, {ButtonProps} from '@mui/material/Button';
+import { IconProps } from '@mui/material/Icon';
 import Paper, { PaperProps } from '@mui/material/Paper';
 import TextField, { TextFieldProps, } from '@mui/material/TextField';
 import Card, { CardProps } from '@mui/material/Card'
@@ -22,14 +23,15 @@ type OriginalProps<OriginalComponent extends React.ElementType> = {
 
 type CopyPropsFromOriginalComponent<OriginalComponent extends React.ElementType> = 
      OriginalProps<OriginalComponent>
-      & AddedProps 
-      & TypographyProps 
-      & TextFieldProps
-      & CardProps
-      & PaperProps
-      & ButtonProps
+      & Omit<AddedProps, "to"> 
+      & Omit<TypographyProps, "to"> 
+      & Omit<TextFieldProps, "to"> 
+      & Omit<CardProps, "to"> 
+      & Omit<PaperProps, "to"> 
+      & Omit<ButtonProps, "to"> 
+      & Omit<BoxProps, "to"> 
+      & Omit<IconProps, "to"> 
       & LinkProps
-      & BoxProps;
 
 interface ConditionalProps {
     variant?: 'filled'|'outlined'|'standard' | undefined;

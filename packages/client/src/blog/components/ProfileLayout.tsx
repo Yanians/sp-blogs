@@ -7,7 +7,7 @@ import { useMediaQuery } from '@mui/system';
 import { brandingDarkThemes as darkTheme, brandingLightThemes as lightTheme } from '../../utils/brandingTheme';
 import { authored } from './LayoutBlog';
 import { CoverImgStyle } from './GettingStarted';
-import { slugify } from '../../components/BlogSearch';
+import { slugify } from '../../components/searchComponents/BlogSearch';
 import AvatarChip from '../../components/toggleComponent/AvatarChip';
 import withTextStyles from '../../components/lib/WithTextStyles';
 import { PassThrough } from '../../components/lib/utilityTypes';
@@ -150,6 +150,7 @@ function Profile({sSrData}:{sSrData:any[]}){
     const theme = useTheme();
     const smDown = useMediaQuery(theme.breakpoints.down('md'),{noSsr:true});
     console.log(name)
+    
     const handleClick=(value:any)=>{
          Navigate(`/blogs/${value}`)
     }

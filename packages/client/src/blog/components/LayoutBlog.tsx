@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import withTextStyles from '../../components/lib/WithTextStyles';
 import { styled } from '@mui/system';
 import { withStyles } from '@mui/styles';
+// import * as Img1  from '@imagedir/blogs_images/1707845731YccofxHOkc1gSycdBiCh9MMfgdNxk3et1eGwK2OO1U6lrVZJB-out-0-300x225.png';
 import MarkdownElement from './markdownElement';
 import { GithubIcon, LinkedinIcon, TwitterIcon } from '../../components/lib/svg/customIcons';
 
@@ -47,7 +48,7 @@ export const authored = {
           or user groups. You can find his blog at florian-rappl.de.
       `,
       name: 'Tressy Paylas',
-      avatar: '/m7.jpg',
+      avatar: '../../../static/images/profiles/m7.jpg',
       img:'/1707845731YccofxHOkc1gSycdBiCh9MMfgdNxk3et1eGwK2OO1U6lrVZJB-out-0-300x225.png',
 
       socialAccount:[

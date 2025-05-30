@@ -11,17 +11,57 @@ import Page404 from "../components/Page404";
 import BlogWithCards from '../blog/components/BlogWithCards';
 import { Routes, Route, } from 'react-router-dom';
 import  BlogsOverview  from '../blog/components/BlogsOverview';
+import Authentication from '../redirect';
 import EdgeSideBar from './EdgeSidebar';
 import Content from './Content';
-import BlogDetail from '../components/BlogDetails';
-import Dashboard from '../components/dashboard/Dashboard';
-import Profile from '../blog/components/pages/ProfilePage';
-import PhotographyImage from '../components/PhotographyGrid';
-export default function Layout({ sSrData }: { sSrData: any[],}) {
-  const location = useLocation();
-  const { title, name, } = useParams();
 
-  console.log(name);
+import { styled  } from "@mui/material/styles";
+
+import BlogDetail from '../blog/components/BlogDetails';
+import Profile from '../blog/components/pages/ProfilePage';
+import Registration from '../authentication/Register';
+import PhotographyImage from '../components/PhotographyGrid';
+
+const AuthenticationWrapper = styled('div')(({theme})=>({
+   '& .body, .html ':{
+      margin: 0,
+    padding: 0,
+    height: '100%',
+   },
+
+   '& .registration-container':{
+    display: 'table',
+    width: '50%',
+    margin: '0 auto',
+    height: '100vh',
+    }, 
+  '& .registration-content': {
+    display: 'table-cell',
+    verticalAlign: 'middle',
+    textAlign: 'center',
+  }
+}))
+
+export default function Layout({ sSrData }: { sSrData: any[],}) {
+const location = useLocation();
+   
+   if(location.pathname.includes('/authentication')){
+      return(
+        <AuthenticationWrapper>
+         <div className="html">
+           <div  className="body">
+              <div className="registration-container">
+                  <div className="registration-content">
+                    <Routes>
+                      <Route path="authentication" element={<Registration />} />
+                    </Routes>
+                  </div>
+              </div>
+           </div>
+         </div> 
+        </AuthenticationWrapper>
+      )
+   }
 
   return (
             <Root>
@@ -34,6 +74,7 @@ export default function Layout({ sSrData }: { sSrData: any[],}) {
                        <Routes>
                          <Route index path="/" element={<MainRoute />} />
                          <Route path="home" element={<Home />} />
+                         <Route path="/redirecting" element={<Authentication />} />
                          <Route path="photography" element={<PhotographyImage sSrData={sSrData} />} />
                          <Route path="blog-card" element={<BlogWithCards posts={sSrData} />} />
                          {/* <Route path="management" element={<Dashboard />} /> */}

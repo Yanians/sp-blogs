@@ -1,7 +1,6 @@
 /**
 ** DO NOT MODIFY CONFIGURATION HERE THIS IS STABLE UNLESS YOU ARE AUTHORIZED
 **/
-
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
@@ -12,7 +11,9 @@
     "allowSyntheticDefaultImports": true,
     // "allowImportingTsExtensions": true,
     // "importHelpers": true,
+    "skipLibCheck": true,
     "esModuleInterop": true,
+    "typeRoots": ["node_modules/@types"],
     "paths": {
      "src/*": ["src/*"],
       "@reduxsrc/*": ["packages/client/src/redux/reducers/*"],
@@ -21,14 +22,7 @@
     }
   },
   "include": [
-    "./src/*",
-    "./webpack/*",
-    // "../client/src",
-    "**/*.ts",
-    "**/*.tsx",
-  //  "module.js",
-  //  "paths.js",
-   "../mui_lib", "../extractorfile/markdownRenderer.tsx", "../extractorfile/mark.js"
+    "src",
   ],
   "exclude": [
     "node_modules",

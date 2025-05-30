@@ -10,7 +10,7 @@ import '@docsearch/css';
 import 'prismjs/themes/prism-tomorrow.css';
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollRestoration from './components/ScrollRestoration';
-import LoaderCss from "./components/Loader";
+// import LoaderCss from "./components/Loader";
 const nonce = document.querySelector('style[name="client_extraction"]')?.getAttribute('nonce') ?? undefined;
 
 const root = document.getElementById("root")!;
@@ -24,7 +24,7 @@ const root = document.getElementById("root")!;
                        <App sSrData={window.__PRELOADED_STATE__} nonce={nonce} />
                     </BrowserRouter>        
                   </Provider> 
-                       <LoaderCss />
+                       {/* <LoaderCss /> */}
                 </ErrorBoundary>   
             </React.StrictMode>
 
@@ -45,17 +45,17 @@ const root = document.getElementById("root")!;
 /***** THIS IS USED IN DEVELOPMENT */
 if(root){
     if(root.hasChildNodes()){
-      console.log('🚀 SSR scripts');
+       console.log('🚀 SSR scripts');
       React.startTransition(()=>{
           hydrateRoot(root, jsx);
       })
-      
-    } else {
+    } 
+    else {
       console.log('🚀 CSR scripts');
       console.log('first element inside body tag ',document.body.firstElementChild)
       const roots = createRoot(root!);
       roots.render(jsx);
     }
-  }else {
-    console.log('This page is from Client');
+  } else {
+      console.log('This page is from Client');
   }  

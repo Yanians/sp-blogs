@@ -1,5 +1,5 @@
-// import PropTypes from 'prop-types';
-// import { motion } from 'framer-motion';
+import PropTypes from 'prop-types';
+import { motion } from 'framer-motion';
 // material
 import Box  from '@mui/material/Box';
 //
@@ -17,10 +17,10 @@ export default function MotionContainer(props:MOTIONPROPS):React.JSX.Element {
     const { open, children,...rest } = props;
   return (
     <Box
-      component={'div'}
-      initial={false}
-      animate={open ? 'animate' : 'exit'}
-      variants={varWrapBoth}
+      // component={'div'}
+      // initial={false}
+      // animate={open ? 'animate' : 'exit'}
+      // variants={varWrapBoth}
       {...rest}
     >
       {children}

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import  { Footer as Footers } from '../../../../src/mui-treasury/layout-core-v5';
+import  { Footer as Footers } from '../mui-treasury/layout-core-v5';
 
 export default function Footer(){
     return (

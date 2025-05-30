@@ -1,12 +1,12 @@
 //@ts-ignore
 import * as React from 'react';
 import MuiToolbar from '@mui/material/Toolbar';
-import { Header, EdgeTrigger, useLayoutCtx, } from '../../../../src/mui-treasury/layout-core-v5';
+import { Header, EdgeTrigger, useLayoutCtx, } from '../mui-treasury/layout-core-v5';
 import { Button, ButtonGroup, IconButton, } from '@mui/material';
 import { useColorSchemeShim, useChangeTheme } from '../utils';
 import Menu from '@mui/icons-material/Menu';
 import HeaderTabs from '../components/HeaderTabs';
-import BlogSearch from '../components/BlogSearch';
+import BlogSearch from '../components/searchComponents/BlogSearch';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import Box from '@mui/material/Box';
 import ArticleIcon from '@mui/icons-material/Article';
@@ -179,9 +179,9 @@ export default function Headers({sSrData}:{sSrData:any[],}){
                             />    
                              <TabsModified  mui gadget textContent={
                                 <HeaderTabs value={setStateTabs} onChange={handleChangeTabs} tabs={
-                                   tabMenu.map((item,_)=>{
+                                   tabMenu.map((item, index)=>{
                                       return (
-                                          <Tabs iconPosition='top'  label={item.name} icon={item.icon} />
+                                             <Tabs key={index + 1} iconPosition='top'  label={item.name} icon={item.icon} />
                                       )
                                 })
                              } />
@@ -213,6 +213,8 @@ export default function Headers({sSrData}:{sSrData:any[],}){
                                 })
                               }
                          </ButtonGroup>    
+                         <Box sx={{flexGrow:1}}  />
+                           <Button color="inherit" onClick={()=>Navigate('/authentication')}>Login</Button>
                         <Box sx={{flexGrow:1}}  />
                             <ThemeToggleButton  handleChangeMode={handleChangeMode} mode={mode}/>
                 </MuiToolbar>   

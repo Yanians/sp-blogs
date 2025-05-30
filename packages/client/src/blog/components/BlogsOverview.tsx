@@ -8,7 +8,7 @@ import withTextStyles from '../../components/lib/WithTextStyles';
 import MarkdownElement from './markdownElement';
 import { authored } from './LayoutBlog';
 import Box from '@mui/material/Box';
-import { slugify } from '../../components/BlogSearch';
+import { slugify } from '../../components/searchComponents/BlogSearch';
 import { CoverImgStyle } from './GettingStarted';
 const TextBlogTitle = withTextStyles;
 const TextLink = withTextStyles;

@@ -115,7 +115,7 @@ svg.share-icon{
     position: absolute;
     left: 48%;
     top: 46%;
-    background: url("../public/images/logo/user-bg-2.html") no-repeat center center;
+    /* background: url("PUBLIC_URL/images/logo/user-bg-2.html") no-repeat center center; */
     z-index: 1001
 }
 .inner-grid-container {
