@@ -2,15 +2,17 @@
 import * as React from 'react';
 
 import Icon from '@mui/icons-material/Mood';
-import eyeFill from '@mui/icons-material/Visibility';
+import EyeFill from '@mui/icons-material/Visibility';
+import { slugify } from '../../components/searchComponents/BlogSearch';
 import { Link as RouterLink, LinkProps as RouterLinkProps} from 'react-router-dom';
-import shareFill from '@mui/icons-material/Share';
-import messageCircleFill from '@mui/icons-material/ForwardToInbox';
+import ShareFill from '@mui/icons-material/Share';
+import MessageCircleFill from '@mui/icons-material/ForwardToInbox';
 import { authored } from './LayoutBlog';
 // material
 import { alpha, styled, } from '@mui/material/styles';
 
 import { Box, Card, Grid, Avatar, Typography, CardContent } from '@mui/material';
+
 import Link, { LinkProps } from '@mui/material/Link'
 // utils
 import SvgIconStyle from './SvgIconStyle';
@@ -62,9 +64,9 @@ const CoverImgStyle = styled('img')({
 });
 
  const POST_INFO = [
-    { number: 1, icon: messageCircleFill },
-    { number: 2, icon: eyeFill },
-    { number: 3, icon: shareFill }
+    { number: 1, icon: <MessageCircleFill /> },
+    { number: 2, icon: <EyeFill />},
+    { number: 3, icon: <ShareFill /> }
   ];
 
 // ----------------------------------------------------------------------
@@ -81,8 +83,8 @@ export default function BlogPostCard(props:postProps) {
     const largeImage = index === 1 || index === 2;
 
   return (
-    <Grid size={{xs:12, sm:indexZero ? 12 :6, md: indexZero ? 6 : 3}}> 
-      <Card sx={{ position: 'relative' }}>
+    <Box sx={{xs:12, sm:indexZero ? 12 :6, md: indexZero ? 6 : 3, margin:1,}}> 
+      <Card elevation={1} sx={{ position: 'relative'}}>
         <CardMediaStyle
           sx={{
             ...((indexZero || largeImage) && {
@@ -122,8 +124,8 @@ export default function BlogPostCard(props:postProps) {
             }}
           />
           <AvatarStyle
-            alt={authored[data.authors.find((author:any)=>author)].avatar}
-            src={authored[data.authors.find((author:any)=>author)].avatar}
+            alt={authored[slugify(data.authors.find((author:any)=>author))].avatar}
+            src={authored[slugify(data.authors.find((author:any)=>author))].avatar}
             sx={{
               ...((indexZero || largeImage) && {
                 zIndex: 9,
@@ -135,7 +137,7 @@ export default function BlogPostCard(props:postProps) {
             }}
           />
 
-          <CoverImgStyle alt={data.title} src={authored[data.authors.find((author:any)=>author)].img} />
+          <CoverImgStyle alt={data.title} src={authored[slugify(data.authors.find((author:any)=>author))].img} />
         </CardMediaStyle>
 
         <CardContent
@@ -194,7 +196,7 @@ export default function BlogPostCard(props:postProps) {
           </InfoStyle>
         </CardContent>
       </Card>
-    </Grid>
+    </Box>
   );
 // });
 //  return output;  

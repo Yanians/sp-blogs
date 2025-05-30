@@ -8,6 +8,8 @@ import App from "./App";
 import './index.css';
 import '@docsearch/css';
 import 'prismjs/themes/prism-tomorrow.css';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollRestoration from './components/ScrollRestoration';
 // import LoaderCss from "./components/Loader";

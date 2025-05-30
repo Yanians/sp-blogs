@@ -18,11 +18,7 @@
     "build-server:webpack": "npm run build -w packages/server",
     "dev": "npm run dev -w packages/server",
     "tsnode": "npm run tsnode-dev -w packages/server",
-<<<<<<< HEAD
     "start": "npm run start -w packages/server",
-=======
-    "start": "node ./server.js",
->>>>>>> dffc120022bd2cc82714c24fc7b212bc5d969d46
     "watch": "npm run watch -w package/server && npm run watch -w packages/client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -38,6 +34,7 @@
     "@types/express": "^5.0.1",
     "@types/node": "^22.15.3",
     "@types/react": "^19.1.2",
+    "@types/react-slick": "^0.23.13",
     "@typescript-eslint/eslint-plugin": "^8.33.0",
     "@typescript-eslint/parser": "^8.33.0",
     "ajv": "^8.17.1",

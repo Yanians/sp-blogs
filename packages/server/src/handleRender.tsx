@@ -139,7 +139,6 @@ function OptionalDir(): string {
     const files = fs.readdirSync(typeofDir);
     const jsFiles = files.filter(file => file.endsWith(".js"));  
     return jsFiles.map(file => `<script src="/${file}" defer></script>`).join("\n");
-
   }
 
   export function HandleRender(req:Request, res:Response) {

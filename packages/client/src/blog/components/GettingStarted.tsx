@@ -12,12 +12,13 @@ import { authored } from './LayoutBlog';
 import { styled, createTheme,alpha, } from "@mui/material/styles";
 import {brandingLightThemes as lightTheme, } from '../../utils/brandingTheme'
 import { PassThrough } from "../../components/lib/utilityTypes";
-import BlogCard from './BlogSingleCard';
+import CarouselSlick from './CarouselSlick';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Divider, } from '@mui/material';
 import Typography from '@mui/material/Typography';
+import Carousel from './Carousel';
 
 const ModifiedButton = PassThrough;
 const TextLink = withTextStyles;
@@ -86,11 +87,9 @@ const handleClick=(value:string)=>{
 
     return (  
             <Root>
-                {/* <Grid container spacing={1}>
-                    {sSrData.map((item:any,index:number) => (
-                        <BlogCard data={item} index={index+1}/>           
-                    ))}
-                </Grid> */}
+              <Box sx={{ maxWidth: '100%', px: 4, mt: 4 }}>
+                <CarouselSlick item={sSrData} />           
+              </Box>   
            <Box sx={{
                       width:'100%',
                     display:'grid',

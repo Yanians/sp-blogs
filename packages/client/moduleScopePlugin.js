@@ -1,7 +1,7 @@
 
 'use strict';
 
-// const chalk = require('chalk');
+const chalk = require('chalk');
 const path = require('path');
 const os = require('os');
 
@@ -57,38 +57,38 @@ class ModuleScopePlugin {
             );
           })
         ) {
-        //   const scopeError = new Error(
-        //     `You attempted to import ${chalk.cyan(
-        //       request.__innerRequest_request
-        //     )} which falls outside of the project ${chalk.cyan(
-        //       'src/'
-        //     )} directory. ` +
-        //       `Relative imports outside of ${chalk.cyan(
-        //         'src/'
-        //       )} are not supported.` +
-        //       os.EOL +
-        //       `You can either move it inside ${chalk.cyan(
-        //         'src/'
-        //       )}, or add a symlink to it from project's ${chalk.cyan(
-        //         'node_modules/'
-        //       )}.`
-        //   );
-           const scopeError = new Error(
-            `You attempted to import ${
+          const scopeError = new Error(
+            `You attempted to import ${chalk.cyan(
               request.__innerRequest_request
-            } which falls outside of the project ${
+            )} which falls outside of the project ${chalk.cyan(
               'src/'
-            } directory. ` +
-              `Relative imports outside of ${
+            )} directory. ` +
+              `Relative imports outside of ${chalk.cyan(
                 'src/'
-              } are not supported.` +
+              )} are not supported.` +
               os.EOL +
-              `You can either move it inside ${
+              `You can either move it inside ${chalk.cyan(
                 'src/'
-              }, or add a symlink to it from project's ${
+              )}, or add a symlink to it from project's ${chalk.cyan(
                 'node_modules/'
-              }.`
+              )}.`
           );
+          //  const scopeError = new Error(
+          //   `You attempted to import ${
+          //     request.__innerRequest_request
+          //   } which falls outside of the project ${
+          //     'src/'
+          //   } directory. ` +
+          //     `Relative imports outside of ${
+          //       'src/'
+          //     } are not supported.` +
+          //     os.EOL +
+          //     `You can either move it inside ${
+          //       'src/'
+          //     }, or add a symlink to it from project's ${
+          //       'node_modules/'
+          //     }.`
+          // );
           Object.defineProperty(scopeError, '__module_scope_plugin', {
             value: true,
             writable: false,

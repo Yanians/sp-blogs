@@ -8,7 +8,7 @@ import Home from '../components/Home';
 import GettingStarted from '../blog/components/GettingStarted';
 import MainRoute from "../routes/MainRoute";
 import Page404 from "../components/Page404";
-import BlogWithCards from '../blog/components/BlogWithCards';
+import CarouselSlick from '../blog/components/CarouselSlick';
 import { Routes, Route, } from 'react-router-dom';
 import  BlogsOverview  from '../blog/components/BlogsOverview';
 import Authentication from '../redirect';
@@ -76,7 +76,6 @@ const location = useLocation();
                          <Route path="home" element={<Home />} />
                          <Route path="/redirecting" element={<Authentication />} />
                          <Route path="photography" element={<PhotographyImage sSrData={sSrData} />} />
-                         <Route path="blog-card" element={<BlogWithCards posts={sSrData} />} />
                          {/* <Route path="management" element={<Dashboard />} /> */}
                              <Route path="blogs" element={<GettingStarted sSrData={sSrData} />}>
                                   <Route path=":blogsId" element={<BlogsOverview sSrData={sSrData} />}>

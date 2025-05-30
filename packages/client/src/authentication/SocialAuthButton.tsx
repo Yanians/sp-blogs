@@ -1,5 +1,7 @@
 import React from 'react';
 import GoogleIcon from '@mui/icons-material/Google';
+import FacebookIcon from '@mui/icons-material/Facebook'
+import InstagramIcon from '@mui/icons-material/Instagram'
 import { Button, Box } from '@mui/material';
 import axios from 'axios';
 
@@ -28,6 +30,7 @@ const SocialAuthButtons = () => {
         variant="contained"
         color="primary"
         fullWidth
+        startIcon={<FacebookIcon />}
         href="http://localhost:5000/api/auth/facebook"
         sx={{ marginBottom: 1 }}
       >
@@ -37,6 +40,7 @@ const SocialAuthButtons = () => {
         variant="contained"
         color="primary"
         fullWidth
+        startIcon={<InstagramIcon />}
         href="http://localhost:5000/api/auth/instagram"
       >
         Login with Instagram
