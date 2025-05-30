@@ -26,10 +26,10 @@ We do not sell your personal data. We may share information with trusted service
 
 ## Your Rights
 
-You may request access to, correction, or deletion of your personal information. Contact us at [privacy@yourdomain.com](mailto:privacy@yourdomain.com) for any privacy-related inquiries.
+You may request access to, correction, or deletion of your personal information. Contact us at [paylastres@gmail.com](paylastres@gmail.com) for any privacy-related inquiries.
 
 ## Changes to This Privacy Policy
 
 We may update this Privacy Policy from time to time. We encourage you to review it periodically.
 
-If you have any questions about this policy, please contact us at [privacy@yourdomain.com](mailto:privacy@yourdomain.com).
+If you have any questions about this policy, please contact us at [paylastres@gmail.com](paylastres@gmail.com).
