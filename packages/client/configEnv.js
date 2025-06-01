@@ -80,7 +80,7 @@ module.exports = {
          appIndex: resolveModule(resolveApp, 'src/index'),
       appImageDir: resolveApp('public/static/images/'),
   appWebpackCache: resolveApp('node_modules/.cache'),
-         appBuild: resolveApp('../server/webpack'),
+         appBuild: resolveApp('dist'),
 appTsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
 moduleFileExtensions,
  publicUrlOrPath,

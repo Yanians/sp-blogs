@@ -13,7 +13,7 @@
     "serve": "cross-env NODE_ENV=development npx webpack serve  --config  ./webpack.config.js --progress",
     "lint:fix": "eslint ./src --ext .ts,.tsx --fix",
     "build:dev": "cross-env NODE_ENV=development webpack --config ./webpack.build.js --env $NODE_ENV --progress --watch",
-    "build:prod": "cross-env NODE_ENV=production webpack --config ./webpack.build.js --env $NODE_ENV --progress"
+    "build:prod": "cross-env NODE_ENV=production webpack --config ./webpack.build.js"
   },
   "keywords": [],
   "author": "",
