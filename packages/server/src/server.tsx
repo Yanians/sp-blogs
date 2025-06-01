@@ -11,25 +11,28 @@ import { WebSocketServer } from "ws";
 
 import dotenv from 'dotenv';
 dotenv.config({ path: './.env.local' }); // 👈 Load `.env.local`
+
 //4. Local imports (config/db/routes)
 import * as config from './config';
 import { connectDatabase } from './authentication/connect';
 
 import './authentication/passport-config'; // make sure this file is imported
 import './authentication/passportGoogle';
+import './authentication/passportFacebook';
+
 import apiRoute from './apiRoutes';
 import HandleRender from "./handleRender";
 
 //  5. Side-effect import: must be after passport and before routes
 
-
-
 const app = express();
 
-app.use((req, res, next) => {
-  console.log(`[${req.method}] ${req.url}`);
-  next();
-});
+//for debugging
+// app.use(express.urlencoded({ extended: true })); // Facebook sends form-urlencoded
+// app.use((req, res, next) => {
+//   console.log(`[${req.method}] ${req.url}`);
+//   next();
+// });
 
 app.use(compression());
 app.use(passport.initialize());

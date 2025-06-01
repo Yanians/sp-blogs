@@ -1,32 +1,34 @@
 //@ts-ignore
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import MuiToolbar from '@mui/material/Toolbar';
 import { Header, EdgeTrigger, useLayoutCtx, } from '../mui-treasury/layout-core-v5';
 import { Button, ButtonGroup, IconButton, } from '@mui/material';
 import { useColorSchemeShim, useChangeTheme } from '../utils';
-import Menu from '@mui/icons-material/Menu';
 import HeaderTabs from '../components/HeaderTabs';
 import BlogSearch from '../components/searchComponents/BlogSearch';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import Box from '@mui/material/Box';
+import  MenuIcon from '@mui/icons-material/Menu';
 import ArticleIcon from '@mui/icons-material/Article';
 import ThemeToggleButton from '../components/toggleComponent/toggleModeButton';
 import { useDocSearchKeyboardEvents } from '@docsearch/react';
 import ToggleButton from '../components/toggleComponent/ToggleButton';
 import { useMediaQuery } from '@mui/system';
 import Tabs from '@mui/material/Tab';
-
- import { buttonGroupClasses } from '@mui/material/ButtonGroup';
-
+import UserAvatarMenu from '../components/UserAvatarMenu';
+import { UseAuth } from '../AuthContext';
 import { styled, useColorScheme } from '@mui/material/styles';
 import { brandingLightThemes as lightTheme, brandingDarkThemes as darkTheme } from '../utils/brandingTheme';
 import { useTheme, alpha, } from '@mui/material/styles';
 import WithFont from '../components/lib/WithTextStyles';
-import { useNavigate } from 'react-router-dom';
+import { SocialLogin } from '../utils/helpers/SocialLoginAccount';
+// import SocialLoginButton from '../utils/helpers/SocialLoginButton';
 
   const TextHeader = WithFont;
   const HeaderButton = WithFont;
   const TabsModified = WithFont;
+
 interface ROUTEPROPS {
       link?: ROUTEPROPS[],
         id?: number;
@@ -75,12 +77,22 @@ const StyledToolbar = styled(MuiToolbar)(({ theme }) => ({
     }
   ]
 
-export default function Headers({sSrData}:{sSrData:any[],}){
+  
+interface User {
+  name: string;
+  email: string;
+  photo: string;
+}
 
+export default function Headers(
+  { sSrData, onLogout }:
+  { sSrData: any[], onLogout?:()=>void } ){
+const navigate = useNavigate();
+const { user, login } = UseAuth();
   const { state:{leftEdgeSidebar,rightEdgeSidebar},
-  toggleLeftSidebarOpen,
-  toggleRightSidebarOpen,
- } = useLayoutCtx();
+   toggleLeftSidebarOpen,
+   toggleRightSidebarOpen,
+  } = useLayoutCtx();
 
     const { mode, setMode } = useColorSchemeShim();
     const dispatch = useChangeTheme();
@@ -88,12 +100,30 @@ export default function Headers({sSrData}:{sSrData:any[],}){
       setStateTabs:0,
       openLeft:false,
     });
+
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const [isOpen, setIsOpen ] = React.useState(false);
+    const [loginUser, setUser ] = React.useState<null | User>(null);
     const Navigate = useNavigate();
     const theme = useTheme();
     const { setMode:setModes } = useColorScheme();
     const mdDown = useMediaQuery(theme.breakpoints.down('md'),{noSsr:false})     
     const searchButtonRef = React.useRef(null);
+
+    React.useEffect(() => {
+          (async()=>{
+            try {
+                const res = await fetch('/api/auth/me', {
+                credentials: 'include', // important for cookies
+              });
+              if (!res.ok) throw new Error('Not logged in');
+              const { user } = await res.json();
+              setUser(user);
+            } catch (err) {
+              console.error(err);
+            }
+       });
+    }, []);
 
       const handleClick=(event:any)=>{
             const name = event.target.textContent;
@@ -116,6 +146,19 @@ export default function Headers({sSrData}:{sSrData:any[],}){
               Navigate(`${paths}`);
             }     
      }
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  }; 
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLogout = () => {
+    handleMenuClose();
+    // onLogout();
+  };
 
      const handleChangeMode = () => {
       const nextMode = mode === 'dark' ? 'light' : 'dark';
@@ -152,6 +195,8 @@ export default function Headers({sSrData}:{sSrData:any[],}){
         toggleLeftSidebarOpen();
   }
 
+  console.log(user);
+
   return (
     <Box sx={{flexGrow:1,}} flexDirection={'row'}>
       
@@ -164,7 +209,7 @@ export default function Headers({sSrData}:{sSrData:any[],}){
                                      openLeft ? setOpen(!open):handleLeftSibarOpen();
                                 }}
                                   textContent={
-                                    <Menu fontSize="small" color='inherit' /> 
+                                    <MenuIcon fontSize="small" color='inherit' /> 
                                   }
                                 />
                              )}
@@ -196,25 +241,28 @@ export default function Headers({sSrData}:{sSrData:any[],}){
                           variant="outlined" aria-label="Basic button group" color="primary">
                               {
                                 mdDown ? null: pages.map((find) => {
-                                    return find['link']?.map((path)=>{
-                                      return (
-                                            <div key={path.name}>   
-                                                     <Button 
-                                                     sx={{ 
-                                                      textAlign: 'center',
-                                                      color:alpha((lightTheme.vars || theme).palette.primaryDark[900],.99),   
-                                                     }}
-                                                       onClick={(e)=>handleClick(e)}>
-                                                          {path.name?.replace(/\//g, '')}
-                                                      </Button> 
-                                            </div>     
-                                         )
-                                    })
+                                  return find['link']?.map((path)=>{
+                                    return (
+                                        <div key={path.name}>   
+                                            <Button 
+                                            sx={{ 
+                                            textAlign: 'center',
+                                            color:alpha((lightTheme.vars || theme).palette.primaryDark[900],.99),   
+                                            }}
+                                              onClick={(e)=>handleClick(e)}>
+                                                {path.name?.replace(/\//g, '')}
+                                            </Button> 
+                                        </div>     
+                                      )
+                                  })
                                 })
                               }
                          </ButtonGroup>    
                          <Box sx={{flexGrow:1}}  />
-                           <Button color="inherit" onClick={()=>Navigate('/authentication')}>Login</Button>
+                          {user ? (
+                           <UserAvatarMenu />
+                          ):(<Button onClick={()=>Navigate('/authentication')}>Login</Button>)} 
+                          {/* <SocialLoginButton  onLogin={({user, token}) => login(user, token)}/>) */}
                         <Box sx={{flexGrow:1}}  />
                             <ThemeToggleButton  handleChangeMode={handleChangeMode} mode={mode}/>
                 </MuiToolbar>   

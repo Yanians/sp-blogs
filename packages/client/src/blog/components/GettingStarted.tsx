@@ -1,7 +1,6 @@
 
 import * as React from 'react';
 import { Link, Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
-import Avatar from "@mui/material/Avatar";
 import  Stack from '@mui/material/Stack';
 import { slugify } from '../../components/searchComponents/BlogSearch';
 import AvatarChip from '../../components/toggleComponent/AvatarChip';
@@ -13,12 +12,11 @@ import { styled, createTheme,alpha, } from "@mui/material/styles";
 import {brandingLightThemes as lightTheme, } from '../../utils/brandingTheme'
 import { PassThrough } from "../../components/lib/utilityTypes";
 import CarouselSlick from './CarouselSlick';
-import Grid from '@mui/material/Grid';
+import { UseAuth } from '../../AuthContext'
 import Box from '@mui/material/Box';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Divider, } from '@mui/material';
 import Typography from '@mui/material/Typography';
-import Carousel from './Carousel';
 
 const ModifiedButton = PassThrough;
 const TextLink = withTextStyles;
@@ -64,18 +62,21 @@ interface routeProps {
 
 function GettingStarted(props:any){
     const { sSrData } = props;
-    const { blogsId, title, name, } = useParams();
+    const { blogsId, title, } = useParams();
     const location = useLocation();
     const Navigate = useNavigate();
-    const [routeMeta, setRouteMeta ] = React.useState<null | routeProps>(null);
+    const { token } = UseAuth()
     const stored:any[] = [];
+
     const [state, setState] = React.useState<[key:string] | COUNTPROPS>({
        counting:[sSrData?.map((item:any)=>item = stored.push(item.title))],
     }) as COUNTPROPS as any;
-const handleClick=(value:string)=>{
-    Navigate(value);
-    console.log(value);
-}
+
+    const handleClick=(value:string)=>{
+        Navigate(value);
+        console.log(value);
+    }
+
     const theme = useTheme();
     const smDown = useMediaQuery(theme.breakpoints.down('sm'), {noSsr:true})
        if(blogsId){

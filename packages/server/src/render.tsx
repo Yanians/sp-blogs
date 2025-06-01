@@ -24,6 +24,8 @@ export function renderFullPage(markup:string, emotionCss: string, scriptTags:str
 <html lang="en">
   <head>
      <meta charset="UTF-8" />
+     <meta http-equiv="Cache-Control" content="no-store" />
+     <meta http-equiv="Pragma" content="no-cache" />
         <title>SP-BLOGS 2025 SSR MANUAL</title>
          ${emotionCss}
      <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />

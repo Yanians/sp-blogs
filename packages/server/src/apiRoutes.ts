@@ -1,26 +1,22 @@
 import cors from 'cors';
-import express, { Request, Response } from 'express'
+import express, { Request, Response,} from 'express'
+import crypto from 'crypto';
 import { connectClient } from './db';
-import { fileURLToPath } from 'url';
 import { v4 as uuidv4 } from "uuid";
-// import { authored } from './db';
-import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
+import  { protect }  from './authentication/requireAuth';
 import  User from './authentication/Registration';
 import Analytics from './authentication/Analytics';
 import passport from 'passport';
 import { generateToken } from './authentication/auth';
+import { 
+  passportGoogleCallbackHandler,
+  passportFacebookCallbackHandler,
+ } from './authentication/passportHandler';
+import AsyncHandler from './authentication/asyncHandler';
 const router = express.Router();
 router.use(cors());
 router.use(express.json());
-
-export const config = {
-  MONGO_URI: process.env.MONGO_URI,
-  API_BLOG_IMAGES: process.env.API_BLOG_IMAGES,
-  API_PROFILE_IMAGES: process.env.API_PROFILE_IMAGES,
-  API_SVG_IMAGES: process.env.API_SVG_IMAGES,
-  API_BACKGROUND_IMAGES: process.env.API_BACKGROUND_IMAGES,
-};
-
 
 router.get('/api/companies', async(req, res) => {
   //  get the data from MongoDB
@@ -58,25 +54,7 @@ router.get('/api/companies', async(req, res) => {
     console.warn('Error found! ', err);
   }
 });
-const id = Buffer.from(uuidv4()).toString("base64");
-
-router.get('/blogs/images', async (req, res) => {
-   const imageDir = {
-    id:id.split('').sort((a:string,b:string): any => a.length > b.length).join('').toString(),
-    blogImage:config.API_BLOG_IMAGES,
-    svgImage:config.API_SVG_IMAGES,
-    profileImage:config.API_PROFILE_IMAGES,
-    backgroundImage:config.API_BACKGROUND_IMAGES,
-   };  
-  // const client = await connectClient();
-  // const customers = await client.collection("companies")
-  //   .findOne({ name: req.params.name });
-  // res.send({ customers });
-
-    res.json({imageDir});
-
-  });
-
+// const id = Buffer.from(uuidv4()).toString("base64");
   interface RegisterRequestBody {
   firstName: string;
   lastName: string;
@@ -84,11 +62,7 @@ router.get('/blogs/images', async (req, res) => {
   password: string;
 }
 
-const asyncHandler = (fn:any) => (req:Request, res:Response, next:any) => {
-  Promise.resolve(fn(req, res, next)).catch(next);
-};
-
-router.post('/auth/register', asyncHandler(async (req:Request, res:Response) => {
+router.post('/auth/register', AsyncHandler(async (req:Request, res:Response) => {
   const { firstName, lastName, email, password } = req.body;
 console.log('Register body:', req.body);
 
@@ -107,17 +81,10 @@ console.log('Register body:', req.body);
   res.status(500).json({ message: "Database save failed" });
 }
 
- 
-
-    // console.error('Save failed:', error);
-    // res.status(500).send('Could not save user');
-
-    // res.status(201).json({ message: 'User registered successfully' });
-    // res.status(500).json({ message: 'Server error' }); // ✅ still safe
 }));
 
 
-// router.post('/auth/register', asyncHandler (async(req:Request, res:Response) => {
+// router.post('/auth/register', AsyncHandler (async(req:Request, res:Response) => {
 //   const { firstName, lastName, email, password } = req.body as any;
 // try{
 //     const client = await connectClient();
@@ -199,43 +166,138 @@ router.post(
 );
 
 // Google Login Route
-router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+router.get('/auth/google', (req,res, next) => {
+  // const secure = req.query.secure === 'true';
+      passport.authenticate('google', { 
+              session:false,
+             scope: ['profile', 'email'], 
+            prompt: 'login', 
+          })(req, res, next);
+})        
 
-router.get(
-  '/auth/google/callback',
-  passport.authenticate('google', { 
-    session: false,
-    failureRedirect:'/redirecting',
-   }),
-  (req:Request, res:Response) => {
-    const token = generateToken((req.user as any)?._id); //JWT generator
-    const redirectUrl = process.env.FRONTEND_SUCCESS_URL || 'http://localhost:5000/redirecting';
-    res.redirect(`${redirectUrl}?token=${token}`);
-  }
-);
-
-
-// Facebook Login Route
-router.get('/auth/facebook', passport.authenticate('facebook', { scope: 'email' }));
-
-router.get(
-  '/auth/facebook/callback',
-  passport.authenticate('facebook', { session: false }),
-  (req, res) => {
-    const token = generateToken(req.user._id);
-    res.redirect(`http://localhost:3000/login?token=${token}`);
-  }
-);
+router.get('/auth/google/callback', passportGoogleCallbackHandler);
+ 
 // Instagram Login Route
-router.get('/auth/instagram', passport.authenticate('instagram'));
+/**
+router.get('/auth/instagram', passport.authenticate('instagram',{ scope: ['user_profile', 'user_media', 'email'] }));
 router.get(
   '/auth/instagram/callback',
   passport.authenticate('instagram', { session: false }),
   (req, res) => {
-    const token = generateToken(req.user._id);
+    const token = generateToken(req?.user._id);
     res.redirect(`http://localhost:3000/login?token=${token}`);
   }
 );
+ */
+
+// Facebook Login Route
+router.get('/auth/facebook', (req, res, next)=>{
+  const authType = req.query.auth_type  === 'reauthenticate' ? 'reauthenticate' : 'rerequest';
+  const authenticate = passport.authenticate('facebook', {
+     scope: ['email'],
+     authType,
+     display:'popup',
+     } as any );
+  authenticate(req, res, next);
+})
+
+router.get('/auth/facebook/callback',passportFacebookCallbackHandler);
+  // passport.authenticate('facebook',
+  //   {
+  //     failureRedirect: '/authentication?error=login_failed',
+  //     // successRedirect: '/',  
+  //    session: false 
+  //   }
+  // ),
+  // AsyncHandler(async(req:Request, res:Response) => {
+  //    if (!req.user || !('_id' in req.user)) {
+  //     return res.redirect('/authentication?error=missing_user');
+  //     //  return res.status(401).json({ error: 'missing_user' });
+  //   }  
+  //     //  const token = generateToken((req.user as any)._id);
+  //     //  const user = req.user as any;
+  //       const token = generateToken(req.user._id);
+  //       const user = req.user as any;
+  //  res.json({
+  //     token,
+  //     user: {
+  //       name: user.name,
+  //       email: user.email,
+  //       photo: user.photo,
+  //     },
+  //   });
+
+  //   const html = `
+  //     <script>
+  //       window.opener.postMessage(${JSON.stringify(
+  //         { token, user: { name: user.name, email: user.email, photo: user.photo } },
+  //       )}, "*");
+  //       window.close();
+  //     </script>
+  //   `;
+  //   res.setHeader('Content-Type','text/html');
+  //   res.send(html);
+
+//     // const html = `
+//     //         <!DOCTYPE html>
+//     //         <html>
+//     //           <head><title>Authenticating...</title></head>
+//     //           <body>
+//     //             <script>
+//     //               (function () {
+//     //                 const data = ${JSON.stringify({
+//     //                   token,
+//     //                   user: { name: user.name, email: user.email, photo: user.photo },
+//     //                 })};
+
+//     //                 if (window.opener) {
+//     //                   window.opener.postMessage(data, ${process.env.REACT_APP_SERVER_URL});
+//     //                   window.close();
+//     //                 } else {
+//     //                   document.body.innerText = "Login successful. You can close this tab.";
+//     //                 }
+//     //               })();
+//     //             </script>
+//     //           </body>
+//     //         </html>
+//     //       `;
+//     // res.setHeader('Content-Type', 'text/html');
+//     // res.send(html);
+//   }
+// ));
+
+router.get('/auth/me', protect, AsyncHandler(async(req:Request, res:Response) => {
+  if (!req.user) {
+    return res.status(401).json({ message: 'Unauthorized' });
+  }
+  const user = req.user as unknown as {
+     name: string;
+    email: string;
+    photo: string;
+  };
+  res.json({ user });
+}));
+
+
+// router.get('/auth/me', AsyncHandler(async(req:Request, res:Response) => {
+//   const authHeader = req.headers.authorization;
+//   const token = authHeader?.split(' ')[1];
+
+//   if (!token) return res.status(401).json({ message: 'No token' });
+
+//   try {
+//     const decoded = jwt.verify(token, process.env.JWT_SECRET!) as { userId: string };
+//     const user = await User.findById(decoded.userId);
+//     if (!user) return res.status(404).json({ message: 'User not found' });
+
+//     res.json({ user:{
+//       name: req.user.email,
+//     } });
+//   } catch (err) {
+//     res.status(401).json({ message: 'Invalid token' });
+//   }
+// }));
+
 
 // Log a custom event
 router.post('/analytics/log-event', async (req, res) => {
@@ -245,6 +307,50 @@ router.post('/analytics/log-event', async (req, res) => {
   await newEvent.save();
 
   res.status(201).send('Event logged successfully');
+});
+
+
+router.post('/auth/facebook/data-delete', AsyncHandler(async(req:Request, res:Response) => {
+  const signedRequest = req.body.signed_request;
+
+  if (!signedRequest) return res.status(400).json({ error: 'Missing signed_request' });
+
+  const [encodedSig, payload] = signedRequest.split('.');
+  const appSecret = process.env.FACEBOOK_APP_SECRET || 't9ombajtiwsiatapmantomebatti';
+
+  // Recalculate the signature
+  const expectedSig = crypto
+    .createHmac('sha256', appSecret!)
+    .update(payload)
+    .digest('base64')
+    .replace(/\+/g, '-')
+    .replace(/\//g, '_')
+    .replace(/=+$/, '');
+
+  if (encodedSig !== expectedSig) {
+    return res.status(400).json({ error: 'Invalid signature' });
+  }
+
+  const decodedPayload = JSON.parse(Buffer.from(payload, 'base64').toString('utf8'));
+  const facebookUserId = decodedPayload.user_id;
+
+  // Delete the user from your database
+  await User.findOneAndDelete({ facebookId: facebookUserId });
+
+  // Generate a request ID (can be UUID or random string)
+  const requestId = crypto.randomBytes(16).toString('hex');
+
+  const statusUrl = `https://facebook-compliance.vercel.app/index.html?request_id=${requestId}`;
+
+  return res.json({
+    url: statusUrl,
+    confirmation_code: requestId,
+  });
+}));
+
+router.get('/data-deletion-status', (req, res) => {
+  const { request_id } = req.query;
+  res.send(`Your data deletion request (${request_id}) has been processed.`);
 });
 
 

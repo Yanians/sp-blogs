@@ -7,6 +7,7 @@ import Header from './Header';
 import Home from '../components/Home';
 import GettingStarted from '../blog/components/GettingStarted';
 import MainRoute from "../routes/MainRoute";
+import DataDeletionStatus from '../components/dataDeletionpage';
 import Page404 from "../components/Page404";
 import CarouselSlick from '../blog/components/CarouselSlick';
 import { Routes, Route, } from 'react-router-dom';
@@ -74,8 +75,7 @@ const location = useLocation();
                        <Routes>
                          <Route index path="/" element={<MainRoute />} />
                          <Route path="home" element={<Home />} />
-                         <Route path="/redirecting" element={<Authentication />} />
-                         <Route path="photography" element={<PhotographyImage sSrData={sSrData} />} />
+                         {/* <Route path="/redirecting" element={<Authentication />} /> */}
                          {/* <Route path="management" element={<Dashboard />} /> */}
                              <Route path="blogs" element={<GettingStarted sSrData={sSrData} />}>
                                   <Route path=":blogsId" element={<BlogsOverview sSrData={sSrData} />}>
@@ -84,6 +84,7 @@ const location = useLocation();
                                <Route path=":title/:searchId" element={<BlogDetail sSrData={sSrData} />} />  
                              </Route>
                          <Route path="*" element={<Page404 />} />
+                         <Route path="data-deletion-status" element={<DataDeletionStatus />} />
                        </Routes>   
                      </Content> 
                 {/* Footer */}

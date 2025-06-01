@@ -5,16 +5,22 @@ const { Schema } = mongoose;
 
 export interface UserDoc extends mongoose.Document {
    _id: mongoose.Types.ObjectId;
+   facebookId?:string;
+   googleId?:string;
   firstName: string;
   lastName: string;
   email: string;
   password: string;
+   photo: string,
   createdAt:Date;
 }
 
 const UserSchema = new Schema<UserDoc>({
-  firstName: { type: String, required: true },
-  lastName:  { type: String, required: true },
+  facebookId:{type:String, unique:true, sparse:true},
+  googleId:{type:String, unique:true, sparse:true},
+  firstName: { type: String },
+  lastName:  { type: String },
+  photo: { type: String, required:false, },
   email:     { type: String, required: true, unique: true },
   password:  { type: String, required: false, },
   createdAt: { type: Date, default: Date.now },
@@ -34,6 +40,6 @@ UserSchema.pre('save', async function (next) {
   }
 });
 
-const User =  mongoose.model<UserDoc>('register', UserSchema);
+const User =  mongoose.model<UserDoc>('registers', UserSchema);
 
 export default User;

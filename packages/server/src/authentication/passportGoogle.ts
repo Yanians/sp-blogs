@@ -14,30 +14,51 @@ passport.use(
       callbackURL: process.env.GOOGLE_CALLBACK_URL!,
     },
     async (accessToken:string, refreshToken:string, profile:any, done:any) => {
+
       // Find or create user
-    try{
-      const existingUser = await User.findOne({ email: profile.emails?.[0].value });
-      if (existingUser) {
-        return done(null, existingUser);
+      console.log('GOOGLE PROFILE:', JSON.stringify(profile, null, 2));
+     try {
+        const email = profile.emails?.[0]?.value;
+        const firstName = profile.name?.givenName ?? '';
+        const lastName = profile.name?.familyName ?? '';
+        const photo = profile.photos?.[0]?.value ?? '';
+        const googleId = profile.id;
+        const name = [firstName, lastName].filter(Boolean).join(' ') || profile.displayName || '';
+        let user = await User.findOne({ email });
+
+       
+        if (!user) {
+          user = await new User({
+            email,
+            firstName,
+            lastName,
+            photo,
+          }).save();
+          console.log(user)
+        }
+
+        if(!user.googleId){
+            user.googleId = googleId;
+             await user.save();
+        }
+
+        // ✅ Return only the fields the frontend expects
+        return done(null, {
+          _id: user._id,
+          name,
+          email,
+          photo,
+        });
+
+      } catch (error) {
+        done(error);
       }
-
-      const newUser  = new User({
-         email: profile.emails?.[0].value,
-          firstName: profile.name?.givenName,
-          lastName: profile.name?.familyName,
-          avatar: profile.photos?.[0].value,
-      });
-      await newUser.save();
-
-      return done(null, newUser);
-    }catch(error){
-      done(error);
-    }
    }
  )
 );
 
 passport.serializeUser((user: any, done) => done(null, user.id));
+
 passport.deserializeUser(async (id, done) => {
   try {
     const user:any = await User.findById(id);

@@ -1,6 +1,5 @@
 //@ts-nocheck
 import * as React from 'react';
-import { Route } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import Container from '@mui/material/Container';
@@ -11,6 +10,7 @@ import Paper from '@mui/material/Paper';
 import { spacing, useMediaQuery } from '@mui/system';
 import Stack from '@mui/material/Stack';
 import Home from './Home';
+import { UseAuth } from '../AuthContext';
 import Typography from '@mui/material/Typography';
 import withTextStyles from '../components/lib/WithTextStyles';
 
@@ -42,11 +42,11 @@ const Root = styled(Container)(({theme})=>({
       },
 }));
 
-
 export default function MainRoute(){
-
+const { token } = UseAuth();
 const theme = useTheme();
 const smDown = useMediaQuery(theme.breakpoints.down('sm'),{noSsr:true});
+
      return(
       <Root maxWidth="xl" disableGutters>
             {/* Parent element grid */}
