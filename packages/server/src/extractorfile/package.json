@@ -1,0 +1,32 @@
+{
+  "name": "extractorfile",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "internal package use only not meant for general use",
+  "main": "index.js",
+  "browser": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./loader": "./loader.js",
+    "./prism": {
+      "import": "./prism.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yanians/sp-blogs.git",
+    "direactory": "packages/extractorfile"
+  },
+  "keywords": [
+    "tombatisitamatombati"
+  ],
+  "author": "Tres-Paylas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yanians/sp-blogs/issues"
+  },
+  "homepage": "https://github.com/Yanians/sp-blogs#readme"
+}

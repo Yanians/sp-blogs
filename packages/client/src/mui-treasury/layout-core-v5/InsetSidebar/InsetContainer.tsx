@@ -17,6 +17,11 @@ const InsetContainerRoot = styled(Container, {
   },
 });
 
+interface SidebarProps {
+  anchor: 'left' | 'right';
+  [key: string]: any;
+}
+
 export type DivProps = React.JSX.IntrinsicElements["div"];
 
 export type InsetContainerProps = {
@@ -37,9 +42,9 @@ export const InsetContainer = ({
   });
   return (
     <InsetContainerRoot {...props}>
-      {leftSidebar && React.cloneElement(leftSidebar, { anchor: "left" })}
+      {leftSidebar && React.cloneElement(leftSidebar as React.ReactElement<SidebarProps>, { anchor: "left" })}
       {children}
-      {rightSidebar && React.cloneElement(rightSidebar, { anchor: "right" })}
+      {rightSidebar && React.cloneElement(rightSidebar as React.ReactElement<SidebarProps>, { anchor: "right" })}
     </InsetContainerRoot>
-  );
+  ) 
 };

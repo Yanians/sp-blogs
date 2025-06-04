@@ -1,0 +1,20 @@
+# Ignore all source and dev files
+node_modules/
+packages/
+*.log
+*.ts
+*.tsx
+*.jsx
+.vscode/
+*.md
+scripts/
+.env*
+public/
+webpack.config.js
+tsconfig*.json
+
+# Don't ignore the actual build output
+!build/
+!public/
+!dist/
+!dist/server/server/src/server.js

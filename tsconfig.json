@@ -4,25 +4,15 @@
     "module": "CommonJS",
     "jsx": "react-jsx",
     "moduleResolution":"node",
-    "baseUrl": "./", //firmed
-    "forceConsistentCasingInFileNames": true,
     "strict": true, //firmed
     "noEmit": true,
     "allowJs":true,
     "declaration": false, // putting this value true will conflict to noEmit:true
-    "paths": {
-      "@treasury/*": ["./src/mui-treasury/layout-core-v5/*"],
-      "@treasury-center/*": ["src/mui-treasury/*"],
-      "@lib/*": ["packages/client/src/components/lib/*"],
-      "@routes/*": ["packages/client/src/routes/*"],
-      "src/*": ["packages/client/src/*"],
-      "@reduxsrc/*": ["packages/client/src/redux/reducers/*"],
+    "resolveJsonModule": true,
+      "baseUrl": ".", //firmed
+      "paths": {
       "@client/*": ["packages/client/src/*"],
-      "@toggleComponent": ["packages/client/src/components/toggleComponent/*"],
-      "@imagedir/*": ["packages/client/src/public/static/images/*"],
-      "@extractorfile/*": ["packages/extractorfile/*"],
-      "@loader/marking/*": ["packages/extractorfile/loader"],
-      "@components/*": ["packages/client/src/components/*"]
+      "@server/*": ["packages/server/src/*"]
     },
     "importHelpers": true,
      "allowSyntheticDefaultImports": true,
@@ -30,6 +20,7 @@
     //  "noUnusedLocals": true,
     //  "noUnusedParameters": true,
     //  "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "experimentalDecorators": true,
@@ -43,12 +34,5 @@
 ],
    "exclude":[
     "node_modules",
-    "src/mui-treasury",
-    "packages/client/dist",
-    "packages/server/dist",
-    "packages/server/getUrlOrPath.js",
-    "packages/client/webpack.build.js",
-    "packages/client/webpack.config.js",
-    "packages/server/webpack.config.js"
    ]
 }

@@ -1,45 +1,60 @@
+// {
+//   "extends": "../../tsconfig.json",
+//   "compilerOptions": {
+//     "jsx": "react-jsx",
+//         /* files are emitted by babel */
+//     "noEmit":true,
+//     "rootDir": "./src",
+//     "baseUrl": ".", // Required for paths to work
+//     "typeRoots": ["node_modules/@types"],
+//     "paths":{
+//     "@treasury/*": ["packages/client/src/mui-treasury/layout-core-v5/*"],
+//     "@lib/*": ["/src/components/lib/*"],
+//     "@routes/*": ["packages/client/src/routes/*"],
+//     "@toggleComponent/*": ["packages/client/src/components/toggleComponent/*"],
+//     "@loader/marking": ["extractorfile/index.js"],
+//     "@marking/*": ["extractorfile/*"],
+//     "@treasury-center/*": ["client/src/mui-treasury/*"],
+//     "@client/*": ["packages/client/src/*"],
+//     "@imagedir/*": ["packages/client/public/static/images/blogs_images/*"]
+//   },
+//    "types": ["jest"],
+//     "skipLibCheck": true,
+//     "moduleResolution":"node",
+//     "module": "ESNext",
+//     "target": "ESNext",
+//     "diagnostics": false,
+//     "importHelpers": true,
+//     "allowSyntheticDefaultImports": true,
+//     "allowImportingTsExtensions": true,
+//     "esModuleInterop": true,
+//     "isolatedModules": true,
+//     "resolveJsonModule": true,
+//   },
+//     "include": [
+//       "src",
+//       "../utils",
+//       "./public",
+//     "src/**/*.test.ts",
+//     "src/**/*.test.tsx"
+//     ],
+//     "exclude": [
+//       "node_modules",
+//        "dist",
+//         "build",
+//         "./src/mui-treasury",
+//         ".next",
+//         "coverage",
+//         "public", // if large
+//         "**/*.test.ts",
+//         "**/__tests__/**"
+//     ],
+// }
+
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
-        /* files are emitted by babel */
-    "noEmit":true,
-    "rootDir": "./src",
-    "baseUrl": ".", // Required for paths to work
-    "typeRoots": ["node_modules/@types"],
-    "paths":{
-    "@treasury/*": ["src/mui-treasury/layout-core-v5/*"],
-    "@lib": ["src/components/lib/index.ts"],
-    "@lib/*": ["src/components/lib/*"],
-    "@routes/*": ["src/routes/*"],
-    "@toggleComponent/*": ["src/components/toggleComponent/*"],
-    "@loader/marking": ["../extractorfile/index.js"],
-    "@marking/*": ["../extractorfile/*"],
-    "@treasury-center/*": ["../../src/mui-treasury/*"],
-    "@client/*": ["src/*"],
-    "@imagedir/*": ["../public/static/images/blogs_images/*"]
+    "noEmit": true
   },
-    "skipLibCheck": true,
-    "moduleResolution":"node",
-    "module": "ESNext",
-    "target": "ESNext",
-    "diagnostics": false,
-    "importHelpers": true,
-    "allowSyntheticDefaultImports": true,
-    "allowImportingTsExtensions": true,
-    "esModuleInterop": true,
-    "isolatedModules": true,
-    "resolveJsonModule": true,
-  },
-    "include": ["src","../utils","./public"],
-    "exclude": [
-      "node_modules",
-       "dist",
-        "build",
-        ".next",
-        "coverage",
-        "public", // if large
-        "**/*.test.ts",
-        "**/__tests__/**"
-    ],
+  "include": ["src"]
 }

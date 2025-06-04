@@ -12,7 +12,8 @@
     "testing": "nodemon --exec ts-node ./src/i18n.tsx",
     "serve": "cross-env NODE_ENV=development npx webpack serve  --config  ./webpack.config.js --progress",
     "lint:fix": "eslint ./src --ext .ts,.tsx --fix",
-    "build:dev": "cross-env NODE_ENV=development webpack --config ./webpack.build.js --env $NODE_ENV --progress --watch",
+    "build:dev": "cross-env set NODE_ENV=development webpack --config ./webpack.build.js --env $NODE_ENV --progress --watch",
+    "copy:client:dist": "copy /Y packages/client/src/dist\\*.* packages/server/dist/types/packages/client/dist\\",
     "build:prod": "cross-env NODE_ENV=production webpack --config ./webpack.build.js"
   },
   "keywords": [],
@@ -137,12 +138,16 @@
     "webpack-dev-server": "^5.2.0",
     "webpack-node-externals": "^3.0.0"
   },
-  "browserslist": [
-    "last 1 version",
-    "> 1%",
-    "not dead"
-  ],
-  "browser": {
-    "zlib": false
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

@@ -2,16 +2,16 @@ import passport from 'passport';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 import User from './Registration';
 import { generateToken } from './auth';
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
-dotenv.config({path:'../.env.local'});
+// dotenv.config();
 
 passport.use(
   new GoogleStrategy(
     {
-      clientID: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      callbackURL: process.env.GOOGLE_CALLBACK_URL!,
+      clientID: process.env.SSR_APP_GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.SSR_APP_GOOGLE_CLIENT_SECRET!,
+      callbackURL: process.env.SSR_APP_GOOGLE_CALLBACK_URL!,
     },
     async (accessToken:string, refreshToken:string, profile:any, done:any) => {
 

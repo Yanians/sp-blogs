@@ -1,19 +1,19 @@
-{
-    "extends": "../../tsconfig.json",
-    "compilerOptions": {
-      "module": "CommonJS",
-      "target": "es5",
-      "jsx": "react-jsx",
-      "moduleResolution":"node",
-      "rootDir": "./src",
-      "forceConsistentCasingInFileNames": true,
-       "paths":{
-        "@components/*": ["packages/client/src/components/*"]
-      },
-    },
-    "include": [
-      "packages/extractorfile"],
-     "exclude":[
-      "packages/server/webpack.config.js"
-     ]
-  }
+// {
+//     "extends": "../../tsconfig.json",
+//     "compilerOptions": {
+//       "module": "CommonJS",
+//       "target": "es5",
+//       "jsx": "react-jsx",
+//       "moduleResolution":"node",
+//       "rootDir": "./src",
+//       "forceConsistentCasingInFileNames": true,
+//        "paths":{
+//         "@components/*": ["packages/client/src/components/*"]
+//       },
+//     },
+//     "include": [
+//       "packages/extractorfile"],
+//      "exclude":[
+//       "packages/server/webpack.config.js"
+//      ]
+//   }

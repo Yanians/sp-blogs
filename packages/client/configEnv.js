@@ -1,17 +1,19 @@
 'use strict'
 
 const path = require('path');
-const fs = require('fs')
+const fs = require('fs');
+
+// const appDirectory = require('./environment');
 // import getPublicUrlOrPath  from './global';
 const   getPublicUrlOrPath = require('./publicUrlOrPath');
-// import getPublicUrlOrPath  from './publicUrlOrPath.js';
 
 const appDirectory = fs.realpathSync(process.cwd());
+
 const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 
 const publicUrlOrPath = getPublicUrlOrPath(
   process.env.NODE_ENV === 'development',
-  require(resolveApp('package.json')).homepage,
+  require(resolveApp('./package.json')).homepage,
   process.env.PUBLIC_URL
 );
 
@@ -51,37 +53,38 @@ function readEnvFile(file, type){
     return fs.readFileSync(file);
 };
 
-function getHttpsConfig() {
-  const { SSL_CRT_FILE, SSL_KEY_FILE, HTTPS } = process.env;
-  const isHttps = HTTPS === 'true';
+// function getHttpsConfig() {
+//   const { SSL_CRT_FILE, SSL_KEY_FILE, HTTPS } = process.env;
+//   const isHttps = HTTPS === 'true';
 
-  if (isHttps && SSL_CRT_FILE && SSL_KEY_FILE) {
-    const crtFile = path.resolve(paths.appPath, SSL_CRT_FILE);
-    const keyFile = path.resolve(paths.appPath, SSL_KEY_FILE);
-    const config = {
-      cert: readEnvFile(crtFile, 'SSL_CRT_FILE'),
-      key: readEnvFile(keyFile, 'SSL_KEY_FILE'),
-    };
+//   if (isHttps && SSL_CRT_FILE && SSL_KEY_FILE) {
+//     const crtFile = path.resolve(paths.appPath, SSL_CRT_FILE);
+//     const keyFile = path.resolve(paths.appPath, SSL_KEY_FILE);
+//     const config = {
+//       cert: readEnvFile(crtFile, 'SSL_CRT_FILE'),
+//       key: readEnvFile(keyFile, 'SSL_KEY_FILE'),
+//     };
 
-    validateKeyAndCerts({ ...config, keyFile, crtFile });
-    return config;
-  }
-  return isHttps;
-}
+//     validateKeyAndCerts({ ...config, keyFile, crtFile });
+//     return config;
+//   }
+//   return isHttps;
+// }
 
 module.exports = {
-        clientSrc: resolveApp('./src'),
+           dotenv: resolveApp('.env'),
+        clientSrc: resolveApp('packages/client/src'),
           appPath: resolveApp('.'),
    appPackageJson: resolveApp('package.json'),
       appJsConfig: resolveApp('jsconfig.json'),
-       proxySetup: resolveApp('src/setupProxy.js'),
-      appTsConfig: resolveApp('tsconfig.json'),
+       proxySetup: resolveApp('packages/client/src/setupProxy.js'),
+      appTsConfig: resolveApp('packages/client/tsconfig.json'),
    appNodeModules: resolveApp('node_modules'),
-         appIndex: resolveModule(resolveApp, 'src/index'),
-      appImageDir: resolveApp('public/static/images/'),
+         appIndex: resolveModule(resolveApp, 'packages/client/src/index'),
+         imageDir: resolveApp('src/public/static/images/'),
   appWebpackCache: resolveApp('node_modules/.cache'),
-         appBuild: resolveApp('dist'),
-appTsBuildInfoFile: resolveApp('node_modules/.cache/tsconfig.tsbuildinfo'),
+         appBuild: resolveApp(buildPath),
+appTsBuildInfoFile: resolveApp('packages/client/node_modules/.cache/tsconfig.tsbuildinfo'),
 moduleFileExtensions,
  publicUrlOrPath,
 };

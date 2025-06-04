@@ -9,13 +9,13 @@ import styled from '@emotion/styled';
  */
 const Root = styling('div')(({theme})=>({
 
-      '& .portfolio':{
-        display:'grid',
-        gridTemplateColumns:'repeat(auto-fit, minmax(200px, 1fr));',
-        gridAutoRows:'1fr',
-        gridGap:'1em',
-        gridAutoFlow:'dense',
-      },
+    '& .portfolio':{
+    display:'grid',
+    gridTemplateColumns:'repeat(auto-fit, minmax(200px, 1fr));',
+    gridAutoRows:'1fr',
+    gridGap:'1em',
+    gridAutoFlow:'dense',
+ },
 
       '& .portfolio.featured': {
       margin:0,

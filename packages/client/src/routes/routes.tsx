@@ -17,9 +17,9 @@ import {
     FastRewindicon,
     ForumIcon,
     Setting,
- } from '@lib/iconLib';
+ } from '../components/lib';
 
-import { PassThrough } from '@lib/utilityTypes'
+import { PassThrough } from '../components/lib'
 
 const Icon = PassThrough;
 

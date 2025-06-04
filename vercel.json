@@ -1,10 +1,22 @@
 {
-  "buildCommand": "npm run build:prod",
-  "outputDirectory": "dist",
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index.js"
+      "src": "dist/server/server/src/server.js",
+      "use": "@vercel/node"
     }
-  ]
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/server/server/src/server.js"
+    }
+  ],
+
+"env":{
+"PUBLIC_URL":"dist/server/server/public/static/images/",
+"DATABASE_NAME":"sp-blogs",
+"BUILD_PATH":"build",
+"NODE_ENV":"production"
+  }
 }

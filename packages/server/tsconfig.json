@@ -1,34 +1,110 @@
 /**
 ** DO NOT MODIFY CONFIGURATION HERE THIS IS STABLE UNLESS YOU ARE AUTHORIZED
 **/
+
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "baseUrl": ".",
-    "rootDir":"../../",
-    "outDir": "./dist/types",
-    "noEmit": false,
-    "allowSyntheticDefaultImports": true,
-    // "allowImportingTsExtensions": true,
-    // "importHelpers": true,
-    "skipLibCheck": true,
+    "rootDir": "../../packages",            // Root = both server and client
+    "outDir": "../../dist/server",     
+    "baseUrl": "../../",     // Output to root/dist/server
+     "target": "ES2020",
+    "jsx": "react-jsx",
+    "module": "CommonJS",
+     "forceConsistentCasingInFileNames": true,
+      "noEmit": false, // ✅ Ensure files are emitted
+      "strict": true,
     "esModuleInterop": true,
-    "typeRoots": ["node_modules/@types"],
-    "paths": {
-     "src/*": ["src/*"],
-      "@reduxsrc/*": ["packages/client/src/redux/reducers/*"],
-      "@treasury/*": ["../../src/mui-treasury/layout-core-v5/*"],
-      "@markdown/*": ["../extractorfile/*"],
-    }
+    "allowJs": true,
+     "skipLibCheck": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+     "paths": {
+      "@client/*": ["packages/client/src/*"],
+      "@server/*": ["packages/server/src/*"]
+    },
+    "types": ["jest", "node"],
   },
   "include": [
-    "src",
+    "src",                                  // server/src
+    "../../packages/client/src"             // include client code
   ],
   "exclude": [
     "node_modules",
-  //  "**/*paths.js",
-   "**/*getUrlOrPath.js",   
-   "../../src/mui-treasury/*",
-   "**/*src/mui-treasury/*",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/__tests__",
+      "../../packages/client/src/**/*.test.tsx",
+    "../../packages/client/src/**/*.test.ts",
+    "../../packages/client/**/__tests__",
+    "../../dist",
+    "../../build"
   ]
 }
+
+
+// {
+//     "extends": "../../tsconfig.json",
+//   "compilerOptions": {
+//     "rootDir": "../../",
+//     "outDir": "../../dist/server",
+//     "target": "ES2020",
+//     "jsx": "react-jsx",
+//     "module": "CommonJS",
+//      "forceConsistentCasingInFileNames": true,
+//     "skipLibCheck": true,
+//     "baseUrl": "../../", 
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "allowJs": true,
+//     "moduleResolution": "node",
+//     "resolveJsonModule": true,
+//      "paths": {
+//       "@client/*": ["packages/client/src/*"],
+//       "@server/*": ["packages/server/src/*"]
+//     },
+//      "types": ["jest"]
+//   },
+//   "include": [  
+//     "src",                                  // server/src
+//     "../../packages/client/src",
+//   ],
+//   "exclude": [
+//     "node_modules", 
+//     "../../packages/client/**/*.test.ts",
+//     "../../packages/client/**/*.test.tsx",
+//     "dist",]
+// }
+
+// {
+//   "extends": "../../tsconfig.json",
+//   "compilerOptions": {
+//     "baseUrl": ".",
+//     "rootDir":"../../",
+//     "outDir": "./dist/types",
+//     "noEmit": false,
+//     "allowSyntheticDefaultImports": true,
+//     // "allowImportingTsExtensions": true,
+//     // "importHelpers": true,
+//     "skipLibCheck": true,
+//     "esModuleInterop": true,
+//     "typeRoots": ["node_modules/@types"],
+//     "paths": {
+//       "@reduxsrc/*": ["packages/client/src/redux/reducers/*"],
+//       "@treasury/*": ["../../src/mui-treasury/layout-core-v5/*"],
+//       "@lib/*": ["../client/src/client/src/components/lib/*"],
+//       "@extrator/*": ["../extractorfile/*"],
+//     }
+//   },
+//   "include": [
+//     "src",
+//   ],
+//   "exclude": [
+//     "node_modules",
+//     "**/*mui-treasury",
+//   //  "**/*paths.js",
+//    "**/*getUrlOrPath.js",   
+//    "../client/src/mui-treasury/*",
+//    "**/*src/mui-treasury/*",
+//   ]
+// }

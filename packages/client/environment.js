@@ -5,6 +5,10 @@ const fs = require('fs');
 const path = require('path');
 const paths = require('./configEnv');
 
+const dotenvExpand = require('dotenv-expand');
+
+const dotenv = require('dotenv');
+
 delete require.cache[require.resolve('./configEnv')];
 
 const NODE_ENV = process.env.NODE_ENV || 'development';
@@ -23,11 +27,15 @@ const dotenvFiles = [
 
 dotenvFiles.forEach(dotenvFile => {
   if (fs.existsSync(dotenvFile)) {
-    require('dotenv-expand')(
-      require('dotenv').config({
-        path: dotenvFile,
-      })
+    // require('dotenv-expand')(
+    //   require('dotenv').config({
+    //     path: dotenvFile,
+    //   })
+    // );
+    dotenvExpand.expand(
+      dotenv.config({ path: dotenvFile })
     );
+
   }
 });
 
@@ -38,20 +46,18 @@ process.env.NODE_PATH = (process.env.NODE_PATH || '')
   .map(folder => path.resolve(appDirectory, folder))
   .join(path.delimiter);
 
-// Grab NODE_ENV and REACT_APP_* environment variables and prepare them to be
-// injected into the application via DefinePlugin in webpack configuration.
-const REACT_APP = /^REACT_APP_/i;
+const SSR_APP = /^SSR_APP/i;
 
 function getClientEnvironment(publicUrl) {
   const raw = Object.keys(process.env)
-    .filter(key => REACT_APP.test(key))
+    .filter(key => SSR_APP.test(key))
     .reduce(
       (env, key) => {
         env[key] = process.env[key];
         return env;
       },
       {
-        NODE_ENV: process.env.NODE_ENV || 'development',
+        NODE_ENV: process.env.NODE_ENV,
         PUBLIC_URL: publicUrl,
         WDS_SOCKET_HOST: process.env.WDS_SOCKET_HOST,
         WDS_SOCKET_PATH: process.env.WDS_SOCKET_PATH,

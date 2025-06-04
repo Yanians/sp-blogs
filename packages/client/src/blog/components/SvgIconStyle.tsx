@@ -8,11 +8,11 @@ import { SxProps, Theme } from '@mui/system';
 
 declare module '@mui/system'{
  interface Theme {
-    props:any;
+    props?:any;
  }
  
  interface ThemeOptions {
-    props:any;
+    props?:any;
  }
 }
 

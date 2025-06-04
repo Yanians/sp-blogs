@@ -3,7 +3,7 @@ const env = process.env;
 export const PORT = env.PORT ?? 5000;
 export const HOST = env.HOST ?? "0.0.0.0";
 export const SERVER_URL = `http://${HOST}:${PORT}`;
-export const MONGODB_URI = env.MONGODB_URI || "mongodb://127.0.0.1:27017/";
+export const MONGODB_URI = env.SSR_APP_MONGODB_URI || "mongodb://127.0.0.1:27017/";
 export const DATABASE_NAME = env.DATABASE_NAME || "sp-blogs";
 export const MONGOOSE_URI = `${MONGODB_URI}${DATABASE_NAME}`;
 

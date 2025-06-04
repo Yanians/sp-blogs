@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.secondaryListItems = exports.mainListItems = void 0;
+const tslib_1 = require("tslib");
+const jsx_runtime_1 = require("react/jsx-runtime");
+const React = tslib_1.__importStar(require("react"));
+const ListItemButton_1 = tslib_1.__importDefault(require("@mui/material/ListItemButton"));
+const ListItemIcon_1 = tslib_1.__importDefault(require("@mui/material/ListItemIcon"));
+const ListItemText_1 = tslib_1.__importDefault(require("@mui/material/ListItemText"));
+const ListSubheader_1 = tslib_1.__importDefault(require("@mui/material/ListSubheader"));
+const Dashboard_1 = tslib_1.__importDefault(require("@mui/icons-material/Dashboard"));
+const ShoppingCart_1 = tslib_1.__importDefault(require("@mui/icons-material/ShoppingCart"));
+const People_1 = tslib_1.__importDefault(require("@mui/icons-material/People"));
+const BarChart_1 = tslib_1.__importDefault(require("@mui/icons-material/BarChart"));
+const Layers_1 = tslib_1.__importDefault(require("@mui/icons-material/Layers"));
+const Assignment_1 = tslib_1.__importDefault(require("@mui/icons-material/Assignment"));
+exports.mainListItems = ((0, jsx_runtime_1.jsxs)(React.Fragment, { children: [(0, jsx_runtime_1.jsxs)(ListItemButton_1.default, { children: [(0, jsx_runtime_1.jsx)(ListItemIcon_1.default, { children: (0, jsx_runtime_1.jsx)(Dashboard_1.default, {}) }), (0, jsx_runtime_1.jsx)(ListItemText_1.default, { primary: "Dashboard" })] }), (0, jsx_runtime_1.jsxs)(ListItemButton_1.default, { children: [(0, jsx_runtime_1.jsx)(ListItemIcon_1.default, { children: (0, jsx_runtime_1.jsx)(ShoppingCart_1.default, {}) }), (0, jsx_runtime_1.jsx)(ListItemText_1.default, { primary: "Orders" })] }), (0, jsx_runtime_1.jsxs)(ListItemButton_1.default, { children: [(0, jsx_runtime_1.jsx)(ListItemIcon_1.default, { children: (0, jsx_runtime_1.jsx)(People_1.default, {}) }), (0, jsx_runtime_1.jsx)(ListItemText_1.default, { primary: "Customers" })] }), (0, jsx_runtime_1.jsxs)(ListItemButton_1.default, { children: [(0, jsx_runtime_1.jsx)(ListItemIcon_1.default, { children: (0, jsx_runtime_1.jsx)(BarChart_1.default, {}) }), (0, jsx_runtime_1.jsx)(ListItemText_1.default, { primary: "Reports" })] }), (0, jsx_runtime_1.jsxs)(ListItemButton_1.default, { children: [(0, jsx_runtime_1.jsx)(ListItemIcon_1.default, { children: (0, jsx_runtime_1.jsx)(Layers_1.default, {}) }), (0, jsx_runtime_1.jsx)(ListItemText_1.default, { primary: "Integrations" })] })] }));
+exports.secondaryListItems = ((0, jsx_runtime_1.jsxs)(React.Fragment, { children: [(0, jsx_runtime_1.jsx)(ListSubheader_1.default, { component: "div", inset: true, children: "Saved reports" }), (0, jsx_runtime_1.jsxs)(ListItemButton_1.default, { children: [(0, jsx_runtime_1.jsx)(ListItemIcon_1.default, { children: (0, jsx_runtime_1.jsx)(Assignment_1.default, {}) }), (0, jsx_runtime_1.jsx)(ListItemText_1.default, { primary: "Current month" })] }), (0, jsx_runtime_1.jsxs)(ListItemButton_1.default, { children: [(0, jsx_runtime_1.jsx)(ListItemIcon_1.default, { children: (0, jsx_runtime_1.jsx)(Assignment_1.default, {}) }), (0, jsx_runtime_1.jsx)(ListItemText_1.default, { primary: "Last quarter" })] }), (0, jsx_runtime_1.jsxs)(ListItemButton_1.default, { children: [(0, jsx_runtime_1.jsx)(ListItemIcon_1.default, { children: (0, jsx_runtime_1.jsx)(Assignment_1.default, {}) }), (0, jsx_runtime_1.jsx)(ListItemText_1.default, { primary: "Year-end sale" })] })] }));

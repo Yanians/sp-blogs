@@ -6,7 +6,7 @@ import React, { Suspense } from "react";
 
 import { v4 as uuidv4 } from "uuid";
 import { Request, Response } from "express-serve-static-core";
-import postDirectives from "../../extractorfile/";
+import postDirectives from "./extractorfile";
 import { BlogProps } from "../../client/src/components/lib/signatureProps";
 
 import { renderToPipeableStream } from "react-dom/server";
@@ -43,7 +43,7 @@ const ALLOWED_TAGS = [
   'SERVERSIDE',
 ];
 
-const blogdir = path.join(__dirname, '../../client/src/blog/');
+const blogdir = path.join(__dirname, '../../client/src/blog/mdfiles');
 
 export const getBlogFilePaths = (ext = '.md') => {
     return fs.readdirSync(blogdir).filter(file=>file.endsWith(ext)); //it returns an array of filenames
@@ -118,9 +118,9 @@ export const getBlogFilePaths = (ext = '.md') => {
 
 // Generates js file from bundle
 function OptionalDir(): string {
-   const webpackDir = path.resolve(__dirname, "../webpack");
+   const webpackDir = path.resolve(__dirname, "../../../../build/");
      if(!fs.existsSync(webpackDir)){
-        return " ";
+      return " ";
      }
       // if(webpackDir = path.resolve(__dirname, "../webpack")){
       //      if(!fs.existsSync(webpackDir)){

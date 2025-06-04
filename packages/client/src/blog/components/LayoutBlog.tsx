@@ -48,9 +48,8 @@ export const authored = {
           or user groups. You can find his blog at florian-rappl.de.
       `,
       name: 'Tressy Paylas',
-      avatar: '../../../static/images/profiles/m7.jpg',
       img:'/1707845731YccofxHOkc1gSycdBiCh9MMfgdNxk3et1eGwK2OO1U6lrVZJB-out-0-300x225.png',
-
+      avatar: '/avatar23.jpg',
       socialAccount:[
         {
           icon:<LinkedinIcon />,
@@ -74,8 +73,8 @@ export const authored = {
         and NFT Review covers the evolution of the non-fungible token (digital collectibles)
        ecosystem inside this emerging new web. His current passion project is RMRK.app.`,
       name: 'Rolex',
-      avatar: '/creative.png',
       img:'/1700662284YJmoKnUgc0qaDpbOQ0mcZi5zEpf0QpyWvle2cz5fjq1eAorHB-out-0-300x179.png',
+      avatar: '/creative.png',
       github: 'danilo-leal',
          socialAccount:[
         {

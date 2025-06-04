@@ -2,9 +2,9 @@ import passport from 'passport';
 import { Strategy as FacebookStrategy } from 'passport-facebook';
 import User from './Registration';
 import { generateToken } from './auth';
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
-dotenv.config({path:'../.env.local'});
+// dotenv.config();
 
 interface PassportProps {
 accessToken:string,
@@ -16,9 +16,9 @@ done:any,
 passport.use(
   new FacebookStrategy(
     {
-      clientID: process.env.FACEBOOK_APP_ID!,
-      clientSecret: process.env.FACEBOOK_APP_SECRET!,
-      callbackURL: process.env.FACEBOOK_CALLBACK_URL!,
+      clientID: process.env.SSR_APP_FACEBOOK_APP_ID!,
+      clientSecret: process.env.SSR_APP_FACEBOOK_APP_SECRET!,
+      callbackURL: process.env.SSR_APP_FACEBOOK_CALLBACK_URL!,
       profileFields: ['id', 'emails', 'name','photos'],
         enableProof: true, // <--- IMPORTANT
     },

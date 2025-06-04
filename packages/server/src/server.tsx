@@ -1,5 +1,9 @@
+import dotenv from 'dotenv';
+dotenv.config() // ✅ Correct relative to transpiled location
+
 import 'tsconfig-paths/register';
 import path from "path";
+import * as fs from 'fs';
 import os from "node:os";
 
 // third party
@@ -8,9 +12,6 @@ import compression from 'compression';
 import passport from 'passport';
 import { createServer } from "http";
 import { WebSocketServer } from "ws";
-
-import dotenv from 'dotenv';
-dotenv.config({ path: './.env.local' }); // 👈 Load `.env.local`
 
 //4. Local imports (config/db/routes)
 import * as config from './config';
@@ -34,29 +35,56 @@ const app = express();
 //   next();
 // });
 
+app.use((req, res, next) => {
+  res.on('finish', () => {
+    console.log(`${req.method} ${req.originalUrl} -> ${res.getHeader('Content-Type')}`);
+  });
+  next();
+});
+
 app.use(compression());
 app.use(passport.initialize());
 app.use('/api',apiRoute);
 
-const staticDirs = [
-  "../public/static/images/profiles",
-  "../public/static/images/blogs_images",
-  "../public/static/images/backgrounds",
-  "../public/static/images/svg",
-  "../public/static/images",
-  "../webpack"
-];
+    const staticDirs = [
+      "profiles",
+      "blogs_images",
+      "backgrounds",
+      "svg",
+    ];
 
+const rootdir = fs.realpathSync(process.cwd());
+
+// const clientBuildPath = path.resolve(rootdir, '../../build');
+
+//this is link to root build folder that ready for production the issue of < error is from here
+// but this is properly link to that folder
+// const rootBuildPath = path.resolve(rootdir, '../../../../../build');
+const buildDir = path.resolve(process.cwd(), process.env.BUILD_DIR || 'build');
+
+// console.log(clientBuildPath);
+console.log(buildDir);
+
+// app.use(express.static(clientBuildPath));
+app.use(express.static(buildDir));
 staticDirs.forEach(dir => {
-  app.use(express.static(path.resolve(__dirname, dir), { index: false }));
+  console.log(process.env.PUBLIC_URL+dir)
+  app.use(express.static(path.resolve(process.cwd(), process.env.PUBLIC_URL+dir), { index: false }));
 });
 
 app.get("/favicon.ico", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../public/favicon.ico"));
 });
 
-app.get(/^(?!\/api).+/, (req: Request, res: Response,) => {
-  HandleRender(req, res);
+// /^(?!\/api).+/
+app.get('*', (req: Request, res: Response, next) => {
+  const accept = req.headers.accept || '';
+   if (accept.includes('text/html')) {
+    return HandleRender(req, res);
+  }
+
+// For non-HTML (e.g., .js, .css), let it 404 or fall back to static
+  next();
 });
 
 const server = createServer(app);
