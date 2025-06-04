@@ -117,8 +117,10 @@ export const getBlogFilePaths = (ext = '.md') => {
 }  
 
 // Generates js file from bundle
+const buildDir = fs.realpathSync(process.cwd())
 function OptionalDir(): string {
-   const webpackDir = path.resolve(__dirname, "../../../../build/");
+   const webpackDir = path.resolve(buildDir, process.env.BUILD_DIR||'');
+        console.log(webpackDir);
      if(!fs.existsSync(webpackDir)){
       return " ";
      }

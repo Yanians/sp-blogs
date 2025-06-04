@@ -53,20 +53,13 @@ app.use('/api',apiRoute);
       "svg",
     ];
 
-const rootdir = fs.realpathSync(process.cwd());
-
-// const clientBuildPath = path.resolve(rootdir, '../../build');
-
-//this is link to root build folder that ready for production the issue of < error is from here
-// but this is properly link to that folder
-// const rootBuildPath = path.resolve(rootdir, '../../../../../build');
 const buildDir = path.resolve(process.cwd(), process.env.BUILD_DIR || 'build');
 
-// console.log(clientBuildPath);
 console.log(buildDir);
 
 // app.use(express.static(clientBuildPath));
 app.use(express.static(buildDir));
+
 staticDirs.forEach(dir => {
   console.log(process.env.PUBLIC_URL+dir)
   app.use(express.static(path.resolve(process.cwd(), process.env.PUBLIC_URL+dir), { index: false }));

@@ -1,0 +1,927 @@
+Folder PATH listing
+Volume serial number is 000000C5 462D:BEE6
+C:\USERS\TRES PAYLAS\DOCUMENTS\SP-BLOGS\PUBLIC
++---build
+|   |   295183786cd8a1389865.woff
+|   |   a4e97f5a2a64f0ab1323.eot
+|   |   c94f7671dcc99dce43e2.ttf
+|   |   main-packages_client_src_A.cipher_tres_production.bundle.js
+|   |   main-packages_client_src_A.cipher_tres_production.bundle.js.gz
+|   |   main-packages_client_src_l.cipher_tres_production.bundle.js
+|   |   main-packages_client_src_l.cipher_tres_production.bundle.js.gz
+|   |   mui-vendors-node_modules_e.cipher_tres_production.bundle.js
+|   |   mui-vendors-node_modules_e.cipher_tres_production.bundle.js.gz
+|   |   mui-vendors-node_modules_mui_m.cipher_tres_production.bundle.js
+|   |   mui-vendors-node_modules_mui_m.cipher_tres_production.bundle.js.gz
+|   |   mui-vendors-node_modules_mui_material_A.cipher_tres_production.bundle.js
+|   |   mui-vendors-node_modules_mui_material_A.cipher_tres_production.bundle.js.gz
+|   |   mui-vendors-node_modules_mui_material_Ac.cipher_tres_production.bundle.js
+|   |   mui-vendors-node_modules_mui_material_Ac.cipher_tres_production.bundle.js.gz
+|   |   mui-vendors-node_modules_mui_material_F.cipher_tres_production.bundle.js
+|   |   mui-vendors-node_modules_mui_material_F.cipher_tres_production.bundle.js.gz
+|   |   mui-vendors-node_modules_mui_material_I.cipher_tres_production.bundle.js
+|   |   mui-vendors-node_modules_mui_material_I.cipher_tres_production.bundle.js.gz
+|   |   mui-vendors-node_modules_mui_material_R.cipher_tres_production.bundle.js
+|   |   mui-vendors-node_modules_mui_material_R.cipher_tres_production.bundle.js.gz
+|   |   mui-vendors-node_modules_mui_material_S.cipher_tres_production.bundle.js
+|   |   mui-vendors-node_modules_mui_material_S.cipher_tres_production.bundle.js.gz
+|   |   mui-vendors-node_modules_mui_material_T.cipher_tres_production.bundle.js
+|   |   mui-vendors-node_modules_mui_material_T.cipher_tres_production.bundle.js.gz
+|   |   mui-vendors-node_modules_mui_material_Z.cipher_tres_production.bundle.js
+|   |   mui-vendors-node_modules_mui_material_Z.cipher_tres_production.bundle.js.gz
+|   |   mui-vendors-node_modules_mui_s.cipher_tres_production.bundle.js
+|   |   mui-vendors-node_modules_mui_s.cipher_tres_production.bundle.js.gz
+|   |   react-vendors-node_modules_r.cipher_tres_production.bundle.js
+|   |   react-vendors-node_modules_r.cipher_tres_production.bundle.js.gz
+|   |   react-vendors-node_modules_react-dom_cjs_react-dom-client_development_js-92b0df17.cipher_tres_production.bundle.js
+|   |   react-vendors-node_modules_react-dom_cjs_react-dom-client_development_js-92b0df17.cipher_tres_production.bundle.js.gz
+|   |   runtime.cipher_tres_production.bundle.js
+|   |   vendors-node_modules_b.cipher_tres_production.bundle.js
+|   |   vendors-node_modules_b.cipher_tres_production.bundle.js.gz
+|   |   vendors-node_modules_j.cipher_tres_production.bundle.js
+|   |   vendors-node_modules_j.cipher_tres_production.bundle.js.gz
+|   |   vendors-node_modules_r.cipher_tres_production.bundle.js
+|   |   vendors-node_modules_r.cipher_tres_production.bundle.js.gz
+|   |   vendors-node_modules_rea.cipher_tres_production.bundle.js
+|   |   vendors-node_modules_rea.cipher_tres_production.bundle.js.gz
+|   |   vendors-node_modules_react-f.cipher_tres_production.bundle.js
+|   |   vendors-node_modules_react-f.cipher_tres_production.bundle.js.gz
+|   |   vendors-node_modules_react-router_d.cipher_tres_production.bundle.js
+|   |   vendors-node_modules_react-router_d.cipher_tres_production.bundle.js.gz
+|   |   vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_modern_mjs-1ad8aafc.cipher_tres_production.bundle.js
+|   |   vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_modern_mjs-1ad8aafc.cipher_tres_production.bundle.js.gz
+|   |   vendors-node_modules_s.cipher_tres_production.bundle.js
+|   |   vendors-node_modules_s.cipher_tres_production.bundle.js.gz
+|   |   vendors-node_modules_style.cipher_tres_production.bundle.js
+|   |   vendors-node_modules_style.cipher_tres_production.bundle.js.gz
+|   |   vendors-node_modules_yup_index_esm_js-42e94e0c.cipher_tres_production.bundle.js
+|   |   vendors-node_modules_yup_index_esm_js-42e94e0c.cipher_tres_production.bundle.js.gz
+|   |   
+|   \---assets
+|           2630a3e3eab21c607e21.svg
+|           fb6f3c230cb846e25247.gif
+|           
++---client
+|   \---src
+|       |   App.js
+|       |   App2.js
+|       |   AuthContext.js
+|       |   BlogsOverviewRoutes.js
+|       |   clientOnly.js
+|       |   ErrorBoundary.js
+|       |   index-profile.js
+|       |   index.js
+|       |   onClickHandler.js
+|       |   redirect.js
+|       |   setupProxy.js
+|       |   UniversalButton.js
+|       |   
+|       +---authentication
+|       |       Register.js
+|       |       SocialAuthButton.js
+|       |       
+|       +---blog
+|       |   +---components
+|       |   |   |   BlogCard.js
+|       |   |   |   BlogDetails.js
+|       |   |   |   BlogPostSearch.js
+|       |   |   |   BlogPostSort.js
+|       |   |   |   BlogSingleCard.js
+|       |   |   |   blogSource.js
+|       |   |   |   BlogsOverview.js
+|       |   |   |   BlogUserInfo.js
+|       |   |   |   BlogWithCards.js
+|       |   |   |   CarouselSlick.js
+|       |   |   |   GettingStarted.js
+|       |   |   |   LayoutBlog.js
+|       |   |   |   markdownElement.js
+|       |   |   |   ProfileLayout.js
+|       |   |   |   ProgressBar.js
+|       |   |   |   SvgIconStyle.js
+|       |   |   |   
+|       |   |   \---pages
+|       |   |           ProfilePage.js
+|       |   |           
+|       |   \---mdfiles
+|       |           3Dmap.md
+|       |           alias_reference.md
+|       |           axios-a-promised-based-web-server.md
+|       |           chat-gpt-may-5-2025.md
+|       |           conversation_notes.md
+|       |           copy-code-blocks.md
+|       |           cubic-bezeir-post.md
+|       |           flarum-extension.md
+|       |           modern-css.md
+|       |           mongodb-guides.md
+|       |           monospace-font.md
+|       |           nashrum-javac-implementation.md
+|       |           nodejs-crud.md
+|       |           ssl-tls-http.md
+|       |           summary-projects.md
+|       |           svg-101.md
+|       |           
+|       +---components
+|       |   |   dataDeletionpage.js
+|       |   |   DynamicComponent.js
+|       |   |   HeaderTabs.js
+|       |   |   Home.js
+|       |   |   InnerContainer.js
+|       |   |   Loader.js
+|       |   |   ModifiedStepper.js
+|       |   |   NotFound.js
+|       |   |   Page404.js
+|       |   |   PhotographyGrid.js
+|       |   |   ScrollRestoration.js
+|       |   |   ScrollToTop.js
+|       |   |   Search.js
+|       |   |   SearchModal.js
+|       |   |   Section.js
+|       |   |   SectionHeadline.js
+|       |   |   Treeview.js
+|       |   |   UserAvatarMenu.js
+|       |   |   
+|       |   +---animate
+|       |   |   |   index.js
+|       |   |   |   MotionContainer.js
+|       |   |   |   
+|       |   |   \---variants
+|       |   |       |   index.js
+|       |   |       |   Wrap.js
+|       |   |       |   
+|       |   |       \---bounce
+|       |   |               BounceIn.js
+|       |   |               BounceOut.js
+|       |   |               index.js
+|       |   |               
+|       |   +---dashboard
+|       |   |       Chart.js
+|       |   |       Dashboard.js
+|       |   |       Deposits.js
+|       |   |       listItems.js
+|       |   |       Orders.js
+|       |   |       Title.js
+|       |   |       
+|       |   +---lib
+|       |   |   |   contextProvider.js
+|       |   |   |   directives.js
+|       |   |   |   iconLib.js
+|       |   |   |   index.js
+|       |   |   |   signatureProps.js
+|       |   |   |   utilityTypes.js
+|       |   |   |   withBackgroundStyles.js
+|       |   |   |   WithTextStyles.js
+|       |   |   |   
+|       |   |   +---helpers
+|       |   |   |       helper.js
+|       |   |   |       
+|       |   |   \---svg
+|       |   |           customIcons.js
+|       |   |           
+|       |   +---searchComponents
+|       |   |       BlogSearch.js
+|       |   |       SearchNotFound.js
+|       |   |       
+|       |   \---toggleComponent
+|       |           AvatarChip.js
+|       |           ToggleButton.js
+|       |           toggleModeButton.js
+|       |           
+|       +---layout
+|       |   |   config.js
+|       |   |   Content.js
+|       |   |   EdgeSidebar.js
+|       |   |   emojis.js
+|       |   |   Footer.js
+|       |   |   Header.js
+|       |   |   index.js
+|       |   |   InsetSidebar.js
+|       |   |   Layout.js
+|       |   |   Root.js
+|       |   |   trial.js
+|       |   |   
+|       |   \---Skeleton
+|       |           flexContainer.js
+|       |           GridContainer.js
+|       |           GridContainerBox.js
+|       |           Main.js
+|       |           Treeview.js
+|       |           treeviewFunc.js
+|       |           
+|       +---mui-treasury
+|       |   \---layout-core-v5
+|       |       |   index.js
+|       |       |   theme-augment.js
+|       |       |   WindowContext.js
+|       |       |   
+|       |       +---Content
+|       |       |       Content.js
+|       |       |       getContentSxProps.js
+|       |       |       SidebarContent.js
+|       |       |       
+|       |       +---EdgeSidebar
+|       |       |       EdgeOffset.js
+|       |       |       EdgeSidebar.js
+|       |       |       EdgeSidebarBuilder.js
+|       |       |       EdgeTrigger.js
+|       |       |       getEdgeOffsetSxProps.js
+|       |       |       useEdgeSidebar.js
+|       |       |       
+|       |       +---Footer
+|       |       |       Footer.js
+|       |       |       
+|       |       +---Fullscreen
+|       |       |       Fullscreen.js
+|       |       |       FullscreenContext.js
+|       |       |       
+|       |       +---Header
+|       |       |       Header.js
+|       |       |       HeaderBuilder.js
+|       |       |       
+|       |       +---hooks
+|       |       |       useInsetHeaderMagnet.js
+|       |       |       useScreen.js
+|       |       |       useScrollY.js
+|       |       |       useSidebarAutoCollapse.js
+|       |       |       
+|       |       +---InsetSidebar
+|       |       |       InsetAvoidingView.js
+|       |       |       InsetContainer.js
+|       |       |       InsetOffset.js
+|       |       |       InsetSidebar.js
+|       |       |       InsetSidebarBuilder.js
+|       |       |       
+|       |       +---Margin
+|       |       |       MarginModel.js
+|       |       |       
+|       |       +---MultiHeaders
+|       |       |       HeadersCompiler.js
+|       |       |       StackedHeaders.js
+|       |       |       
+|       |       +---presets
+|       |       |       contentBased.js
+|       |       |       cozy.js
+|       |       |       fixed.js
+|       |       |       standard.js
+|       |       |       
+|       |       +---Root
+|       |       |       Root.js
+|       |       |       
+|       |       +---shared
+|       |       |       ResponsiveBuilder.js
+|       |       |       
+|       |       +---utils
+|       |       |       calc.js
+|       |       |       combineBreakpoints.js
+|       |       |       constant.js
+|       |       |       createSxResult.js
+|       |       |       flattenResponsive.js
+|       |       |       isNil.js
+|       |       |       isNilOrEmpty.js
+|       |       |       mapWidthToScreen.js
+|       |       |       muiBreakpoints.js
+|       |       |       pickNearestBreakpoint.js
+|       |       |       toValidCssValue.js
+|       |       |       types.js
+|       |       |       
+|       |       \---Width
+|       |               WidthModel.js
+|       |               
+|       +---redux
+|       |   |   store.js
+|       |   |   
+|       |   +---actions
+|       |   |       actions.js
+|       |   |       productsActions.js
+|       |   |       
+|       |   +---reducers
+|       |   |       blogPostReducer.js
+|       |   |       cartReducers.js
+|       |   |       productReducers.js
+|       |   |       rootReducer.js
+|       |   |       userReducer.js
+|       |   |       
+|       |   \---selectors
+|       |           cartSelector.js
+|       |           productsSelector.js
+|       |           
+|       +---routes
+|       |       About.js
+|       |       Blog.js
+|       |       Discussion.js
+|       |       Home.js
+|       |       MainRoute.js
+|       |       News.js
+|       |       routes.js
+|       |       
+|       +---treeView
+|       |       clientFolder.js
+|       |       index.js
+|       |       monorepoTree.js
+|       |       serverFolder.js
+|       |       
+|       \---utils
+|           |   brandingTheme.js
+|           |   breakpoints.js
+|           |   clientContext.js
+|           |   createCssVarProvider.js
+|           |   createEmotionCache.js
+|           |   feedbackUrl.js
+|           |   formatNumber.js
+|           |   formatTime.js
+|           |   globalStyles.js
+|           |   imgDirectives.js
+|           |   index.js
+|           |   InputOvierrides.js
+|           |   ListItemDataDisplay.js
+|           |   navigationOverrides.js
+|           |   palette.js
+|           |   primitiveTheme.js
+|           |   shadows.js
+|           |   shape.js
+|           |   surfaceCustomization.js
+|           |   ThemeOverridesProvider.js
+|           |   typography.js
+|           |   
+|           +---helpers
+|           |       CookieVariants.js
+|           |       helpers.js
+|           |       httpClient.js
+|           |       OpenPopup.js
+|           |       SocialLoginAccount.js
+|           |       SocialLoginButton.js
+|           |       typescriptHelper.js
+|           |       useLazyCss.js
+|           |       
+|           \---overrides
+|                   AppBar.js
+|                   Autocomplete.js
+|                   Backdrop.js
+|                   Button.js
+|                   Card.js
+|                   IconButton.js
+|                   index.js
+|                   Input.js
+|                   Lists.js
+|                   Paper.js
+|                   Tooltip.js
+|                   Typography.js
+|                   
++---server
+|   \---src
+|       |   apiRoutes.js
+|       |   config.js
+|       |   db.js
+|       |   handleRender.js
+|       |   render.js
+|       |   server.js
+|       |   ServerRender.js
+|       |   
+|       +---authentication
+|       |       Analytics.js
+|       |       asyncHandler.js
+|       |       auth.js
+|       |       connect.js
+|       |       passport-config.js
+|       |       passportFacebook.js
+|       |       passportGoogle.js
+|       |       passportHandler.js
+|       |       passportInstagram.js
+|       |       Registration.js
+|       |       requireAuth.js
+|       |       
+|       +---extractorfile
+|       |       blogSource.js
+|       |       findPage.js
+|       |       index.js
+|       |       loader.js
+|       |       mark.js
+|       |       markdownRenderer.js
+|       |       newLoader.mjs
+|       |       parseMarkDown.js
+|       |       prepareMarkdown.js
+|       |       prism.cjs
+|       |       prism.js
+|       |       textToHash.js
+|       |       
+|       +---fileLib
+|       |       lib1.js
+|       |       mapFileName.js
+|       |       
+|       +---markdown
+|       |       blogSource.js
+|       |       post_one.js
+|       |       post_two.js
+|       |       
+|       +---model
+|       |       blog.js
+|       |       
+|       +---mui_lib
+|       |       clientContext.js
+|       |       createEmotionCache.js
+|       |       theme.js
+|       |       
+|       \---utils
+|               LoaderMarkdown.js
+|               slugify.js
+|               
+\---static
+    |   prism.okaidia.css
+    |   
+    \---images
+        +---backgrounds
+        |   |   10degree-stripes.png
+        |   |   1676953267prebuilt-websites-agencies-consultants-300x150.png
+        |   |   abstract-pattern-gradient.png
+        |   |   abstract-vector.jpg
+        |   |   big-flip.png
+        |   |   blog-cluster.jpg
+        |   |   Bloggers-markdown.jpg
+        |   |   circle-bubble.jpg
+        |   |   circles-white-gradient.png
+        |   |   gradient-degrees.png
+        |   |   localize-mongoose-ad-banner-2x.jpg
+        |   |   NEWS-UI.jpg
+        |   |   rounded-squares-blue.png
+        |   |   teachers_3.png
+        |   |   teachers_4.png
+        |   |   teachers_6.png
+        |   |   teachers_8.png
+        |   |   two-circles.png
+        |   |   user-bg.jpg
+        |   |   user-profile-bg.jpg
+        |   |   vertex-pattern-gradient2.png
+        |   |   vertex-pattern.png
+        |   |   
+        |   \---flag
+        |           China.png
+        |           France.png
+        |           Germany.png
+        |           United-States.png
+        |           
+        +---blogs_images
+        |       10101.jpg
+        |       1478437631z1-01-300x169.png
+        |       1481046467AWS_B.jpg-01-300x167.png
+        |       1487098409MVC_app_B-01-300x167.png
+        |       1490784120Viewport_Units-300x167.png
+        |       1491329546nodebugsA-01-300x167.png
+        |       1493225690css-margns-padding-300x167.png
+        |       1493756964crudappB-01-300x167.png
+        |       1495475877javascript-quiz-300x167.png
+        |       1496788468DecoratorsB-01-300x167.png
+        |       1519001106bootstrap-card-component-300x200.jpg
+        |       1570509959J_0238-03-copy-300x141.jpg
+        |       1574730742exports-300x157.png
+        |       1578355340background-rotate-300x157.png
+        |       1580436773jquery-each-300x170.png
+        |       1581383719nodegui-300x170.png
+        |       1581652829nvm-node-multiple-300x170.png
+        |       1582635109hide-with-css-300x170.jpg
+        |       1583359805nginx-ssl-300x170.png
+        |       1583709471npm-300x170.png
+        |       1584495070mean-stack-angular-300x170.png
+        |       1585291419express-generator-300x170.png
+        |       1585544614local-auth-300x170.png
+        |       1585618767lazy-load-images-300x170.png
+        |       1585717345ssl-tls-300x170.png
+        |       1586403493jquery-validate-300x170.png
+        |       1587003186vscode-extensions-300x170.png
+        |       1587526792tools-services-300x170.png
+        |       1588210620jquery-ajax-300x170.png
+        |       1588813942multipurpose-themes-300x170.png
+        |       1594638764deno-vs-node-300x158.png
+        |       15983598711-node-loop-300x200.jpg
+        |       1601038937E-commerce-01-300x226.jpg
+        |       1608139857cyber77-300x158.jpg
+        |       1611717996wordpress-eleventy-300x170.png
+        |       1612050702css-animations-300x170.png
+        |       1612660068html5-datalist-300x170.png
+        |       1613778057lighting-300x158.jpg
+        |       1614052561postcss-preprocessor-300x170.png
+        |       1614127705canvas-vs-svg-300x170.jpg
+        |       1614573356denodata-1250-lossy-300x158.jpg
+        |       1616632213jhey-300x158.jpg
+        |       1617069182svg-web-page-300x170.jpg
+        |       1619323199sveltekit-introduction-300x170.png
+        |       1619483568static-site-generators-300x158.jpg
+        |       1620094934ssg3_result_1200-300x158.jpg
+        |       1622514635devkinsta-300x158.jpg
+        |       1624497596html5-boilerplate-300x170.png
+        |       1625709035wordpress-ecommerce-themes-300x170.png
+        |       1626145324reddis-with-node-300x170.png
+        |       1626978888muffin-300x158.jpg
+        |       1627263688wordpress-enterprise-300x170.png
+        |       1628000512email-300x158.jpg
+        |       1628603246fom-constraint-validation-300x170.jpg
+        |       1628748448wordpress-markdown-plugins-300x170.png
+        |       1629162328bootstrap5-300x170.png
+        |       1629855005flexbox-vs-grid-300x170.png
+        |       1630382754svg-media-queries-300x170.jpg
+        |       1630484762code-playgrounds-300x170.jpg
+        |       1632901525vs-code-keyboard-shortcuts-300x170.jpg
+        |       1633674699css-typewriter-effect-300x170.jpg
+        |       1635738723postcss1-300x170.jpg
+        |       1636417748parse-back4app-300x170.jpg
+        |       1642314568wordpress-themes-300x170.jpg
+        |       1649302395html-email-300x170.jpg
+        |       1651456891js-delay-sleep-pause-300x158.jpg
+        |       1651462170react-ui-components-300x158.jpg
+        |       1651545056webflow-300x158.jpg
+        |       1651719583bestprogramminglanguage-300x158.jpg
+        |       1654047218Useful-Node-APIs-300x150.png
+        |       1654482584CSS-Variables-300x150.png
+        |       1660647540is-where-has-pseudo-class-selectors-300x160.jpg
+        |       1661843904wsl2-300x170.jpg
+        |       1664423810center-div-grid-300x170.jpg
+        |       1665468067box-shadow-animation-300x170.jpg
+        |       1666146542google-auth-react-express-300x170.jpg
+        |       1667348581best-php-frameworks-300x170.jpg
+        |       1667801645best-programming-language-for-ai-300x170.jpg
+        |       1668395843hero-image-300x170.png
+        |       1668395946memberful-300x170.png
+        |       1668996068languages-for-game-programming-300x170.jpg
+        |       1673236044excellent-wordpress-themes-2023-300x150.png
+        |       1673910021top-10-wp-2023-300x150.png
+        |       1673933694fiverr-frelance-gig-300x170.jpg
+        |       1676244061best-html-books-300x170.jpg
+        |       1676938584best-css-books-300x170.jpg
+        |       167936272914-best-web-tools-300x150.png
+        |       1679641853gpt-debugging-300x170.jpg
+        |       1679885524figma-custom-button-300x170.jpg
+        |       1679985173google-fonts-font-display-300x170.jpg
+        |       1680044249wordpress-gallery-plugins-300x170.jpg
+        |       1680317942wordpress-security-plugins2-300x170.jpg
+        |       1680328749wordpress-contact-forms-300x170.jpg
+        |       1680330992wordpress-backup-300x170.jpg
+        |       1680334661wordpress-ecommerce-plugins-300x170.jpg
+        |       1683169189has-selector-300x170.jpg
+        |       1683515697css-container-queries-300x170.jpg
+        |       1683680180bunjs-300x170.jpg
+        |       1684206206range-slider-custom-300x170.jpg
+        |       1684379832responsice-css-layout-grids-without-media-queries-300x170.jpg
+        |       1685663915resilient_css_components-300x170.jpg
+        |       1686714420css-image-reveal2-300x170.jpg
+        |       1687946527css-background-size-300x170.jpg
+        |       1688434345node-beginner-app-300x170.jpg
+        |       1688602136css-nesting-300x170.jpg
+        |       1689772525css-object-fit-300x170.jpg
+        |       1689949302out-0-300x200.png
+        |       1690154474css-aspect-ratio-300x170.jpg
+        |       1690179564button-micro-interactions-300x170.jpg
+        |       1690528911css-sizing-units-300x170.jpg
+        |       1690849651css-grid-repeat-300x170.jpg
+        |       1691552774css-grid-introduction-300x170.jpg
+        |       1691992918css-grid-property1-300x170.jpg
+        |       1692145853going-cloud-native-300x170.jpg
+        |       1692401558pieces-copilot-300x170.jpg
+        |       1692605052pagination-300x170.jpg
+        |       1692944530html-draw-rectangle-300x170.jpg
+        |       1693184348build-chrome-extension-300x170.jpg
+        |       1693269526drupal-mailchimp-300x170.jpg
+        |       1693275309laravel-introduction-300x170.jpg
+        |       1693349789graphql-gateway-300x170.jpg
+        |       1693359261woocommerce-themes-300x170.jpg
+        |       1693789431blaxor-dot-net-300x170.jpg
+        |       1693962267openai-python-300x170.jpg
+        |       1694389925functional-testing-300x170.jpg
+        |       1695018352best-programming-fonts-300x170.jpg
+        |       1695167777react-accordion-component-300x170.jpg
+        |       1695195111css-print-styles-300x170.jpg
+        |       1695267189chatgpt-clone-300x170.jpg
+        |       1695290483open-source-trends-300x170.jpg
+        |       1695777376css-ribbons-300x170.jpg
+        |       1695785894ecommerce-design-elements-300x170.jpg
+        |       1695965802node-vs-python-300x170.jpg
+        |       1695982593node-js-tools-300x170.jpg
+        |       1696200808react-chart-libraries-300x170.jpg
+        |       1696309675chatgpt-multimodal-300x170.jpg
+        |       1696378750langchain-intro-300x170.jpg
+        |       1696459167node-vs-django-300x170.jpg
+        |       1696546516types-interfaces-300x170.jpg
+        |       1696549345decorators-in-typescript-300x170.jpg
+        |       1696558878extending-property-typescript-300x170.jpg
+        |       1696898362langchain_python-300x170.jpg
+        |       1696919562accessibility-basics-300x170.jpg
+        |       1696986163woocommerce-vs-shopify-300x190.jpg
+        |       1697002388ts-polymorphic-components-300x190.jpg
+        |       1697065440amadeus-cloud-migration-300x170.jpg
+        |       1697068802chatgpt-ai-spellchecker-300x200.jpg
+        |       1697504255azure-devops-vs-github-300x190.jpg
+        |       1697592551kubernetes-developers-300x198.jpg
+        |       1697672710telerik-progress-design-system-300x170.jpg
+        |       1697696171django_caching-300x199.jpg
+        |       1697771763node-vs-dotnetcore-300x197.jpg
+        |       1697774857node-ubuntu-300x190.jpg
+        |       1697843489style-html-details-element-300x190.jpg
+        |       1698228478install-node-debian-300x190.jpg
+        |       1698285765updf-300x170.jpg
+        |       1698305816environment-variables-300x190.jpg
+        |       1698559813react-svg-300x190.jpg
+        |       1698562306mssql-nodejs-300x190.jpg
+        |       1698645900performance-optimization-300x190.jpg
+        |       1698713182langchain-javascript-300x190.jpg
+        |       16988527170KahbekmL9RsKKi3uk896KKPAgoC8uEGgDtten3IJWom5enjA-out-0-300x225.png
+        |       1698889762fetch-api-300x190.jpg
+        |       1698903452langchain-vs-llamaindex-300x190.jpg
+        |       1698923851BgzfxNtQbuW0E68ee8iNFHw1QAd9Q2DeKiVFmMhaepdq0QgOC-out-0-300x225.png
+        |       1699356613r2veG0oezFiE90Y2BGT0V7i3nd8p1l8KpHmQ2yEepnDdbarjA-out-0-300x225.png
+        |       1699399770react-router-v6-300x180.jpg
+        |       1699493897redux-alternatives-300x170.jpg
+        |       1699637019dGUQo7FCuT5RE9XUKre47LenOk8q7qLJEzq222GtRAa9LB3RA-out-0-300x225.png
+        |       1699842097appsignal-apm-300x170.jpg
+        |       1699898190a84KbeT9EswpKS0kkXGw7TITzKi0mp19em2W00sIvqwK0A4RA-out-0-300x225.png
+        |       1699916887flask-login-300x170.jpg
+        |       1699976091VHQW9epSDxVxZae0BCLNMeiqD7H5UkBN2TLvIBvAccSM9gwjA-out-0-300x225.png
+        |       1700007530freelancing-community-300x170.jpg
+        |       1700022858docker-nodejs-300x170.jpg
+        |       1700103059data-management-300x169.jpg
+        |       1700174044wix-vs-woocommerce-300x170.jpg
+        |       1700181136ampere-processors-300x170.jpg
+        |       1700528042react-sort-filter-300x170.jpg
+        |       1700662284YJmoKnUgc0qaDpbOQ0mcZi5zEpf0QpyWvle2cz5fjq1eAorHB-out-0-300x179.png
+        |       1701155576node-js-file-system-300x170.jpg
+        |       1701244062onboarding-300x170.jpg
+        |       1701309437gsap-to-svg-300x170.jpg
+        |       1701335706interactive-svg-300x170.jpg
+        |       1701413232react-storybook-300x170.jpg
+        |       1701657439webflow-seo-300x171.jpg
+        |       1701665938ampere-migrate-300x170.jpg
+        |       1701755539react-performance-300x172.jpg
+        |       1701834149chatbots-llms-300x170.jpg
+        |       1701837748ai-task-automation-debugging-300x170.jpg
+        |       1701877312F923L7ENU5bdJNr65vmSXRnkEAAUe8r5CCpXN0BWKIxYtnfRA-out-0-300x225.png
+        |       1701908209ai-tools-300x170.jpg
+        |       1702271439nodemon-300x180.jpg
+        |       1702345819strich-300x170.jpg
+        |       1702448190react-conditional-rendering-300x170.jpg
+        |       1702944558analyze-langchain-300x170.jpg
+        |       1702952330clean-architecture-tailwind-theming-300x170.jpg
+        |       1702968425vue-to-pwa-300x170.jpg
+        |       1703745716ai-logo-generators-300x170.jpg
+        |       1703807873python-gpt-api-300x170.jpg
+        |       17042817102069dc15-c4e0-4e03-8be0-cc092d13045d-300x300.jpg
+        |       1704754540forms-astro-kwes-rive-300x170.jpg
+        |       1704885571b912027e-c941-4910-98e5-7ec218b03200-300x300.jpg
+        |       1704903700r1ifTyuK31VHIiNcbkPFSk7pGpVj8CjY03attIR2jVCjXjFJA-out-0-300x225.png
+        |       1705071813banner-300x158.png
+        |       1705508202906f3858-71b0-47ab-90e6-1f1fc7b77107-300x171.png
+        |       1705941059blazor-300x300.png
+        |       1705987779java-virtual-machine-300x170.jpg
+        |       1706136825astro-collections-300x170.jpg
+        |       1706195517View-Transitions-in-Astro-300x300.png
+        |       1706254275react-icons-300x170.jpg
+        |       1706596573django-signals-300x170.jpg
+        |       1706679121react-authentication-appwrite-300x170.jpg
+        |       1707118181react-learning-resources-300x170.jpg
+        |       1707184521javascript-vs-python-300x170.jpg
+        |       1707372840react-d3js-charts-300x170.jpg
+        |       17074167993xWuk4Yevn3f5krKp7FWNHevKJ8dLNxmrDqpimh5L3piSYpkA-out-0-300x225.png
+        |       1707722139wordpress-security-seo-300x170.jpg
+        |       1707791330node-js-multithreading-300x170.jpg
+        |       1707845731YccofxHOkc1gSycdBiCh9MMfgdNxk3et1eGwK2OO1U6lrVZJB-out-0-300x225.png
+        |       1707875319houdini-card-flip2-300x170.jpg
+        |       1707928289JeN37UicUkwVUqnJfkJAg59gOJkZlO2qM8wx7OP2zXkeLQtkA-out-0-300x225.png
+        |       1708065220web-design-trends-300x170.jpg
+        |       1708082372vultr-gradio-chat-300x170.jpg
+        |       1708321403ai-js-research-assistant-300x170.jpg
+        |       1708358967Screenshot-2024-02-19-at-16.08.47-300x279.png
+        |       1708410115react-intersection-observer-300x170.jpg
+        |       1708496973react-shadcn-300x170.jpg
+        |       1708579879seo-tools-300x170.jpg
+        |       1708915327livechat-300x171.jpg
+        |       1708928246woocommerce-performance-300x170.jpg
+        |       1708998285server-sent-events-300x170.jpg
+        |       1709017550react-native-performance-300x170.jpg
+        |       1709104433i18n-node-js-14-300x170.jpg
+        |       1709195056react-cookies-sessions-300x170.jpg
+        |       1709208667saas-boilerplates-300x170.jpg
+        |       17093107183b57a18e-db54-464d-84e3-836fd5451f14-300x171.png
+        |       1709552427cartoon-image-of-a-house-300x300.jpg
+        |       1709620703node-js-websockets-300x170.jpg
+        |       1709709681css-filters-blending-300x170.jpg
+        |       1709746076reactdatepick-300x300.jpg
+        |       1709796735django-static-files-300x170.jpg
+        |       1709896822chatgpt-plugins-300x170.jpg
+        |       1710110571wordpress-crms-300x170.jpg
+        |       1710139726ecmascript2024-new-features-300x170.jpg
+        |       1710144850web-dev-workflow-300x170.jpg
+        |       1710203290magento2-ecommerce-success-300x170.jpg
+        |       1710210646ai-digital-transformation-300x170.jpg
+        |       1710284840react-spring-animation-300x170.jpg
+        |       1710430618gdocs-300x171.jpg
+        |       1710718181htmx-full-stack-300x170.jpg
+        |       1710718904ux-psychology-300x170.jpg
+        |       1710719805google-featured-snippets-300x170.jpg
+        |       1710861892winston-300x300.jpg
+        |       1710868333Screenshot-2024-03-19-at-17.11.56-300x171.png
+        |       1711078835better-data-visualization-300x170.jpg
+        |       1711410202subgrid-align-rows-300x170.jpg
+        |       1711419723css-text-gradients-patterns-300x170.jpg
+        |       1711553178fortress-300x300.jpg
+        |       1711577913prompt-compression-reduce-ai-costs-300x170.jpg
+        |       1711920639plotly-scatter-plot-300x170.jpg
+        |       1712159003image-1-300x180.png
+        |       1712181761build-node-express-server-300x174.jpg
+        |       1712189279css-logical-properties-complete-guide-300x170.jpg
+        |       1712249211navbar-300x300.jpg
+        |       1712536435sending-email-with-node-js-300x170.jpg
+        |       1712816807animated-text-gradient-300x170.jpg
+        |       1713223002react-form-builders-300x170.jpg
+        |       1713400753fast-magento-website-300x170.jpg
+        |       1713451604cms-300x171.jpg
+        |       1713857373calc-css-font-scaling-300x170.jpg
+        |       1714346749laravel-project-setup-300x170.jpg
+        |       1714385971blog-image-template-1800x945-1800-x-945-px-300x158.png
+        |       1714462576wordpress-ai-300x200.jpg
+        |       1714585071cloudnative-300x253.jpg
+        |       1715126503apache-airflow-vultr-anaconda-300x170.jpg
+        |       1716854940retrieval-augmented-generation-300x170.jpg
+        |       171750798110-Artificial-Intelligence-APIs-for-Developers-300x169.png
+        |       1718585809hr-logos-300x170.jpg
+        |       1719900270wasm-vs-js-300x170.jpg
+        |       1723510090nextjs-surveyjs-300x170.jpg
+        |       1723976363From-Idea-to-Prototype-in-Minutes-Claude-Sonnet-3.5-300x300.jpg
+        |       1723976708How-to-integrate-artificial-intelligence-into-office-software-the-ONLYOFFICE-Docs-case-study-3-300x300.jpg
+        |       1723977138Momento-Migrates-Object-Cache-as-a-Service-to-Ampere-Altra-1-300x300.jpg
+        |       1723977618Untitled-design-300x158.jpg
+        |       1724082214Building-A-300-Channel-Video-Encoding-Server-1-300x158.jpg
+        |       1724332610docker-vs-podman-300x158.jpg
+        |       1724335848Deploy-Flask-Applications-300x158.jpg
+        |       1724717284typescript-record-type-300x170.jpg
+        |       1725631721Building-a-Telemedicine-Platform-with-AI-Powered-Diagnostics-Using-Vultr-300x158.jpg
+        |       1725632494Top-7-High-Paying-Affiliate-Programs-for-Developers-and-Content-Creators-300x158.jpg
+        |       1726246561Advanced-Web-Deployment-With-Plesk-on-Vultr-300x158.jpg
+        |       1726765185Automating-Vultr-Cloud-Infrastructure-with-Terraform-300x158.jpg
+        |       1728587236LocalXpose-The-Most-Useful-Tool-for-Developers-to-Share-Localhost-Online-300x158.jpg
+        |       1731360282Tips-for-Freelancers-Looking-to-Maximize-Passive-Income-Streams-3-300x158.jpg
+        |       1731445928The-CSS-Reset-Contradiction-300x158.jpg
+        |       1731534352The-Developers-Guide-to-AI-Chatbot-Authorization-300x158.jpg
+        |       1731539344Best-crypto-payments-gateways-in-2024-300x158.jpg
+        |       1732314961A-Deep-Dive-into-Building-Enterprise-grade-Generative-AI-Solutions-3-300x158.jpg
+        |       1733331515Video-Recaps-of-Amperes-2024-Developer-Summit-300x158.jpg
+        |       1733404576ai-insurance-claim-300x227.png
+        |       1733526725Developer-Guide-How-to-Implement-Passkeys-300x158.jpg
+        |       1733879902Accessibility-Best-Practices-for-Single-Page-Applications-SPAs-1-300x158.jpg
+        |       1733881171Fine-Tuning-an-Open-Source-LLM-with-Axolotl-Using-Direct-Preference-Optimization-DPO-300x158.jpg
+        |       1734704333How-Business-Automation-Can-Be-Affordable-for-Small-Businesses-and-Why-Its-a-Game-Changer-300x158.jpg
+        |       1735670253How-to-Use-JSON-Data-Fields-in-MySQL-Databases-300x158.jpg
+        |       1736546709How-Game-Developers-Detect-and-Prevent-Modding-and-Scripting-300x158.jpg
+        |       1736904618Data-Structures-and-Algorithms-DSA-A-Complete-Tutorial-300x158.png
+        |       1736909903How-to-Conduct-Accessibility-Testing-with-Screen-Readers-2-300x158.png
+        |       1736912503How-Amazon-Q-is-emerging-as-no-code-serverless-Gen-AI-virtual-assistant-for-Enterprise-users-300x158.png
+        |       1736916322What-is-TCPIP-Model-and-How-Does-The-Protocol-Work-1-300x158.png
+        |       17374213388-AI-Tips-for-Web-Developers-and-Their-Careers-1-300x158.png
+        |       1737601757ZEISS-Demonstrates-the-Power-of-Scalable-Workflows-with-Ampere-Altra-and-SpinKube-300x158.jpg
+        |       1737607163SQL-feature-image-300x158.png
+        |       1737774228Java-Collections-300x158.png
+        |       1737775992Cloud-computing-featured-image-300x158.png
+        |       1737779309Random-Forest-Algorithm-in-Machine-Learning-300x158.jpg
+        |       173825282410-Common-Web-Development-Mistakes-to-Avoid-300x158.png
+        |       1739470301Meeting-European-Accessibility-Act-EAA-Standards_-A-Developers-Checklist-300x158.png
+        |       1739812359The-Rise-of-AI-Assisted-Coding-for-iOS-Development_-How-Tools-like-CursorAI-Are-Redefining-the-Developer-Workflow-300x158.png
+        |       174101490710-Best-AI-Code-Review-Tools-for-Developers-in-2025-300x158.png
+        |       1741119237Prompt-engineering--300x158.jpg
+        |       1741883256Creating-a-Browser-Based-Game-With-Vanilla-JS-and-CSS-300x158.jpg
+        |       1741886513The-10-Best-AI-Pro-Web-Design-Tools-for-2025-1-300x158.png
+        |       1742427036The-Best-Free-Backlink-Checker-Tools_-Overview-and-Comparison-300x158.png
+        |       174242704214-Best-SEO-Tools-for-Agencies-to-Boost-Client-Results-in-2025-300x158.png
+        |       1743397530Building-a-Network-Vulnerability-Scanner-with-Go-300x158.jpg
+        |       ampere-porting-advisor.jpg
+        |       chess.png
+        |       comp.jpg
+        |       creative.png
+        |       css-1.jpg
+        |       database.png
+        |       dynamic-message.jpg
+        |       dynamic-messages.png
+        |       gear.png
+        |       html-5.png
+        |       impowered -your-vision.jpg
+        |       many-gear.png
+        |       messaging.jpg
+        |       nodejs.png
+        |       react-optimization.jpg
+        |       synchronization.png
+        |       versioning.jpg
+        |       web-server.jpg
+        |       workshop3.png
+        |       
+        +---gallery
+        |       1.jpg
+        |       10.jpg
+        |       11.jpg
+        |       12.jpg
+        |       13.jpg
+        |       14.jpg
+        |       15.jpg
+        |       16.jpg
+        |       17.jpg
+        |       18.jpg
+        |       19.jpg
+        |       2.jpg
+        |       20.jpg
+        |       25.jpg
+        |       26.jpg
+        |       3.jpg
+        |       30.jpg
+        |       33.jpg
+        |       4.jpg
+        |       5.jpg
+        |       6.jpg
+        |       7.jpg
+        |       8.jpg
+        |       9.jpg
+        |       
+        +---logo
+        |       user-bg-2.html
+        |       
+        +---profiles
+        |       avatar_1.jpg
+        |       avatar_10.jpg
+        |       avatar_11.jpg
+        |       avatar_12.jpg
+        |       avatar_13.jpg
+        |       avatar_14.jpg
+        |       avatar_15.jpg
+        |       avatar_16.jpg
+        |       avatar_17.jpg
+        |       avatar_18.jpg
+        |       avatar_19.jpg
+        |       avatar_2.jpg
+        |       avatar_20.jpg
+        |       avatar_21.jpg
+        |       avatar_22.jpg
+        |       avatar_23.jpg
+        |       avatar_24.jpg
+        |       avatar_3.jpg
+        |       avatar_4.jpg
+        |       avatar_5.jpg
+        |       avatar_6.jpg
+        |       avatar_7.jpg
+        |       avatar_8.jpg
+        |       avatar_9.jpg
+        |       avatar_default.jpg
+        |       both.jpg
+        |       craig.jpeg
+        |       f1.jpg
+        |       f2.jpg
+        |       f3.jpg
+        |       f4.jpg
+        |       f5.jpg
+        |       f6.jpg
+        |       f7.jpg
+        |       f8.jpg
+        |       m1.png
+        |       m10.jpg
+        |       m11.jpg
+        |       m12.jpg
+        |       m13.jpg
+        |       m14.jpg
+        |       m15.jpg
+        |       m16.jpg
+        |       m2.jpg
+        |       m29.jpeg
+        |       m3.jpg
+        |       m31.jpeg
+        |       m4.png
+        |       m5.jpeg
+        |       m6.jpg
+        |       m7.jpg
+        |       m8.jpg
+        |       m9.jpg
+        |       tres.jpg
+        |       
+        +---svg
+        |       academy_teachers_contact_us.svg
+        |       circle-logo.svg
+        |       ic_flag_de.svg
+        |       ic_flag_en.svg
+        |       ic_flag_fr.svg
+        |       ic_notification_chat.svg
+        |       ic_notification_mail.svg
+        |       ic_notification_package.svg
+        |       ic_notification_shipping.svg
+        |       illustration_404.svg
+        |       layouting.svg
+        |       layouting2.svg
+        |       layouting3.svg
+        |       layouting4.svg
+        |       no-dark.svg
+        |       no-light.svg
+        |       shape-avatar.svg
+        |       time-dark.svg
+        |       time-light.svg
+        |       x-plan-community.svg
+        |       x-plan-premium.svg
+        |       x-plan-pro.svg
+        |       yes-dark.svg
+        |       yes-light.svg
+        |       
+        \---tags
+                1573448148toggle-button-300x157.png
+                16238299293d-css-printer-300x170.png
+                1736553874Control-Statements-in-C-2-300x158.jpg
+                blog-cluster.jpg
+                favicon.gif
+                signature-scan.png
+                

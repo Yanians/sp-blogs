@@ -6,7 +6,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "rootDir": "../../packages",            // Root = both server and client
-    "outDir": "../../dist/server",     
+    "outDir": "../../public",     
     "baseUrl": "../../",     // Output to root/dist/server
      "target": "ES2020",
     "jsx": "react-jsx",
@@ -38,7 +38,7 @@
     "../../packages/client/src/**/*.test.ts",
     "../../packages/client/**/__tests__",
     "../../dist",
-    "../../build"
+    "../../public/build"
   ]
 }
 
