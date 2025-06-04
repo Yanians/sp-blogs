@@ -4,19 +4,24 @@
     {
       "src": "dist/server/server/src/server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "build/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "src": "/(.*)",
+      "src": "/api/(.*)",      
       "dest": "dist/server/server/src/server.js"
+    },
+    {
+      "src": "/static/(.*)",     
+      "dest": "public/static/$1"
+    },
+    {
+      "src": "/(.*)",            
+      "dest": "build/$1"
     }
-  ],
-
-"env":{
-"PUBLIC_URL":"dist/server/server/public/static/images/",
-"DATABASE_NAME":"sp-blogs",
-"BUILD_PATH":"build",
-"NODE_ENV":"production"
-  }
+  ]
 }
