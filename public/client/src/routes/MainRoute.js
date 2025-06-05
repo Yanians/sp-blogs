@@ -87,7 +87,7 @@ function MainRoute() {
                         alignSelft: 'center',
                         gridColumnStart: smDown ? 1 : 2,
                         gridRowStart: smDown ? 1 : 1,
-                    }, children: (0, jsx_runtime_1.jsx)(Avatar_1.default, { variant: 'square', src: '/bloggers-markdown.jpg', sx: { width: '100%', height: 'auto' }, alt: "bloggers-markdown.jpg" }) }), (0, jsx_runtime_1.jsx)(Divider_1.default, { variant: "middle", orientation: "vertical", spacing: 1 }), (0, jsx_runtime_1.jsx)(Box_1.default, { className: "right-grid-layout", sx: {
+                    }, children: (0, jsx_runtime_1.jsx)(Avatar_1.default, { variant: 'square', src: '/Bloggers-markdown.jpg', sx: { width: '100%', height: 'auto' }, alt: "bloggers-markdown.jpg" }) }), (0, jsx_runtime_1.jsx)(Divider_1.default, { variant: "middle", orientation: "vertical", spacing: 1 }), (0, jsx_runtime_1.jsx)(Box_1.default, { className: "right-grid-layout", sx: {
                         width: '100%',
                         height: 'auto',
                         alignSelft: 'center',

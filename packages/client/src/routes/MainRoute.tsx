@@ -139,7 +139,7 @@ const smDown = useMediaQuery(theme.breakpoints.down('sm'),{noSsr:true});
                         gridColumnStart:smDown ? 1 : 2,
                         gridRowStart:smDown ? 1 : 1,
                   }}>
-                    <Avatar variant='square' src='/bloggers-markdown.jpg' sx={{width:'100%',height:'auto'}} alt="bloggers-markdown.jpg" />
+                    <Avatar variant='square' src='/Bloggers-markdown.jpg' sx={{width:'100%',height:'auto'}} alt="Bloggers-markdown.jpg" />
                   </Box>
 
                   <Divider variant="middle" orientation="vertical" spacing={1}  />
