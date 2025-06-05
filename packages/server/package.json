@@ -51,7 +51,8 @@
     "react-router-dom": "^7.5.3",
     "tsconfig-paths": "^4.2.0",
     "uuid": "^11.1.0",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-node-externals": "^3.0.0",
+    "ws": "^8.18.2"
   },
   "devDependencies": {
     "@babel/runtime": "^7.27.3",
